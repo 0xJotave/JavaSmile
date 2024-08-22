@@ -1,0 +1,55 @@
+{
+  "pacientesLista" : [ {
+    "nome" : "João",
+    "idade" : 18,
+    "peso" : 80.0,
+    "altura" : 1.9,
+    "contato" : "joaovmb15@gmail.com"
+  }, {
+    "nome" : "Pedro",
+    "idade" : 29,
+    "peso" : 82.0,
+    "altura" : 1.85,
+    "contato" : "pedindogeraa@gmail.com"
+  } ],
+  "procedimentosLista" : [ {
+    "nome" : "Extração",
+    "valor" : 200.0
+  }, {
+    "nome" : "Canal",
+    "valor" : 350.0
+  } ],
+  "consultasDTOLista" : [ {
+    "nomePaciente" : "João",
+    "nomeProcedimento" : "Extração",
+    "nomeDentista" : "Dr. Antonio",
+    "horario" : [ 2024, 8, 10, 8, 30 ]
+  }, {
+    "nomePaciente" : "Pedro",
+    "nomeProcedimento" : "Canal",
+    "nomeDentista" : "Dr. André",
+    "horario" : [ 2024, 8, 10, 10, 0 ]
+  }, {
+    "nomePaciente" : "João",
+    "nomeProcedimento" : "Canal",
+    "nomeDentista" : "Dr. Antonio",
+    "horario" : [ 2024, 8, 11, 15, 10 ]
+  } ],
+  "dentistaLista" : [ {
+    "nome" : "Dr. Antonio",
+    "email" : null,
+    "senha" : null,
+    "nomeUsuario" : null,
+    "especialidade" : "Cirurgia",
+    "salario" : 3000.0,
+    "consultasRealizadas" : null
+  }, {
+    "nome" : "Dr. André",
+    "email" : null,
+    "senha" : null,
+    "nomeUsuario" : null,
+    "especialidade" : "Ordontologia",
+    "salario" : 3000.0,
+    "consultasRealizadas" : null
+  } ]
+}
