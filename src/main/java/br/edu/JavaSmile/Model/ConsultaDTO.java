@@ -1,6 +1,6 @@
 package br.edu.JavaSmile.Model;
 
-import br.edu.JavaSmile.Controller.ClinicaController;
+import br.edu.JavaSmile.Controller.JsonUtil;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,18 +19,16 @@ public class ConsultaDTO {
     private String nomeProcedimento;
     private String nomeDentista;
     private LocalDateTime horario;
-    @JsonIgnore
-    private ClinicaController clinicaController = new ClinicaController();
 
-    public ConsultaDTO criarConsultaDTO (Consulta consulta) throws IOException {
+    public static ConsultaDTO criarConsultaDTO (Consulta consulta) throws IOException {
         ConsultaDTO consultaDTO = ConsultaDTO.builder()
                 .nomePaciente(consulta.getPaciente().getNome())
                 .nomeProcedimento(consulta.getProcedimento().getNome())
                 .nomeDentista(consulta.getDentista().getNome())
                 .horario(consulta.getHorario())
                 .build();
-        Clinica.getInstance().getConsultasDTOLista().add(consultaDTO);
-        clinicaController.salvar(Clinica.getInstance());
+//        Clinica.getInstance().getConsultasDTOLista().add(consultaDTO);
+//        JsonUtil.salvarDados(consultaDTO, "consultas.json");
         return consultaDTO;
     }
 }

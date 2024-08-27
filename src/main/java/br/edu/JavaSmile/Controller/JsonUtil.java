@@ -1,12 +1,15 @@
 package br.edu.JavaSmile.Controller;
 
 import br.edu.JavaSmile.Model.*;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class JsonUtil {
     private static ObjectMapper objectMapper = new ObjectMapper();
@@ -16,11 +19,23 @@ public class JsonUtil {
         objectMapper.registerModule(new JavaTimeModule());
     }
 
-    public static void salvarDados(Clinica clinica) throws IOException {
-        objectMapper.writeValue(new File("dados.json"), clinica);
+    public static void salvarDados(Object objeto, String nomeArquivo) throws IOException {
+        objectMapper.writeValue(new File(getPath() + File.separator + nomeArquivo), objeto);
+    }
+
+    private static File getPath() throws IOException {
+        File diretorio = new File("jsons");
+        if (!diretorio.exists()) {
+            diretorio.mkdirs();
+        }
+        return diretorio;
     }
 
     public static Clinica carregarDados() throws IOException {
         return objectMapper.readValue(new File("dados.json"), Clinica.class);
+    }
+
+    public static void atualizarDados(Object objeto, Object objetoNovo) throws JsonMappingException {
+        objectMapper.updateValue(objeto, objetoNovo);
     }
 }

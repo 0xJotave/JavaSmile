@@ -21,6 +21,7 @@ public class Consulta implements Serializable {
     private Procedimento procedimento;
     private Dentista dentista;
     private LocalDateTime horario;
+    private boolean realizada;
 
 }
 

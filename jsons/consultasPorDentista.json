@@ -1,0 +1,19 @@
+{
+  "Dr. Antonio" : [ {
+    "nomePaciente" : "João",
+    "nomeProcedimento" : "Extração",
+    "nomeDentista" : "Dr. Antonio",
+    "horario" : [ 2024, 8, 10, 8, 30 ]
+  }, {
+    "nomePaciente" : "João",
+    "nomeProcedimento" : "Canal",
+    "nomeDentista" : "Dr. Antonio",
+    "horario" : [ 2024, 8, 11, 15, 10 ]
+  } ],
+  "Dr. André" : [ {
+    "nomePaciente" : "Pedro",
+    "nomeProcedimento" : "Canal",
+    "nomeDentista" : "Dr. André",
+    "horario" : [ 2024, 8, 10, 10, 0 ]
+  } ]
+}

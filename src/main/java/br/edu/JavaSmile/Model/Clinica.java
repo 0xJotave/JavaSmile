@@ -9,7 +9,10 @@ import lombok.NoArgsConstructor;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /*
 * - Esta classe representa a clinica
@@ -23,15 +26,25 @@ public class Clinica implements Serializable {
     public static Clinica instance;
     public List<Paciente> pacientesLista;
     public List<Procedimento> procedimentosLista;
-    @JsonIgnore
-    public List<Consulta> consultaLista;
-    public List<ConsultaDTO> consultasDTOLista;
+//    public List<Consulta> consultaLista;
+//    public List<ConsultaDTO> consultasDTOLista;
     public List<Dentista> dentistaLista;
+    private Map<String, List<ConsultaDTO>> consultas;
 
     public static Clinica getInstance() {
         if (instance == null) {
-            instance = new Clinica();
+            instance = Clinica.builder()
+                    .pacientesLista(new ArrayList<>())
+                    .procedimentosLista(new ArrayList<>())
+                    .dentistaLista(new ArrayList<>())
+                    .consultas(new HashMap<String, List<ConsultaDTO>>())
+                    .build();
         }
         return instance;
+    }
+
+    public void registrarConsultaDentista(Dentista dentista, List<ConsultaDTO> consultasDentista) throws IOException {
+        consultas.put(dentista.getNome(), consultasDentista);
+        JsonUtil.salvarDados(consultas, "consultasPorDentista.json");
     }
 }
