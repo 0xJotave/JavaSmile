@@ -7,22 +7,21 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+
 
 public class JsonUtil {
     private static ObjectMapper objectMapper = new ObjectMapper();
 
     static  {
-        objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
-        objectMapper.registerModule(new JavaTimeModule());
+        objectMapper.enable(SerializationFeature.INDENT_OUTPUT); // Deixa o json organizado
+        objectMapper.registerModule(new JavaTimeModule()); // Faz com que o json leia LocalDateTime
     }
 
     public static void salvarDados(Object objeto, String nomeArquivo) throws IOException {
         objectMapper.writeValue(new File(getPath() + File.separator + nomeArquivo), objeto);
     }
 
+    // Verifica se a pasta Json já existe e se não existir, cria uma nova
     private static File getPath() throws IOException {
         File diretorio = new File("jsons");
         if (!diretorio.exists()) {

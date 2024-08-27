@@ -26,8 +26,6 @@ public class Clinica implements Serializable {
     public static Clinica instance;
     public List<Paciente> pacientesLista;
     public List<Procedimento> procedimentosLista;
-//    public List<Consulta> consultaLista;
-//    public List<ConsultaDTO> consultasDTOLista;
     public List<Dentista> dentistaLista;
     private Map<String, List<ConsultaDTO>> consultas;
 

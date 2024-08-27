@@ -20,6 +20,7 @@ public class ConsultaDTO {
     private String nomeDentista;
     private LocalDateTime horario;
 
+    // Cria uma consulta simplificada, pegando apenas o nome dos objetos
     public static ConsultaDTO criarConsultaDTO (Consulta consulta) throws IOException {
         ConsultaDTO consultaDTO = ConsultaDTO.builder()
                 .nomePaciente(consulta.getPaciente().getNome())

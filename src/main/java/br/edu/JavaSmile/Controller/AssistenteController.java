@@ -19,7 +19,8 @@ public class AssistenteController {
                 .contato(contato)
                 .build();
         Clinica.getInstance().getPacientesLista().add(paciente);
-        JsonUtil.salvarDados(Clinica.getInstance().getPacientesLista(), "paciente.json");
+        // Salva a lista de pacientes em um arquivo Json
+        JsonUtil.salvarDados(Clinica.getInstance().getPacientesLista(), "pacientes.json");
         return paciente;
     }
 
@@ -29,7 +30,8 @@ public class AssistenteController {
                 .valor(valor)
                 .build();
         Clinica.getInstance().getProcedimentosLista().add(procedimento);
-        JsonUtil.salvarDados(Clinica.getInstance().getProcedimentosLista(), "procedimento.json");
+        // Salva a lista de procedimentos em um arquivo Json
+        JsonUtil.salvarDados(Clinica.getInstance().getProcedimentosLista(), "procedimentos.json");
         return procedimento;
     }
 
@@ -41,9 +43,8 @@ public class AssistenteController {
                 .dentista(dentista)
                 .horario(horario)
                 .build();
+        // Utiliza o método para marcar a consulta pro dentista, passando uma consulta simplificada
         dentista.marcarConsulta(new ConsultaDTO().criarConsultaDTO(consulta));
-//        ConsultaDTO consultaDTO = new ConsultaDTO().criarConsultaDTO(consulta);
-//        JsonUtil.salvarDados(Clinica.getInstance().getConsultasDTOLista(), "consultas.json");
         return consulta;
     }
 
@@ -56,7 +57,8 @@ public class AssistenteController {
                 .consultasMarcadas(new ArrayList<>())
                 .build();
         Clinica.getInstance().getDentistaLista().add(dentista);
-        JsonUtil.salvarDados(Clinica.getInstance().getDentistaLista(), "dentista.json");
+        // Salva a lista de dentistas em um arquivo Json
+        JsonUtil.salvarDados(Clinica.getInstance().getDentistaLista(), "dentistas.json");
         return dentista;
     }
 

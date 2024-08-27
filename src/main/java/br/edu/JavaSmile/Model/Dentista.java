@@ -30,11 +30,13 @@ public class Dentista extends Funcionario implements Serializable {
     private List<ConsultaDTO> consultasMarcadas;
     private List<ConsultaDTO> consultasRealizadas;
 
+    // Marca a consulta pro dentista
     public void marcarConsulta(ConsultaDTO consulta) throws IOException {
         consultasMarcadas.add(consulta);
         JsonUtil.salvarDados(this, "dentista.json");
     }
 
+    // Realiza a consulta, retirando ela das marcadas e adicionando nas realizadas
     public void realizarConsulta(Consulta consulta) throws IOException {
         var consultaDTO = new ConsultaDTO().criarConsultaDTO(consulta);
         consultasMarcadas.remove(consultaDTO);
