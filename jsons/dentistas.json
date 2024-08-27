@@ -1,0 +1,34 @@
+[ {
+  "nome" : "Dr. Antonio",
+  "email" : null,
+  "senha" : null,
+  "nomeUsuario" : null,
+  "especialidade" : "Cirurgia",
+  "salario" : 3000.0,
+  "consultasMarcadas" : [ ],
+  "consultasRealizadas" : [ {
+    "nomePaciente" : "João",
+    "nomeProcedimento" : "Canal",
+    "nomeDentista" : "Dr. Antonio",
+    "horario" : [ 2024, 8, 11, 15, 10 ]
+  }, {
+    "nomePaciente" : "João",
+    "nomeProcedimento" : "Extração",
+    "nomeDentista" : "Dr. Antonio",
+    "horario" : [ 2024, 8, 10, 8, 30 ]
+  } ]
+}, {
+  "nome" : "Dr. André",
+  "email" : null,
+  "senha" : null,
+  "nomeUsuario" : null,
+  "especialidade" : "Ordontologia",
+  "salario" : 3000.0,
+  "consultasMarcadas" : [ ],
+  "consultasRealizadas" : [ {
+    "nomePaciente" : "Pedro",
+    "nomeProcedimento" : "Canal",
+    "nomeDentista" : "Dr. André",
+    "horario" : [ 2024, 8, 10, 10, 0 ]
+  } ]
+} ]

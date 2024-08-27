@@ -65,5 +65,9 @@ public class Main {
         // Marcando as consultas para cada dentista
         Clinica.getInstance().registrarConsultaDentista(dentista1, dentista1.getConsultasMarcadas());
         Clinica.getInstance().registrarConsultaDentista(dentista2, dentista2.getConsultasMarcadas());
+
+        dentista2.realizarConsulta(consulta2);
+        dentista1.realizarConsulta(consulta3);
+        dentista1.realizarConsulta(consulta1);
     }
 }
