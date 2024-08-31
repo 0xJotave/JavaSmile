@@ -1,6 +1,6 @@
-package br.edu.JavaSmile.Controller;
+package aluno.ifpb.edu.br.JavaSmile.Controller;
 
-import br.edu.JavaSmile.Model.*;
+import aluno.ifpb.edu.br.JavaSmile.Model.*;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;

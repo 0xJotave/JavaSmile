@@ -1,4 +1,4 @@
-package br.edu.JavaSmile.Model;
+package aluno.ifpb.edu.br.JavaSmile.Model;
 
 
 import lombok.*;

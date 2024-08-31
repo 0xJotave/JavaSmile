@@ -1,7 +1,7 @@
-package br.edu.JavaSmile;
+package aluno.ifpb.edu.br.JavaSmile;
 
-import br.edu.JavaSmile.Controller.AssistenteController;
-import br.edu.JavaSmile.Model.*;
+import aluno.ifpb.edu.br.JavaSmile.Controller.AssistenteController;
+import aluno.ifpb.edu.br.JavaSmile.Model.*;
 
 import java.io.IOException;
 import java.time.LocalDateTime;

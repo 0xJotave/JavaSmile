@@ -1,6 +1,6 @@
-package br.edu.JavaSmile.Model;
+package aluno.ifpb.edu.br.JavaSmile.Model;
 
-import br.edu.JavaSmile.Controller.JsonUtil;
+import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;

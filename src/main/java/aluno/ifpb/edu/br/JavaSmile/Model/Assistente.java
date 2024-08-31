@@ -1,12 +1,8 @@
-package br.edu.JavaSmile.Model;
+package aluno.ifpb.edu.br.JavaSmile.Model;
 
-import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
 import lombok.experimental.SuperBuilder;
 
-import java.io.Serializable;
-import java.time.LocalDateTime;
 
 /*
 * - Essa classe representa o Assistente, ou basicamente o usuário principal
