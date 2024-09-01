@@ -1,8 +1,8 @@
 package aluno.ifpb.edu.br.JavaSmile.Model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
-
 
 /*
 * - Essa classe representa o Assistente, ou basicamente o usuário principal
@@ -10,6 +10,7 @@ import lombok.experimental.SuperBuilder;
 */
 @SuperBuilder
 @Data
+@NoArgsConstructor
 public class Assistente extends Funcionario {
 
 }

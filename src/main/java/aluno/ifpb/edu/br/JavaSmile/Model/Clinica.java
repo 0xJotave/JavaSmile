@@ -28,14 +28,16 @@ public class Clinica implements Serializable {
     public List<Procedimento> procedimentosLista;
     public List<Dentista> dentistaLista;
     private Map<String, List<ConsultaDTO>> consultas;
+    private List<Assistente> assistentesLista;
 
-    public static Clinica getInstance() {
+    public static Clinica getInstance() throws IOException {
         if (instance == null) {
             instance = Clinica.builder()
                     .pacientesLista(new ArrayList<>())
                     .procedimentosLista(new ArrayList<>())
                     .dentistaLista(new ArrayList<>())
                     .consultas(new HashMap<String, List<ConsultaDTO>>())
+                    .assistentesLista(new ArrayList<>())
                     .build();
         }
         return instance;

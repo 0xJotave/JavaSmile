@@ -5,9 +5,11 @@ import lombok.Data;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 @Data
 public class AssistenteController {
+
 
     // Criação de Paciente, Procedimentos, Consulta, Dentista
     public Paciente criarPaciente(String nome, int idade, double peso, double altura, String contato) throws IOException {

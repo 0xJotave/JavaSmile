@@ -68,6 +68,7 @@ public class Main {
 
         dentista2.realizarConsulta(consulta2);
         dentista1.realizarConsulta(consulta3);
-        dentista1.realizarConsulta(consulta1);
+
+        System.out.println(Clinica.getInstance().getAssistentesLista());
     }
 }
