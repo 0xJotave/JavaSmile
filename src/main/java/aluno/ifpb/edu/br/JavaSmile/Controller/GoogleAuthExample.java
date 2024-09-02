@@ -59,7 +59,7 @@ public class GoogleAuthExample {
                 .setAccessType("offline")
                 .build();
 
-        // Configurar o receptor local para o fluxo de autorização
+        // Configura o receptor local para o fluxo de autorização
         LocalServerReceiver receiver = new LocalServerReceiver.Builder().setPort(8888).build();
 
         // Autenticação
@@ -70,7 +70,7 @@ public class GoogleAuthExample {
             return;
         }
 
-        // Obter informações do usuário
+        // Pegar informações do usuário
         Oauth2 oauth2 = new Oauth2.Builder(HTTP_TRANSPORT, JSON_FACTORY, credential)
                 .setApplicationName("Google-OAuthLoginExample")
                 .build();

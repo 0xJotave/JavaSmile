@@ -1,21 +1,11 @@
 [ {
-  "nome" : "João",
+  "nome" : "João Victor",
   "email" : "joao@gmail.com",
   "senha" : "123",
   "nomeUsuario" : "eujotave"
 }, {
-  "nome" : "Pedro",
-  "email" : "pedro@gmail.com",
-  "senha" : "bolsonaro",
-  "nomeUsuario" : "pedin"
-}, {
-  "nome" : "Pedro",
-  "email" : "pedrobolsonaro@gmail.com",
-  "senha" : "123",
-  "nomeUsuario" : "pedinsexo"
-}, {
   "nome" : "João",
-  "email" : "joaovmb@gmail.com",
+  "email" : "joao22@gmail.com",
   "senha" : "123",
-  "nomeUsuario" : "eujota"
+  "nomeUsuario" : "eujotave22"
 } ]
