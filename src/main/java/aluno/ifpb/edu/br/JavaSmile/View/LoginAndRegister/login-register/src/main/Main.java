@@ -4,6 +4,12 @@ import form.Home;
 import javax.swing.ImageIcon;
 import swing.EventLogin;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 
 public class Main extends javax.swing.JFrame {
            
@@ -30,6 +36,14 @@ public class Main extends javax.swing.JFrame {
                 main.add(loginAndRegister1);
                 main.revalidate();
                 main.repaint();
+                File diretorio = new File("tokens");
+                try {
+                    Files.delete(Path.of(diretorio + File.separator + "StoredCredential"));
+                    System.out.println("Arquivo deletado com Sucesso!");
+                } catch (IOException e) {
+                    e.getMessage();
+                    System.out.println("Erro ao deletar arquivo!");
+                }
             }
         };
         loginAndRegister1.setEventLogin(event);

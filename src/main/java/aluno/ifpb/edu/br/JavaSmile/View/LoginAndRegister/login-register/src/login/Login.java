@@ -173,8 +173,7 @@ public class Login extends PanelCustom {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        EventLogin eventLogin = new EventLoginImpl();
-        GoogleAuthExample googleAuth = new GoogleAuthExample(eventLogin);
+        GoogleAuthExample googleAuth = new GoogleAuthExample(event);
         try {
             googleAuth.authenticateWithGoogle();
         } catch (IOException e) {

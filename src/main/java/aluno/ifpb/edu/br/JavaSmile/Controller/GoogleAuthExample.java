@@ -11,8 +11,12 @@ import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.util.store.FileDataStoreFactory;
 import com.google.api.services.oauth2.Oauth2;
 import com.google.api.services.oauth2.model.Userinfo;
+import form.Home;
+import main.Main;
 import swing.EventLogin;
+import swing.EventLoginImpl;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -61,6 +65,11 @@ public class GoogleAuthExample {
         // Autenticação
         Credential credential = new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
 
+        if (credential == null) {
+            JOptionPane.showMessageDialog(null, "Falha ao obter credenciais.");
+            return;
+        }
+
         // Obter informações do usuário
         Oauth2 oauth2 = new Oauth2.Builder(HTTP_TRANSPORT, JSON_FACTORY, credential)
                 .setApplicationName("Google-OAuthLoginExample")
@@ -71,6 +80,7 @@ public class GoogleAuthExample {
         if (userInfo != null && userInfo.getId() != null) {
             // Login com Google foi válido
             if (event != null) {
+                System.out.println("Login bem sucedido: " + userInfo.getName());
                 event.loginDone();
             }
         } else {
