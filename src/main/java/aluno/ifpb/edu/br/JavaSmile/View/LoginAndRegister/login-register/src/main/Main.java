@@ -47,6 +47,7 @@ public class Main extends javax.swing.JFrame {
         loginAndRegister1 = new login.LoginAndRegister();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         main.setMinimumSize(new java.awt.Dimension(1150, 650));
         main.setLayout(new java.awt.BorderLayout());
