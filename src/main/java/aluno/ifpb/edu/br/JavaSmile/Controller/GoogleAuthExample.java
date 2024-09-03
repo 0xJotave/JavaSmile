@@ -12,6 +12,7 @@ import com.google.api.client.util.store.FileDataStoreFactory;
 import com.google.api.services.oauth2.Oauth2;
 import com.google.api.services.oauth2.model.Userinfo;
 import form.Home;
+import login.Login;
 import main.Main;
 import swing.EventLogin;
 import swing.EventLoginImpl;
@@ -20,6 +21,8 @@ import javax.swing.*;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Collections;
 import java.util.List;
 
@@ -46,7 +49,7 @@ public class GoogleAuthExample {
     }
 
     // Método de instância para autenticação
-    public void authenticateWithGoogle() throws IOException {
+    public void authenticateWithGoogle(boolean deletarCredenciais) throws IOException {
         final NetHttpTransport HTTP_TRANSPORT = new NetHttpTransport();
 
         // Carregar o arquivo de credenciais
@@ -82,6 +85,17 @@ public class GoogleAuthExample {
             if (event != null) {
                 System.out.println("Login bem sucedido: " + userInfo.getName());
                 event.loginDone();
+
+                if (deletarCredenciais) {
+                    File diretorio = new File("tokens");
+                    try {
+                        Files.delete(Path.of(diretorio + File.separator + "StoredCredential"));
+                        System.out.println("Arquivo deletado com Sucesso!");
+                    } catch (IOException e) {
+                        e.getMessage();
+                        System.out.println("Erro ao deletar arquivo!");
+                    }
+                }
             }
         } else {
             // Tratar falha de autenticação aqui, se necessário
