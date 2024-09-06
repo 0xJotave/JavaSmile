@@ -1,5 +1,8 @@
 package aluno.ifpb.edu.br.JavaSmile.Model;
 
+import com.clinica.swing.table.eventAction.EventActionConsulta;
+import com.clinica.swing.table.modelAction.ModelActionConsulta;
+import com.clinica.swing.table.modelProfile.ModelProfileConsulta;
 import lombok.*;
 
 import java.io.Serializable;
@@ -17,11 +20,14 @@ import java.time.LocalDateTime;
 public class Consulta implements Serializable {
 
     // Atributes
-    private Paciente paciente;
-    private Procedimento procedimento;
-    private Dentista dentista;
-    private LocalDateTime horario;
-    private boolean realizada;
+    private String paciente;
+    private String procedimento;
+    private String dentista;
+    private String horario;
+
+    public Object[]toRowTable(EventActionConsulta event) {
+        return new Object[]{new ModelProfileConsulta(paciente), dentista, procedimento, horario, new ModelActionConsulta(paciente, event)};
+    }
 
 }
 

@@ -1,13 +1,21 @@
 [ {
-  "nome" : "João",
-  "idade" : 18,
-  "peso" : 80.0,
-  "altura" : 1.9,
-  "contato" : "joaovmb15@gmail.com"
+  "nome" : "Pedin",
+  "contato" : "pedin@gmail.com",
+  "idade" : 23,
+  "peso" : 73.0
 }, {
-  "nome" : "Pedro",
-  "idade" : 29,
-  "peso" : 82.0,
-  "altura" : 1.85,
-  "contato" : "pedindogeraa@gmail.com"
+  "nome" : "João",
+  "contato" : "joao@gmail.com",
+  "idade" : 19,
+  "peso" : 67.0
+}, {
+  "nome" : "Marquin",
+  "contato" : "marquin@gmail.com",
+  "idade" : 30,
+  "peso" : 98.0
+}, {
+  "nome" : "Chiquin",
+  "contato" : "chiquin@gmail.com",
+  "idade" : 33,
+  "peso" : 80.0
 } ]

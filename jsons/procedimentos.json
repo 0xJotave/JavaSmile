@@ -1,7 +1,7 @@
 [ {
-  "nome" : "Extração",
-  "valor" : 200.0
+  "tratamento" : "Extração",
+  "valor" : 80.0
 }, {
-  "nome" : "Canal",
-  "valor" : 350.0
+  "tratamento" : "Canal",
+  "valor" : 800.0
 } ]

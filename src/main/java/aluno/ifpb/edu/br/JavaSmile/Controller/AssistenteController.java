@@ -12,57 +12,48 @@ public class AssistenteController {
 
 
     // Criação de Paciente, Procedimentos, Consulta, Dentista
-    public Paciente criarPaciente(String nome, int idade, double peso, double altura, String contato) throws IOException {
+    public Paciente criarPaciente(String nome, String contato, int idade, double peso) throws IOException {
         Paciente paciente = Paciente.builder()
                 .nome(nome)
+                .contato(contato)
                 .idade(idade)
                 .peso(peso)
-                .altura(altura)
-                .contato(contato)
                 .build();
-        Clinica.getInstance().getPacientesLista().add(paciente);
-        // Salva a lista de pacientes em um arquivo Json
-        JsonUtil.salvarDados(Clinica.getInstance().getPacientesLista(), "pacientes.json");
         return paciente;
     }
 
     public Procedimento criarProcedimento(String nome, double valor) throws IOException {
         Procedimento procedimento = Procedimento.builder()
-                .nome(nome)
+                .tratamento(nome)
                 .valor(valor)
                 .build();
-        Clinica.getInstance().getProcedimentosLista().add(procedimento);
-        // Salva a lista de procedimentos em um arquivo Json
-        JsonUtil.salvarDados(Clinica.getInstance().getProcedimentosLista(), "procedimentos.json");
         return procedimento;
     }
 
-    public Consulta criarConsulta(Paciente paciente, Procedimento procedimento,
-                                  Dentista dentista, LocalDateTime horario) throws IOException {
+    public Consulta criarConsulta(String paciente, String procedimento,
+                                  String dentista, String horario) throws IOException {
         Consulta consulta = Consulta.builder()
                 .paciente(paciente)
                 .procedimento(procedimento)
                 .dentista(dentista)
                 .horario(horario)
                 .build();
-        // Utiliza o método para marcar a consulta pro dentista, passando uma consulta simplificada
-        dentista.marcarConsulta(new ConsultaDTO().criarConsultaDTO(consulta));
         return consulta;
     }
 
-    public Dentista criarDentista(String nome, double salario, String especialidade) throws IOException {
-        Dentista dentista = Dentista.builder()
-                .nome(nome)
-                .salario(salario)
-                .especialidade(especialidade)
-                .consultasRealizadas(new ArrayList<>())
-                .consultasMarcadas(new ArrayList<>())
-                .build();
-        Clinica.getInstance().getDentistaLista().add(dentista);
-        // Salva a lista de dentistas em um arquivo Json
-        JsonUtil.salvarDados(Clinica.getInstance().getDentistaLista(), "dentistas.json");
-        return dentista;
-    }
+//    public Dentista criarDentista(String nome, double salario, String especialidade) throws IOException {
+//        Dentista dentista = Dentista.builder()
+//                .nome(nome)
+//                .salario(salario)
+//                .especialidade(especialidade)
+//                .consultasRealizadas(new ArrayList<>())
+//                .consultasMarcadas(new ArrayList<>())
+//                .build();
+//        Clinica.getInstance().getDentistaLista().add(dentista);
+//        // Salva a lista de dentistas em um arquivo Json
+//        JsonUtil.salvarDados(Clinica.getInstance().getDentistaLista(), "dentistas.json");
+//        return dentista;
+//    }
 
     // Remoção de Paciente, Procedimento, Consulta, Dentista
 

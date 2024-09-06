@@ -11,6 +11,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 
 public class JsonUtil {
@@ -34,16 +36,38 @@ public class JsonUtil {
         return diretorio;
     }
 
-    public static Clinica carregarDados() throws IOException {
-        return objectMapper.readValue(new File("dados.json"), Clinica.class);
-    }
-
     public static List<Assistente> carregarAssistentes() throws IOException {
         File file = new File(getPath() + File.separator + "assistentes.json");
         if (!file.exists()) {
             return new ArrayList<>();
         }
-        return objectMapper.readValue(new File(getPath() + File.separator + "assistentes.json"), new TypeReference<List<Assistente>>() {});
+        return objectMapper.readValue(new File(getPath() + File.separator + "assistentes.json"),
+                new TypeReference<List<Assistente>>() {});
+    }
+    public static List<Paciente> carregarPacientes() throws IOException {
+        File file = new File(getPath() + File.separator + "pacientes.json");
+        if (!file.exists()) {
+            return new ArrayList<>();
+        }
+        return objectMapper.readValue(new File(getPath() + File.separator + "pacientes.json"),
+                new TypeReference<List<Paciente>>() {});
+    }
+    public static List<Procedimento> carregarProcedimentos() throws IOException {
+        File file = new File(getPath() + File.separator + "procedimentos.json");
+        if (!file.exists()) {
+            return new ArrayList<>();
+        }
+        return objectMapper.readValue(new File(getPath() + File.separator + "procedimentos.json"),
+                new TypeReference<List<Procedimento>>() {});
+    }
+
+    public static List<Consulta> carregarConsultas() throws IOException {
+        File file = new File(getPath() + File.separator + "consultas.json");
+        if (!file.exists()) {
+            return new ArrayList<>();
+        }
+        return objectMapper.readValue(new File(getPath() + File.separator + "consultas.json"),
+                new TypeReference<List<Consulta>>() {});
     }
 
     public static void atualizarDados(Object objeto, Object objetoNovo) throws JsonMappingException {

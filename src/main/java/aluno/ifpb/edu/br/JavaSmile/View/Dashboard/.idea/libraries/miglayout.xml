@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="miglayout">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/clinica-dashboard/library/miglayout/miglayout-swing.jar!/" />
+      <root url="jar://$PROJECT_DIR$/clinica-dashboard/library/miglayout/miglayout-core.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
