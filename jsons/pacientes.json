@@ -9,11 +9,6 @@
   "idade" : 19,
   "peso" : 67.0
 }, {
-  "nome" : "Marquin",
-  "contato" : "marquin@gmail.com",
-  "idade" : 30,
-  "peso" : 98.0
-}, {
   "nome" : "Chiquin",
   "contato" : "chiquin@gmail.com",
   "idade" : 33,

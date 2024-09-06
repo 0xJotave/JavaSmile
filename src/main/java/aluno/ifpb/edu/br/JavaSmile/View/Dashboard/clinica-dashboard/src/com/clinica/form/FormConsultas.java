@@ -26,10 +26,13 @@ public class FormConsultas extends javax.swing.JPanel {
     }
 
     private void initTableDataConsulta() throws IOException {
+        List<Consulta> consultas = JsonUtil.carregarConsultas();
+
        EventActionConsulta eventActionCon = new EventActionConsulta() {           
            @Override
-           public void delete(ModelConsulta paciente) {
-            
+           public void delete(Consulta consulta) throws IOException {
+                consultas.remove(consulta);
+                JsonUtil.salvarDados(consultas, "consultas.json");
            }
 
            @Override
@@ -37,7 +40,6 @@ public class FormConsultas extends javax.swing.JPanel {
                 
            }
         };
-        List<Consulta> consultas = JsonUtil.carregarConsultas();
         for (Consulta consulta : consultas) {
             tableConsulta2.addRow(consulta.toRowTable(eventActionCon));
 

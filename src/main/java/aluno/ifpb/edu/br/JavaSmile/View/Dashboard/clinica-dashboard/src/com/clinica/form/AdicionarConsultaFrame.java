@@ -263,7 +263,7 @@ public class AdicionarConsultaFrame extends javax.swing.JFrame {
         if (onConsultaCreated != null) {
             onConsultaCreated.onCreated(consulta);
         }
-        JOptionPane.showMessageDialog(this, "Consulta salvo com sucesso!");
+        JOptionPane.showMessageDialog(this, "Consulta salva com sucesso!");
         dispose();
     }//GEN-LAST:event_salvarButtonActionPerformed
 

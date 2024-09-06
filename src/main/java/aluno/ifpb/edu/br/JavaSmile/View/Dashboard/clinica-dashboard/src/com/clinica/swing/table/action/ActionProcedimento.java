@@ -10,6 +10,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -34,7 +35,11 @@ public class ActionProcedimento extends javax.swing.JPanel {
             public void actionPerformed(ActionEvent ae) {
                 int selectedRow = tableProcedimento2.getSelectedRow();
                 if (selectedRow >= 0 && selectedRow < tableProcedimento2.getRowCount()) {
-                    // Remover a linha
+                    try {
+                        data.getEvent().delete(data.getProcedimento());
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
                     ((DefaultTableModel) tableProcedimento2.getModel()).removeRow(selectedRow);
                 } else {
                     JOptionPane.showMessageDialog(null, "Por favor, selecione uma linha válida para deletar.");

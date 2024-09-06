@@ -26,7 +26,7 @@ public class Consulta implements Serializable {
     private String horario;
 
     public Object[]toRowTable(EventActionConsulta event) {
-        return new Object[]{new ModelProfileConsulta(paciente), dentista, procedimento, horario, new ModelActionConsulta(paciente, event)};
+        return new Object[]{new ModelProfileConsulta(paciente), dentista, procedimento, horario, new ModelActionConsulta(this, event)};
     }
 
 }

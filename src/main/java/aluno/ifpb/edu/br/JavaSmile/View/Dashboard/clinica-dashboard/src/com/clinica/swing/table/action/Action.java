@@ -1,5 +1,6 @@
 package com.clinica.swing.table.action;
 
+import aluno.ifpb.edu.br.JavaSmile.Model.Clinica;
 import com.clinica.form.EditarPacienteFrame;
 import static com.clinica.form.FormConsultas.tableConsulta2;
 import com.clinica.form.FormPaciente;
@@ -9,15 +10,16 @@ import com.clinica.swing.table.modelAction.ModelAction;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
 public class Action extends javax.swing.JPanel {
-    
-    
 
-    public Action(ModelAction data) {
+
+    public Action(ModelAction data) throws IOException {
+        Clinica clinica = Clinica.getInstance();
         EditarPacienteFrame editar = new EditarPacienteFrame();
         initComponents();        
         cmdEdit.addActionListener(new ActionListener() {
@@ -32,7 +34,11 @@ public class Action extends javax.swing.JPanel {
             public void actionPerformed(ActionEvent ae) {                
                 int selectedRow = table1.getSelectedRow();
                 if (selectedRow >= 0 && selectedRow < table1.getRowCount()) {
-                    
+                    try {
+                        data.getEvent().delete(data.getPaciente());
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
                     ((DefaultTableModel) table1.getModel()).removeRow(selectedRow);
                 } else {
                     JOptionPane.showMessageDialog(null, "Por favor, selecione uma linha válida para deletar.");

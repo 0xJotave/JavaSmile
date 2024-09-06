@@ -26,11 +26,13 @@ public class FormPaciente extends javax.swing.JPanel {
     }
 
     private void initTableData() throws IOException {
+        List<Paciente> pacientes = JsonUtil.carregarPacientes();
         EventAction eventAction = new EventAction() {           
            EditarPacienteFrame editar = new EditarPacienteFrame();           
            @Override
-           public void delete(ModelPaciente paciente) {
-            
+           public void delete(Paciente paciente) throws IOException {
+               pacientes.remove(paciente);
+               JsonUtil.salvarDados(pacientes, "pacientes.json");
             }
 
            @Override
@@ -38,8 +40,6 @@ public class FormPaciente extends javax.swing.JPanel {
                 
            }
         };
-        List<Paciente> pacientes = JsonUtil.carregarPacientes();
-
         for (Paciente paciente : pacientes) {
             table1.addRow(paciente.toRowTable(eventAction));
         }

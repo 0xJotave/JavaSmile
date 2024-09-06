@@ -26,19 +26,20 @@ public class FormProcedimento extends javax.swing.JPanel {
     }
     
     private void initTableData() throws IOException {
+        List<Procedimento> procedimentos = JsonUtil.carregarProcedimentos();
+
        EventActionProcedimento eventAction = new EventActionProcedimento() {          
            EditarProcedimentoFrame editar = new EditarProcedimentoFrame();           
            @Override
-           public void delete(ModelProcedimento procedimento) {               
-                                          
+           public void delete(Procedimento procedimento) throws IOException {
+               procedimentos.remove(procedimento);
+               JsonUtil.salvarDados(procedimentos, "procedimentos.json");
             }
            @Override
            public void update(ModelProcedimento procedimento) {
                 
             }
         };
-        List<Procedimento> procedimentos = JsonUtil.carregarProcedimentos();
-
         for (Procedimento procedimento : procedimentos){
             tableProcedimento2.addRow(procedimento.toRowTable(eventAction));
         }
