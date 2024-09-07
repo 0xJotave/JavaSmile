@@ -1,16 +1,1 @@
-[ {
-  "nome" : "Pedin",
-  "contato" : "pedin@gmail.com",
-  "idade" : 23,
-  "peso" : 73.0
-}, {
-  "nome" : "João",
-  "contato" : "joao@gmail.com",
-  "idade" : 19,
-  "peso" : 67.0
-}, {
-  "nome" : "Chiquin",
-  "contato" : "chiquin@gmail.com",
-  "idade" : 33,
-  "peso" : 80.0
-} ]
+[ ]

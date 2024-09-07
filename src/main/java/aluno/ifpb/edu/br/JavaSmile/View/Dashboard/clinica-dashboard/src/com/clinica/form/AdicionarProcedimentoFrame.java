@@ -7,6 +7,7 @@ import aluno.ifpb.edu.br.JavaSmile.Controller.AssistenteController;
 import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
 import aluno.ifpb.edu.br.JavaSmile.Model.Clinica;
 import aluno.ifpb.edu.br.JavaSmile.Model.Procedimento;
+import com.clinica.form.viewUtil.LimitaCaracteres;
 import com.clinica.model.ModelProcedimento;
 import com.clinica.swing.table.eventAction.EventActionProcedimento;
 import javax.swing.JOptionPane;
@@ -21,7 +22,9 @@ public class AdicionarProcedimentoFrame extends javax.swing.JFrame {
     public AdicionarProcedimentoFrame() {
         initComponents();
         setLocationRelativeTo(null); 
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);         
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        tratamentoField.setDocument(new LimitaCaracteres(20, LimitaCaracteres.TipoEntrada.NOME));
+        valorField.setDocument(new LimitaCaracteres(5, LimitaCaracteres.TipoEntrada.NUMEROINTEIRO));
     }
        
 

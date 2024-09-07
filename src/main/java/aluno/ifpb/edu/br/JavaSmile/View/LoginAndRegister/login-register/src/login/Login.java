@@ -15,7 +15,7 @@ import java.nio.file.Path;
 import java.util.List;
 
 @Data
-public class Login extends PanelCustom {
+public class Login extends login.PanelCustom {
 
     private EventLogin event;
     

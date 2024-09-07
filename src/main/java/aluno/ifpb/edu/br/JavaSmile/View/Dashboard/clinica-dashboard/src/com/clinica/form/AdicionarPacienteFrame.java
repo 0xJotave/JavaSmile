@@ -7,6 +7,7 @@ import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
 import aluno.ifpb.edu.br.JavaSmile.Model.Assistente;
 import aluno.ifpb.edu.br.JavaSmile.Model.Clinica;
 import aluno.ifpb.edu.br.JavaSmile.Model.Paciente;
+import com.clinica.form.viewUtil.LimitaCaracteres;
 import com.clinica.model.ModelPaciente;
 import com.clinica.swing.table.eventAction.EventAction;
 import javax.swing.ImageIcon;
@@ -17,12 +18,16 @@ import java.util.List;
 public class AdicionarPacienteFrame extends javax.swing.JFrame {
     
     private PacienteCreatedListener onPacienteCreated;
-     private EventAction eventAction;
+    private EventAction eventAction;
     
     public AdicionarPacienteFrame() {
         initComponents();
         setLocationRelativeTo(null); 
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);                  
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        nomeField.setDocument(new LimitaCaracteres(20, LimitaCaracteres.TipoEntrada.NOME));
+        contatoField.setDocument(new LimitaCaracteres(30, LimitaCaracteres.TipoEntrada.EMAIL));
+        idadeField.setDocument(new LimitaCaracteres(3, LimitaCaracteres.TipoEntrada.NUMEROINTEIRO));
+        pesoField.setDocument(new LimitaCaracteres(3, LimitaCaracteres.TipoEntrada.NUMEROINTEIRO));
     }
        
 

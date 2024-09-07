@@ -8,6 +8,7 @@ import aluno.ifpb.edu.br.JavaSmile.Model.Clinica;
 import aluno.ifpb.edu.br.JavaSmile.Model.Consulta;
 import aluno.ifpb.edu.br.JavaSmile.Model.Paciente;
 import aluno.ifpb.edu.br.JavaSmile.Model.Procedimento;
+import com.clinica.form.viewUtil.LimitaCaracteres;
 import com.clinica.model.ModelConsulta;
 import com.clinica.swing.table.eventAction.EventActionConsulta;
 import com.google.api.client.json.Json;
@@ -30,6 +31,8 @@ public class AdicionarConsultaFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         preencherPacientesBox();
         preencherProcedimentoBox();
+        horarioField.setDocument(new LimitaCaracteres(5, LimitaCaracteres.TipoEntrada.HORARIO));
+        dentistaField.setDocument(new LimitaCaracteres(20, LimitaCaracteres.TipoEntrada.NOME));
     }
 
     private void preencherPacientesBox() throws IOException {
@@ -244,6 +247,8 @@ public class AdicionarConsultaFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_horarioFieldActionPerformed
 
     private void salvarButtonActionPerformed(java.awt.event.ActionEvent evt) throws IOException {//GEN-FIRST:event_salvarButtonActionPerformed
+
+
         String dentista = dentistaField.getText();
         String horario = horarioField.getText();
 
