@@ -21,7 +21,6 @@ import javax.swing.JOptionPane;
 
 public class AdicionarConsultaFrame extends javax.swing.JFrame {
 
-    String[] procedimentos = {"Exodontia", "Canal", "Profilaxia", "Clareamento"};
     private ConsultaCreatedListener onConsultaCreated;
     private EventActionConsulta eventActionConsulta;
     

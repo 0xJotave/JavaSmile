@@ -1,37 +1,69 @@
 package com.clinica.form;
 
 import static com.clinica.form.FormConsultas.tableConsulta2;
+import static com.clinica.form.FormPaciente.table1;
+
+import aluno.ifpb.edu.br.JavaSmile.Controller.AssistenteController;
+import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
+import aluno.ifpb.edu.br.JavaSmile.Model.Clinica;
+import aluno.ifpb.edu.br.JavaSmile.Model.Consulta;
+import aluno.ifpb.edu.br.JavaSmile.Model.Paciente;
+import aluno.ifpb.edu.br.JavaSmile.Model.Procedimento;
 import com.clinica.model.ModelConsulta;
 import com.clinica.swing.table.eventAction.EventActionConsulta;
+import com.fasterxml.jackson.databind.JsonMappingException;
+
 import java.awt.event.ActionEvent;
+import java.io.IOException;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class EditarConsultaFrame extends javax.swing.JFrame {
-    
-    String[] pacientes = {"Bolsonaro", "Lula", "Dilma"};    
-    String[] procedimentos = {"Exodontia", "Canal", "Profilaxia", "Clareamento"};
 
+    private EventActionConsulta eventActionConsulta;
     
-    public EditarConsultaFrame() {
+    public EditarConsultaFrame() throws IOException {
         initComponents();
         setLocationRelativeTo(null); 
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);  
-        pacienteBox.setModel(new javax.swing.DefaultComboBoxModel<>(pacientes));
-        procedimentoBox.setModel(new javax.swing.DefaultComboBoxModel<>(procedimentos));
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        preencherPacientesBox();
+        preencherProcedimentoBox();
     }
-       
 
-    
-    
+    private void preencherPacientesBox() throws IOException {
+        try {
+            Clinica clinica = Clinica.getInstance();
+            java.util.List<Paciente> pacientes = JsonUtil.carregarPacientes();
+            String[] nomesPacientes = pacientes.stream()
+                    .map(Paciente::getNome)
+                    .toArray(String[]::new);
+            pacienteBox.setModel(new javax.swing.DefaultComboBoxModel<>(nomesPacientes));
+        } catch (IOException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Erro ao carregar pacientes!");
+        }
+    }
+    private void preencherProcedimentoBox() throws IOException {
+        try {
+            Clinica clinica = Clinica.getInstance();
+            java.util.List<Procedimento> procedimentos = JsonUtil.carregarProcedimentos();
+            String[] tratamentosProcedimentos = procedimentos.stream()
+                    .map(Procedimento::getTratamento)
+                    .toArray(String[]::new);
+            procedimentoBox.setModel(new javax.swing.DefaultComboBoxModel<>(tratamentosProcedimentos));
+        } catch (IOException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Erro ao carregar procedimentos!");
+        }
+    }
     
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==pacienteBox) {
             System.out.println(pacienteBox.getSelectedItem());
         }
     }
-    
-        
-    
+
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -76,7 +108,11 @@ public class EditarConsultaFrame extends javax.swing.JFrame {
         salvarButton.setText("Atualizar");
         salvarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                salvarButtonActionPerformed(evt);
+                try {
+                    salvarButtonActionPerformed(evt);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
 
@@ -197,8 +233,40 @@ public class EditarConsultaFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_horarioFieldActionPerformed
 
-    private void salvarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarButtonActionPerformed
+    private void salvarButtonActionPerformed(java.awt.event.ActionEvent evt) throws IOException {//GEN-FIRST:event_salvarButtonActionPerformed
+        String dentistaNovo = dentistaField.getText();
+        String horarioNovo = horarioField.getText();
+        int rowIndex = tableConsulta2.getSelectedRow();
+        if (rowIndex == -1) {
+            JOptionPane.showMessageDialog(null, "Nenhuma consulta selecionada!");
+        }
 
+        AssistenteController assistenteController = new AssistenteController();
+        Clinica clinica = Clinica.getInstance();
+        List<Consulta> consultaLista = JsonUtil.carregarConsultas();
+
+        Consulta consultaAtual = consultaLista.get(rowIndex);
+        Consulta consultaAtualizada = assistenteController.criarConsulta(pacienteBox.getSelectedItem().toString(),
+                dentistaNovo, procedimentoBox.getSelectedItem().toString(),
+                horarioNovo);
+
+        try {
+            JsonUtil.atualizarDados(consultaAtual, consultaAtualizada);
+        } catch (JsonMappingException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar consulta!");
+        }
+
+        DefaultTableModel model = (DefaultTableModel) tableConsulta2.getModel();
+        model.removeRow(rowIndex);
+        model.insertRow(rowIndex, consultaAtualizada.toRowTable(eventActionConsulta));
+        dentistaField.setText("");
+        horarioField.setText("");
+        pacienteBox.setSelectedIndex(0);
+        procedimentoBox.setSelectedIndex(0);
+        JOptionPane.showMessageDialog(this, "Consulta editada com sucesso!");
+        dispose();
+        JsonUtil.salvarDados(consultaLista, "consultas.json");
         
     }//GEN-LAST:event_salvarButtonActionPerformed
 

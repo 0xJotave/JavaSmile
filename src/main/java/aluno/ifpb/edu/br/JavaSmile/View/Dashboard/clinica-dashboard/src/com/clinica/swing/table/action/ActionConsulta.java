@@ -15,7 +15,7 @@ import java.io.IOException;
 
 
 public class ActionConsulta extends javax.swing.JPanel {
-    public ActionConsulta(ModelActionConsulta data) {
+    public ActionConsulta(ModelActionConsulta data) throws IOException {
         EditarConsultaFrame editar = new EditarConsultaFrame();
         initComponents();
         cmdEdit.addActionListener(new ActionListener() {

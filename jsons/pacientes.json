@@ -1,1 +1,11 @@
-[ ]
+[ {
+  "nome" : "João",
+  "contato" : "joao@gmail.com",
+  "idade" : 19,
+  "peso" : 68.0
+}, {
+  "nome" : "Manuela",
+  "contato" : "manuzinha@gmail.com",
+  "idade" : 16,
+  "peso" : 66.0
+} ]

@@ -9,6 +9,7 @@ import com.clinica.swing.table.tableCellAction.TableCellActionConsulta;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.io.IOException;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -50,7 +51,12 @@ public class TableConsulta extends JTable {
 
                 } else if (o instanceof ModelActionConsulta) {
                     ModelActionConsulta data = (ModelActionConsulta) o;
-                    ActionConsulta cell = new ActionConsulta(data);
+                    ActionConsulta cell = null;
+                    try {
+                        cell = new ActionConsulta(data);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
                     if (selected) {
                         cell.setBackground(new Color(239, 244, 255));
                     } else {

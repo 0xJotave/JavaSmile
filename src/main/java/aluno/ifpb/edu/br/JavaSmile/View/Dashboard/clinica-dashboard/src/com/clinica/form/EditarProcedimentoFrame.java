@@ -1,9 +1,22 @@
 package com.clinica.form;
 
 import static com.clinica.form.FormConsultas.tableConsulta2;
+import static com.clinica.form.FormPaciente.table1;
+import static com.clinica.form.FormProcedimento.tableProcedimento2;
+
+import aluno.ifpb.edu.br.JavaSmile.Controller.AssistenteController;
+import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
+import aluno.ifpb.edu.br.JavaSmile.Model.Clinica;
+import aluno.ifpb.edu.br.JavaSmile.Model.Paciente;
+import aluno.ifpb.edu.br.JavaSmile.Model.Procedimento;
 import com.clinica.model.ModelProcedimento;
 import com.clinica.swing.table.eventAction.EventActionProcedimento;
+import com.fasterxml.jackson.databind.JsonMappingException;
+
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import java.io.IOException;
+import java.util.List;
 
 public class EditarProcedimentoFrame extends javax.swing.JFrame {
     
@@ -15,14 +28,10 @@ public class EditarProcedimentoFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null); 
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);         
     }
-       
 
-    public void setOnProcedimentoCreated(ProcedimentoCreatedListener listener) {
-        this.onProcedimentoCreated = listener;
-    }
 
     public interface ProcedimentoCreatedListener {
-        void onCreated(ModelProcedimento procedimento);
+        void onCreated(Procedimento procedimento);
     }
 
     
@@ -69,7 +78,11 @@ public class EditarProcedimentoFrame extends javax.swing.JFrame {
         salvarButton.setText("Atualizar");
         salvarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                salvarButtonActionPerformed(evt);
+                try {
+                    salvarButtonActionPerformed(evt);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
 
@@ -170,8 +183,40 @@ public class EditarProcedimentoFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_valorFieldActionPerformed
 
-    private void salvarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarButtonActionPerformed
-        
+    private void salvarButtonActionPerformed(java.awt.event.ActionEvent evt) throws IOException {//GEN-FIRST:event_salvarButtonActionPerformed
+        String tratamentoNovo = tratamentoField.getText();
+        double valorNovo = Double.parseDouble(valorField.getText());
+
+        int rowIndex = tableProcedimento2.getSelectedRow();
+        if (rowIndex == -1) {
+            JOptionPane.showMessageDialog(null, "Nenhum procedimento selecionado!");
+        }
+
+        AssistenteController assistenteController = new AssistenteController();
+        Clinica clinica = Clinica.getInstance();
+        List<Procedimento> procedimentoLista = JsonUtil.carregarProcedimentos();
+
+        Procedimento procedimentoAtual = procedimentoLista.get(rowIndex);
+        Procedimento procedimentoAtualizado = assistenteController.criarProcedimento(tratamentoNovo,
+                valorNovo);
+
+        try {
+            JsonUtil.atualizarDados(procedimentoAtual, procedimentoAtualizado);
+        } catch (JsonMappingException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar procedimento!");
+        }
+
+        DefaultTableModel model = (DefaultTableModel) tableProcedimento2.getModel();
+        model.removeRow(rowIndex);
+        model.insertRow(rowIndex, procedimentoAtualizado.toRowTable(eventActionProcedimento));
+        tratamentoField.setText("");
+        valorField.setText("");
+        JOptionPane.showMessageDialog(this, "Procedimento editado com sucesso!");
+        dispose();
+        JsonUtil.salvarDados(procedimentoLista, "procedimentos.json");
+
+
     }//GEN-LAST:event_salvarButtonActionPerformed
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
