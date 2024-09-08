@@ -4,6 +4,8 @@ import com.clinica.swing.table.eventAction.EventActionConsulta;
 import com.clinica.swing.table.modelAction.ModelActionConsulta;
 import com.clinica.swing.table.modelProfile.ModelProfileConsulta;
 
+//Classe que armazena os dados de uma consulta e usada por outras classes
+// para exibir ou usar essas informações em componentes visuais como tabelas.
 public class ModelConsulta {
             
     public String getNome() {

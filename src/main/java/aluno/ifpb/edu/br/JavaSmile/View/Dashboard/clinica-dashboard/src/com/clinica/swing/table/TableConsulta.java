@@ -18,14 +18,15 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellEditor;
-
+//essa classe exibe os dados de ModelConsulta e ações relacionadas as consultas tipo editar e deletar.
+// Define como os dados são renderizados e manipulados na interface.
 public class TableConsulta extends JTable {
 
     public TableConsulta() {
         setShowHorizontalLines(true);
         setGridColor(new Color(230, 230, 230));
         setRowHeight(40);
-        getTableHeader().setReorderingAllowed(false);
+        getTableHeader().setReorderingAllowed(false); //impede reordenar as colunas.
         getTableHeader().setDefaultRenderer(new DefaultTableCellRenderer() {
             @Override
             public Component getTableCellRendererComponent(JTable jtable, Object o, boolean bln, boolean bln1, int i, int i1) {
@@ -35,12 +36,15 @@ public class TableConsulta extends JTable {
                 }
                 return header;
             }
-        });
+        }); //centraliza o texto na quarta coluna.
         setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
             @Override
             public Component getTableCellRendererComponent(JTable jtable, Object o, boolean selected, boolean focus, int i, int i1) {
                 if (o instanceof ModelProfileConsulta) {
+                    //exibe dados do perfil de contula(nome, dentista, etc).
                     ModelProfileConsulta data = (ModelProfileConsulta) o;
+                    //painel customizado <no design coloquei so "NAME" aí pode ate ver que fica como
+                    //se fosse um panel por cima da tabela e nele fica o nome.
                     ProfileConsulta cell = new ProfileConsulta(data);
                     if (selected) {
                         cell.setBackground(new Color(239, 244, 255));
@@ -50,6 +54,7 @@ public class TableConsulta extends JTable {
                     return cell;
 
                 } else if (o instanceof ModelActionConsulta) {
+                    //Renderiza os botões de ação editar e deletar para cada linha.
                     ModelActionConsulta data = (ModelActionConsulta) o;
                     ActionConsulta cell = null;
                     try {
@@ -75,9 +80,11 @@ public class TableConsulta extends JTable {
                     return com;
                 }
             }
-        });
+        }); //Renderiza o que cada coluna recebe de acordo com o tipo de dado.
     }
 
+    //diz qual editor vai ser usado para células,
+    // aí pra coluna de ações usa tablecellactionconsulta
     @Override
     public TableCellEditor getCellEditor(int row, int col) {
         if (col > 0) {
@@ -86,12 +93,13 @@ public class TableConsulta extends JTable {
             return super.getCellEditor(row, col);
         }
     }
-    
+
+    //adiciona uma nova linha à tabela com os dados da consulta.
     public void addRow(Object[] row) {
         DefaultTableModel mod = (DefaultTableModel) getModel();
         mod.addRow(row);
     }
-
+    //muda so o scroll de subir e descer, tipo cor e tal.
     public void fixTable(JScrollPane scroll) {
         scroll.getViewport().setBackground(Color.WHITE);
         scroll.setVerticalScrollBar(new ScrollBarCustom());

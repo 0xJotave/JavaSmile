@@ -17,7 +17,8 @@ import javax.swing.border.EmptyBorder;
 import org.jdesktop.animation.timing.Animator;
 import org.jdesktop.animation.timing.TimingTarget;
 import org.jdesktop.animation.timing.TimingTargetAdapter;
-
+//era pra ser usada se fosse ter tipo um botão de notificações e tal,
+// daí configurei pra ter um numero em cima como quantidade de notificações
 public class ButtonBadges extends JButton {
 
     public int getBadges() {

@@ -10,29 +10,32 @@ import com.clinica.swing.table.eventAction.EventActionConsulta;
 
 import java.io.IOException;
 import java.util.List;
-
+//exibir e gerenciar a lista de consultas no sistema.
 public class FormConsultas extends javax.swing.JPanel {
 
-
+    //Este é o construtor da classe que inicializa a interface gráfica chamando o método initComponents.
+    // Ele também configura a tabela de consultas e carrega os dados das consultas utilizando initDataConsulta.
     public FormConsultas() throws IOException {
         initComponents();
         tableConsulta2.fixTable(jScrollPane2);
         setOpaque(false);
         initDataConsulta();
     }
-
+    //Método que inicializa os dados de consulta, chamando o método initTableDataConsulta
+    // para carregar as consultas do arquivo JSON.
     private void initDataConsulta() throws IOException {
         initTableDataConsulta();
     }
-
+    //Para cada consulta, o método cria uma linha na tabela, associando um EventActionConsulta
+    // que define o comportamento para a exclusão e atualização de consultas.
     private void initTableDataConsulta() throws IOException {
         List<Consulta> consultas = JsonUtil.carregarConsultas();
-
+        //define as ações de evento para as consultas.
        EventActionConsulta eventActionCon = new EventActionConsulta() {           
            @Override
            public void delete(Consulta consulta) throws IOException {
-                consultas.remove(consulta);
-                JsonUtil.salvarDados(consultas, "consultas.json");
+                consultas.remove(consulta); //remove a consulta da lista.
+                JsonUtil.salvarDados(consultas, "consultas.json"); //Salva ja atualizando os dados.
            }
 
            @Override
@@ -40,12 +43,15 @@ public class FormConsultas extends javax.swing.JPanel {
                 
            }
         };
+       // adiciona cada consulta na tabela ja configurada as ações
         for (Consulta consulta : consultas) {
             tableConsulta2.addRow(consulta.toRowTable(eventActionCon));
 
         }
     }
 
+
+    //era pra exibir uma mensagem usando a classe Message la do pacote dialog.
     private boolean showMessage(String message) {
         Message obj = new Message(Main.getFrames()[0], true);
         obj.showMessage(message);
@@ -145,7 +151,7 @@ public class FormConsultas extends javax.swing.JPanel {
                 .addGap(110, 110, 110))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    //botao de adicionar consulta
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) throws IOException {//GEN-FIRST:event_button1ActionPerformed
         AdicionarConsultaFrame adicionarConsulta = new AdicionarConsultaFrame();
         adicionarConsulta.setVisible(true);

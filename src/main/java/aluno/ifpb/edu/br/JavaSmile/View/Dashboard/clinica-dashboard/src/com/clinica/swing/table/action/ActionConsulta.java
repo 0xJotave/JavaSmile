@@ -13,8 +13,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-
+//essa classe é usada pela TableConsulta para fornecer os botões de edição e deleção para cada consulta na tabela.
 public class ActionConsulta extends javax.swing.JPanel {
+    //recebe o objeto ModelActionConsulta que tem os dados e eventos.
     public ActionConsulta(ModelActionConsulta data) throws IOException {
         EditarConsultaFrame editar = new EditarConsultaFrame();
         initComponents();
@@ -39,7 +40,7 @@ public class ActionConsulta extends javax.swing.JPanel {
                     ((DefaultTableModel) tableConsulta2.getModel()).removeRow(selectedRow);
                 } else {
                     JOptionPane.showMessageDialog(null, "Por favor, selecione uma linha válida para deletar.");
-                }
+                } //remove a linha selecionada na tabela e chama o evento de deletar na interface EvenActionConsulta.
             }
         });
     }

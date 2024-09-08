@@ -1,10 +1,4 @@
 [ {
   "tratamento" : "Canal",
   "valor" : 800.0
-}, {
-  "tratamento" : "Extração",
-  "valor" : 200.0
-}, {
-  "tratamento" : "Cirurgia",
-  "valor" : 2500.0
 } ]
