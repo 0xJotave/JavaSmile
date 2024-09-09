@@ -9,13 +9,19 @@ import lombok.NoArgsConstructor;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import static com.clinica.form.FormPaciente.table1;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class FormPacienteController {
     List<Paciente> pacientes;
+    private Map<String, Paciente> pacientesMap = new HashMap<>(); // Mapeia nome para o objeto Paciente
+
 
     public void carregarPacientes() throws IOException {
         pacientes = JsonUtil.carregarPacientes();
@@ -44,9 +50,7 @@ public class FormPacienteController {
     public void atualizarPaciente(int rowIndex, String nomeNovo, String contatoNovo, int idadeNova,
                                   double pesoNovo) throws IOException {
         carregarPacientes();
-        if (rowIndex == -1) {
-            throw new IllegalArgumentException("Nenhum paciente selecionado");
-        }
+
         Paciente pacienteAtual = getPacientes().get(rowIndex);
         Paciente pacienteAtualizado = Paciente.builder()
                 .nome(nomeNovo)
@@ -56,7 +60,7 @@ public class FormPacienteController {
                 .build();
 
         getPacientes().set(rowIndex, pacienteAtualizado);
-        JsonUtil.atualizarDados(pacienteAtual, pacienteAtualizado);
         JsonUtil.salvarDados(getPacientes(), "pacientes.json");
+        System.out.println(pacienteAtual.getNome() + " passou pra" + pacienteAtualizado.getNome());
     }
 }

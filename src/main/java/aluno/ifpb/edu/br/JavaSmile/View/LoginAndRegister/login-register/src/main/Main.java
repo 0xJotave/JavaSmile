@@ -22,6 +22,7 @@ public class Main extends javax.swing.JFrame {
                 main.removeAll();
                 main.revalidate();
                 main.repaint();
+                dispose();
             }
         };
         loginAndRegister1.setEventLogin(event);

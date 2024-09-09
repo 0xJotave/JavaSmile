@@ -188,6 +188,7 @@ public class Login extends login.PanelCustom {
                     password1.setText("");
                     HomeDash homeDash = new HomeDash();
                     homeDash.setVisible(true);
+                    event.loginDone();
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "Nome de Usuário ou Senha Incorretos");

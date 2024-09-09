@@ -6,7 +6,9 @@ import aluno.ifpb.edu.br.JavaSmile.Controller.AssistenteController;
 import aluno.ifpb.edu.br.JavaSmile.Controller.FormPacienteController;
 import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
 import aluno.ifpb.edu.br.JavaSmile.Model.Paciente;
+import com.clinica.swing.table.action.Action;
 import com.clinica.swing.table.eventAction.EventAction;
+import com.clinica.swing.table.eventAction.PacienteUpdateListener;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
 import javax.swing.JOptionPane;
@@ -20,7 +22,7 @@ public class EditarPacienteFrame extends javax.swing.JFrame {
     private PacienteCreatedListener onPacienteCreated;
     private EventAction eventAction;
 
-    public EditarPacienteFrame() {
+    public EditarPacienteFrame() throws IOException {
         initComponents();
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -229,11 +231,13 @@ public class EditarPacienteFrame extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) table1.getModel();
         model.removeRow(rowIndex);
         model.insertRow(rowIndex, pacienteAtualizado.toRowTable(eventAction));
+
+
+
         nomeField.setText("");
         contatoField.setText("");
         idadeField.setText("");
         pesoField.setText("");
-
         JOptionPane.showMessageDialog(this, "Paciente editado com sucesso!");
         dispose();
 

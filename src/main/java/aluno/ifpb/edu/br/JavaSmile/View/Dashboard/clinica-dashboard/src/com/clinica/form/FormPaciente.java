@@ -7,6 +7,8 @@ import com.clinica.dialog.Message;
 import com.clinica.main.HomeDash;
 import com.clinica.model.ModelPaciente;
 import com.clinica.swing.table.eventAction.EventAction;
+
+import javax.swing.*;
 import java.io.IOException;
 import java.util.List;
 
@@ -32,23 +34,22 @@ public class FormPaciente extends javax.swing.JPanel {
            @Override
            public void delete(Paciente paciente) throws IOException {
                controller.deletarPaciente(paciente);
+           }
+
+            @Override
+            public void update(Paciente paciente) {
+
             }
 
-           @Override
-           public void update(Paciente paciente) {
-                
-           }
         };
+
+
         for (Paciente paciente : controller.getPacientes()) {
             table1.addRow(paciente.toRowTable(eventAction));
         }
 
     }
 
-    public void refreshTable() throws IOException {
-        table1.clearTable();
-        initTableData();
-    }
 
     private boolean showMessage(String message) {
         Message obj = new Message(HomeDash.getFrames()[0], true);

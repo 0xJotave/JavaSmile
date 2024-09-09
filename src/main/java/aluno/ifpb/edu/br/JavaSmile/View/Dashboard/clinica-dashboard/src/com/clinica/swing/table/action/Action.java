@@ -8,6 +8,7 @@ import static com.clinica.form.FormPaciente.table1;
 
 import com.clinica.form.FormPaciente;
 import com.clinica.swing.table.modelAction.ModelAction;
+import lombok.Data;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -19,11 +20,13 @@ import javax.swing.table.DefaultTableModel;
 
 public class Action extends javax.swing.JPanel {
     FormPacienteController controller = new FormPacienteController();
+    ModelAction data;
+
 
     public Action(ModelAction data) throws IOException {
-
+        this.data = data;
         EditarPacienteFrame editar = new EditarPacienteFrame();
-        initComponents();        
+        initComponents();
         cmdEdit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -31,6 +34,7 @@ public class Action extends javax.swing.JPanel {
             }
         });
         cmdDelete.addActionListener(new ActionListener() {
+
             @Override
             public void actionPerformed(ActionEvent ae) {
                 int selectedRow = table1.getSelectedRow();
@@ -41,18 +45,25 @@ public class Action extends javax.swing.JPanel {
                 }
 
                 // Verifica se a linha selecionada é válida
-                if (selectedRow >= 0 && selectedRow < table1.getRowCount()) {
+                if (selectedRow >= -1 && selectedRow < table1.getRowCount()) {
+                    try {
+                        ((DefaultTableModel) table1.getModel()).removeRow(selectedRow);
+                        data.getEvent().delete(data.getPaciente());
 
-                    ((DefaultTableModel) table1.getModel()).removeRow(selectedRow);
+                        System.out.println("deletou " + data.getPaciente().getNome());
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
                 } else {
                     JOptionPane.showMessageDialog(null, "Por favor, selecione uma linha válida para deletar.");
                 }
             }
         });
     }
-    
-    
-    
+
+    public void updatePaciente(Paciente paciente) {
+        this.data.setPaciente(paciente);  // Atualiza o paciente no `data`
+    }
 
     @Override
     protected void paintComponent(Graphics grphcs) {
@@ -60,7 +71,7 @@ public class Action extends javax.swing.JPanel {
         grphcs.setColor(new Color(230, 230, 230));
         grphcs.drawLine(0, getHeight() - 1, getWidth(), getHeight() - 1);
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
