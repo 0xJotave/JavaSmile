@@ -20,8 +20,6 @@ import static com.clinica.form.FormPaciente.table1;
 @AllArgsConstructor
 public class FormPacienteController {
     List<Paciente> pacientes;
-    private Map<String, Paciente> pacientesMap = new HashMap<>(); // Mapeia nome para o objeto Paciente
-
 
     public void carregarPacientes() throws IOException {
         pacientes = JsonUtil.carregarPacientes();

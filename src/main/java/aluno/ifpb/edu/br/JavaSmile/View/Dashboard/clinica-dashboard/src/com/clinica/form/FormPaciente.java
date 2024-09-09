@@ -9,6 +9,7 @@ import com.clinica.model.ModelPaciente;
 import com.clinica.swing.table.eventAction.EventAction;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.io.IOException;
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class FormPaciente extends javax.swing.JPanel {
         initData();
     }
 
-    private void initData() throws IOException {
+    public void initData() throws IOException {
         initTableData();
     }
 
@@ -43,7 +44,6 @@ public class FormPaciente extends javax.swing.JPanel {
 
         };
 
-
         for (Paciente paciente : controller.getPacientes()) {
             table1.addRow(paciente.toRowTable(eventAction));
         }
@@ -59,7 +59,7 @@ public class FormPaciente extends javax.swing.JPanel {
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    public void initComponents() {
 
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -81,7 +81,11 @@ public class FormPaciente extends javax.swing.JPanel {
         button1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/icon/adicionar.png"))); // NOI18N
         button1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button1ActionPerformed(evt);
+                try {
+                    button1ActionPerformed(evt);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
 
@@ -147,9 +151,10 @@ public class FormPaciente extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) throws IOException {//GEN-FIRST:event_button1ActionPerformed
         AdicionarPacienteFrame adicionarPaciente = new AdicionarPacienteFrame();
         adicionarPaciente.setVisible(true);
+
     }//GEN-LAST:event_button1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

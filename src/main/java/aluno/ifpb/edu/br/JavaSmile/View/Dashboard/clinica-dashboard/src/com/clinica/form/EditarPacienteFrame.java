@@ -233,7 +233,6 @@ public class EditarPacienteFrame extends javax.swing.JFrame {
         model.insertRow(rowIndex, pacienteAtualizado.toRowTable(eventAction));
 
 
-
         nomeField.setText("");
         contatoField.setText("");
         idadeField.setText("");

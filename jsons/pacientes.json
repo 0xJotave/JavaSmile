@@ -4,8 +4,23 @@
   "idade" : 29,
   "peso" : 80.0
 }, {
-  "nome" : "João",
-  "contato" : "joaov@gmail.com",
+  "nome" : "Manuela",
+  "contato" : "manuela@gmail.com",
+  "idade" : 16,
+  "peso" : 68.0
+}, {
+  "nome" : "BugBug",
+  "contato" : "bug@gmail.com",
   "idade" : 20,
   "peso" : 90.0
+}, {
+  "nome" : "Xerel",
+  "contato" : "xerel@gmail.com",
+  "idade" : 20,
+  "peso" : 90.0
+}, {
+  "nome" : "Leovam",
+  "contato" : "leovam@gmail.com",
+  "idade" : 55,
+  "peso" : 70.0
 } ]

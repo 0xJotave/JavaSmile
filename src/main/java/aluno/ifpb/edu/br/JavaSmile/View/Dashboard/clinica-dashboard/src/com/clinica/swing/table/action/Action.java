@@ -2,6 +2,7 @@ package com.clinica.swing.table.action;
 
 import aluno.ifpb.edu.br.JavaSmile.Controller.FormPacienteController;
 import aluno.ifpb.edu.br.JavaSmile.Model.Paciente;
+import com.clinica.form.AdicionarPacienteFrame;
 import com.clinica.form.EditarPacienteFrame;
 
 import static com.clinica.form.FormPaciente.table1;
@@ -20,12 +21,10 @@ import javax.swing.table.DefaultTableModel;
 
 public class Action extends javax.swing.JPanel {
     FormPacienteController controller = new FormPacienteController();
-    ModelAction data;
-
-
+    private String contatoNovoPaciente;
     public Action(ModelAction data) throws IOException {
-        this.data = data;
         EditarPacienteFrame editar = new EditarPacienteFrame();
+
         initComponents();
         cmdEdit.addActionListener(new ActionListener() {
             @Override
@@ -37,6 +36,11 @@ public class Action extends javax.swing.JPanel {
 
             @Override
             public void actionPerformed(ActionEvent ae) {
+                try {
+                    controller.carregarPacientes();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
                 int selectedRow = table1.getSelectedRow();
 
                 // Verifica se a célula está sendo editada e para a edição
@@ -45,12 +49,23 @@ public class Action extends javax.swing.JPanel {
                 }
 
                 // Verifica se a linha selecionada é válida
-                if (selectedRow >= -1 && selectedRow < table1.getRowCount()) {
+                if (selectedRow >= 0 && selectedRow < table1.getRowCount()) {
                     try {
                         ((DefaultTableModel) table1.getModel()).removeRow(selectedRow);
-                        data.getEvent().delete(data.getPaciente());
-
-                        System.out.println("deletou " + data.getPaciente().getNome());
+                        data.getPaciente().setContato(controller.getPacientes().get(selectedRow).getContato());
+                        contatoNovoPaciente = data.getPaciente().getContato();
+                        for (Paciente paciente : controller.getPacientes()) {
+                            if (paciente.getNome().equals(contatoNovoPaciente)) {
+                                data.setPaciente(paciente);
+                            }
+                        }
+                        if (data.getEvent() != null) {
+                            data.getEvent().delete(data.getPaciente());
+                            System.out.println("deletou " + contatoNovoPaciente);
+                        } else {
+                            System.err.println("EventAction não está configurado.");
+                        }
+                        System.out.println("deletou " + contatoNovoPaciente);
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
@@ -59,10 +74,6 @@ public class Action extends javax.swing.JPanel {
                 }
             }
         });
-    }
-
-    public void updatePaciente(Paciente paciente) {
-        this.data.setPaciente(paciente);  // Atualiza o paciente no `data`
     }
 
     @Override

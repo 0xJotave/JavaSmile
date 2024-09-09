@@ -8,14 +8,16 @@ import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
 import aluno.ifpb.edu.br.JavaSmile.Model.Paciente;
 import com.clinica.form.viewUtil.LimitaCaracteres;
 import com.clinica.swing.table.eventAction.EventAction;
+import lombok.Data;
 
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import java.io.IOException;
 import java.util.List;
 
+@Data
 public class AdicionarPacienteFrame extends javax.swing.JFrame {
-    
-    private PacienteCreatedListener onPacienteCreated;
+
     private FormPacienteController controller;
     private EventAction eventAction;
     
@@ -31,15 +33,6 @@ public class AdicionarPacienteFrame extends javax.swing.JFrame {
     }
        
 
-    public void setOnPacienteCreated(PacienteCreatedListener listener) {
-        this.onPacienteCreated = listener;
-    }
-
-    public interface PacienteCreatedListener {
-        void onCreated(Paciente paciente);
-    }
-
-    
     
     
     @SuppressWarnings("unchecked")
@@ -234,13 +227,14 @@ public class AdicionarPacienteFrame extends javax.swing.JFrame {
 //        JsonUtil.salvarDados(pacienteList, "pacientes.json");
 
         Paciente paciente = controller.criarPaciente(nome, contato, idade, peso);
+        DefaultTableModel model = (DefaultTableModel) table1.getModel();
+        model.fireTableDataChanged();
+        model.addRow(paciente.toRowTable(eventAction));
 
-        if (table1 != null) { 
-            table1.addRow(paciente.toRowTable(eventAction));
-        }
-        if (onPacienteCreated != null) {
-            onPacienteCreated.onCreated(paciente);
-        }
+        nomeField.setText("");
+        contatoField.setText("");
+        idadeField.setText("");
+        pesoField.setText("");
         JOptionPane.showMessageDialog(this, "Paciente salvo com sucesso!");
         dispose();
     }//GEN-LAST:event_salvarButtonActionPerformed
