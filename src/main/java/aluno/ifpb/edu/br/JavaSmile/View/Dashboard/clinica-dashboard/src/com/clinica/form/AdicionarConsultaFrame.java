@@ -1,23 +1,28 @@
 package com.clinica.form;
 
 import static com.clinica.form.FormConsultas.tableConsulta2;
+import static com.clinica.form.FormProcedimento.tableProcedimento2;
 
 import aluno.ifpb.edu.br.JavaSmile.Controller.AssistenteController;
+import aluno.ifpb.edu.br.JavaSmile.Controller.FormConsultaController;
 import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
 import aluno.ifpb.edu.br.JavaSmile.Model.Consulta;
 import aluno.ifpb.edu.br.JavaSmile.Model.Paciente;
 import aluno.ifpb.edu.br.JavaSmile.Model.Procedimento;
 import com.clinica.form.viewUtil.LimitaCaracteres;
 import com.clinica.swing.table.eventAction.EventActionConsulta;
+import com.clinica.swing.table.eventAction.EventActionProcedimento;
 
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class AdicionarConsultaFrame extends javax.swing.JFrame {
 
     private ConsultaCreatedListener onConsultaCreated;
+    private FormConsultaController controller;
     private EventActionConsulta eventActionConsulta;
     
     public AdicionarConsultaFrame() throws IOException {
@@ -26,6 +31,7 @@ public class AdicionarConsultaFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         preencherPacientesBox();
         preencherProcedimentoBox();
+        controller = new FormConsultaController();
         horarioField.setDocument(new LimitaCaracteres(5, LimitaCaracteres.TipoEntrada.HORARIO));
         dentistaField.setDocument(new LimitaCaracteres(20, LimitaCaracteres.TipoEntrada.NOME));
     }
@@ -240,26 +246,36 @@ public class AdicionarConsultaFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_horarioFieldActionPerformed
 
     private void salvarButtonActionPerformed(java.awt.event.ActionEvent evt) throws IOException {//GEN-FIRST:event_salvarButtonActionPerformed
-
-
         String dentista = dentistaField.getText();
         String horario = horarioField.getText();
 
-        AssistenteController assistenteController = new AssistenteController();
-        List<Consulta> consultasList = JsonUtil.carregarConsultas();
-
-        Consulta consulta = assistenteController.criarConsulta(pacienteBox.getSelectedItem().toString(), dentista,
+        Consulta consulta = controller.criarConsulta(pacienteBox.getSelectedItem().toString(), dentista,
                 procedimentoBox.getSelectedItem().toString(), horario);
 
-        consultasList.add(consulta);
-        JsonUtil.salvarDados(consultasList, "consultas.json");
+        DefaultTableModel model = (DefaultTableModel) tableConsulta2.getModel();
+        model.fireTableDataChanged();
 
-        if (tableConsulta2 != null) { 
-            tableConsulta2.addRow(consulta.toRowTable(eventActionConsulta));
-        }
-        if (onConsultaCreated != null) {
-            onConsultaCreated.onCreated(consulta);
-        }
+        // MUDANCA
+        EventActionConsulta newEventActionConsulta = new EventActionConsulta() {
+            @Override
+            public void delete(Consulta consulta) throws IOException {
+                controller.deletarConsulta(consulta);
+            }
+
+            @Override
+            public void update(Consulta consulta) {
+
+            }
+
+        };
+
+        model.addRow(consulta.toRowTable(newEventActionConsulta));
+
+        pacienteBox.setSelectedIndex(0);
+        procedimentoBox.setSelectedIndex(0);
+        dentistaField.setText("");
+        horarioField.setText("");
+
         JOptionPane.showMessageDialog(this, "Consulta salva com sucesso!");
         dispose();
     }//GEN-LAST:event_salvarButtonActionPerformed

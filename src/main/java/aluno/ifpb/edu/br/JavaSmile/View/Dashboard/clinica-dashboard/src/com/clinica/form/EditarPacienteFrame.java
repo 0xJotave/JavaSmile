@@ -2,20 +2,14 @@ package com.clinica.form;
 
 import static com.clinica.form.FormPaciente.table1;
 
-import aluno.ifpb.edu.br.JavaSmile.Controller.AssistenteController;
 import aluno.ifpb.edu.br.JavaSmile.Controller.FormPacienteController;
-import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
 import aluno.ifpb.edu.br.JavaSmile.Model.Paciente;
-import com.clinica.swing.table.action.Action;
 import com.clinica.swing.table.eventAction.EventAction;
-import com.clinica.swing.table.eventAction.PacienteUpdateListener;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import lombok.Data;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.io.IOException;
-import java.util.List;
 
 @Data
 public class EditarPacienteFrame extends javax.swing.JFrame {

@@ -1,8 +1,14 @@
 package com.clinica.swing.table.action;
 
+import aluno.ifpb.edu.br.JavaSmile.Controller.FormConsultaController;
+import aluno.ifpb.edu.br.JavaSmile.Controller.FormPacienteController;
+import aluno.ifpb.edu.br.JavaSmile.Model.Consulta;
+import aluno.ifpb.edu.br.JavaSmile.Model.Paciente;
 import com.clinica.form.EditarConsultaFrame;
 import com.clinica.form.FormConsultas;
 import static com.clinica.form.FormConsultas.tableConsulta2;
+import static com.clinica.form.FormPaciente.table1;
+
 import com.clinica.swing.table.modelAction.ModelActionConsulta;
 
 import javax.swing.*;
@@ -16,6 +22,9 @@ import java.io.IOException;
 //essa classe é usada pela TableConsulta para fornecer os botões de edição e deleção para cada consulta na tabela.
 public class ActionConsulta extends javax.swing.JPanel {
     //recebe o objeto ModelActionConsulta que tem os dados e eventos.
+    FormConsultaController controller = new FormConsultaController();
+    private String horarioNovoConsulta;
+
     public ActionConsulta(ModelActionConsulta data) throws IOException {
         EditarConsultaFrame editar = new EditarConsultaFrame();
         initComponents();
@@ -28,19 +37,42 @@ public class ActionConsulta extends javax.swing.JPanel {
         });
         cmdDelete.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent ae) {                
-                System.out.println("Clicou deletar");
+            public void actionPerformed(ActionEvent ae) {
+                try {
+                    controller.carregarConsultas();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
                 int selectedRow = tableConsulta2.getSelectedRow();
+
+                // Verifica se a célula está sendo editada e para a edição
+                if (tableConsulta2.getCellEditor() != null) {
+                    tableConsulta2.getCellEditor().stopCellEditing();
+                }
+
+                // Verifica se a linha selecionada é válida
                 if (selectedRow >= 0 && selectedRow < tableConsulta2.getRowCount()) {
                     try {
-                        data.getEvent().delete(data.getConsulta());
+                        ((DefaultTableModel) tableConsulta2.getModel()).removeRow(selectedRow);
+                        data.getConsulta().setHorario(controller.getConsultas().get(selectedRow).getHorario());
+                        horarioNovoConsulta = data.getConsulta().getHorario();
+                        for (Consulta consulta : controller.getConsultas()) {
+                            if (consulta.getHorario().equals(horarioNovoConsulta)) {
+                                data.setConsulta(consulta);
+                            }
+                        }
+                        if (data.getEvent() != null) {
+                            controller.deletarConsulta(data.getConsulta());
+                            System.out.println("Deletou " + horarioNovoConsulta);
+                        } else {
+                            System.err.println("EventAction não está configurado.");
+                        }
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
-                    ((DefaultTableModel) tableConsulta2.getModel()).removeRow(selectedRow);
                 } else {
                     JOptionPane.showMessageDialog(null, "Por favor, selecione uma linha válida para deletar.");
-                } //remove a linha selecionada na tabela e chama o evento de deletar na interface EvenActionConsulta.
+                }
             }
         });
     }

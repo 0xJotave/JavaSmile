@@ -1,8 +1,10 @@
 package com.clinica.form;
 
 import static com.clinica.form.FormConsultas.tableConsulta2;
+import static com.clinica.form.FormPaciente.table1;
 
 import aluno.ifpb.edu.br.JavaSmile.Controller.AssistenteController;
+import aluno.ifpb.edu.br.JavaSmile.Controller.FormConsultaController;
 import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
 import aluno.ifpb.edu.br.JavaSmile.Model.Consulta;
 import aluno.ifpb.edu.br.JavaSmile.Model.Paciente;
@@ -19,11 +21,13 @@ import javax.swing.table.DefaultTableModel;
 public class EditarConsultaFrame extends javax.swing.JFrame {
 
     private EventActionConsulta eventActionConsulta;
+    private FormConsultaController controller;
     
     public EditarConsultaFrame() throws IOException {
         initComponents();
         setLocationRelativeTo(null); 
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        controller = new FormConsultaController();
         preencherPacientesBox();
         preencherProcedimentoBox();
     }
@@ -232,24 +236,11 @@ public class EditarConsultaFrame extends javax.swing.JFrame {
         String dentistaNovo = dentistaField.getText();
         String horarioNovo = horarioField.getText();
         int rowIndex = tableConsulta2.getSelectedRow();
-        if (rowIndex == -1) {
-            JOptionPane.showMessageDialog(null, "Nenhuma consulta selecionada!");
-        }
 
-        AssistenteController assistenteController = new AssistenteController();
-        List<Consulta> consultaLista = JsonUtil.carregarConsultas();
+        controller.atualizarConsulta(rowIndex, pacienteBox.getSelectedItem().toString(),
+                procedimentoBox.getSelectedItem().toString(), dentistaNovo, horarioNovo);
+        Consulta consultaAtualizada = controller.getConsultas().get(rowIndex);
 
-        Consulta consultaAtual = consultaLista.get(rowIndex);
-        Consulta consultaAtualizada = assistenteController.criarConsulta(pacienteBox.getSelectedItem().toString(),
-                dentistaNovo, procedimentoBox.getSelectedItem().toString(),
-                horarioNovo);
-
-        try {
-            JsonUtil.atualizarDados(consultaAtual, consultaAtualizada);
-        } catch (JsonMappingException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Erro ao atualizar consulta!");
-        }
 
         DefaultTableModel model = (DefaultTableModel) tableConsulta2.getModel();
         model.removeRow(rowIndex);
@@ -260,7 +251,6 @@ public class EditarConsultaFrame extends javax.swing.JFrame {
         procedimentoBox.setSelectedIndex(0);
         JOptionPane.showMessageDialog(this, "Consulta editada com sucesso!");
         dispose();
-        JsonUtil.salvarDados(consultaLista, "consultas.json");
         
     }//GEN-LAST:event_salvarButtonActionPerformed
 

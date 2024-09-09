@@ -1,9 +1,12 @@
 package com.clinica.form;
 
+import static com.clinica.form.FormPaciente.table1;
 import static com.clinica.form.FormProcedimento.tableProcedimento2;
 
 import aluno.ifpb.edu.br.JavaSmile.Controller.AssistenteController;
+import aluno.ifpb.edu.br.JavaSmile.Controller.FormProcedimentoController;
 import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
+import aluno.ifpb.edu.br.JavaSmile.Model.Paciente;
 import aluno.ifpb.edu.br.JavaSmile.Model.Procedimento;
 import com.clinica.swing.table.eventAction.EventActionProcedimento;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -15,22 +18,16 @@ import java.util.List;
 
 public class EditarProcedimentoFrame extends javax.swing.JFrame {
     
-    private ProcedimentoCreatedListener onProcedimentoCreated;
+    private FormProcedimentoController controller;
      private EventActionProcedimento eventActionProcedimento;
     
     public EditarProcedimentoFrame() {
         initComponents();
         setLocationRelativeTo(null); 
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);         
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        controller = new FormProcedimentoController();
     }
 
-
-    public interface ProcedimentoCreatedListener {
-        void onCreated(Procedimento procedimento);
-    }
-
-    
-    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -186,29 +183,38 @@ public class EditarProcedimentoFrame extends javax.swing.JFrame {
         if (rowIndex == -1) {
             JOptionPane.showMessageDialog(null, "Nenhum procedimento selecionado!");
         }
+//
+//        AssistenteController assistenteController = new AssistenteController();
+//        List<Procedimento> procedimentoLista = JsonUtil.carregarProcedimentos();
+//
+//        Procedimento procedimentoAtual = procedimentoLista.get(rowIndex);
+//        Procedimento procedimentoAtualizado = assistenteController.criarProcedimento(tratamentoNovo,
+//                valorNovo);
+//
+//        try {
+//            JsonUtil.atualizarDados(procedimentoAtual, procedimentoAtualizado);
+//        } catch (JsonMappingException e) {
+//            e.printStackTrace();
+//            JOptionPane.showMessageDialog(null, "Erro ao atualizar procedimento!");
+//        }
+//
+//        DefaultTableModel model = (DefaultTableModel) tableProcedimento2.getModel();
+//        model.removeRow(rowIndex);
+//        model.insertRow(rowIndex, procedimentoAtualizado.toRowTable(eventActionProcedimento));
+//        tratamentoField.setText("");
+//        valorField.setText("");
 
-        AssistenteController assistenteController = new AssistenteController();
-        List<Procedimento> procedimentoLista = JsonUtil.carregarProcedimentos();
-
-        Procedimento procedimentoAtual = procedimentoLista.get(rowIndex);
-        Procedimento procedimentoAtualizado = assistenteController.criarProcedimento(tratamentoNovo,
-                valorNovo);
-
-        try {
-            JsonUtil.atualizarDados(procedimentoAtual, procedimentoAtualizado);
-        } catch (JsonMappingException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Erro ao atualizar procedimento!");
-        }
+        controller.atualizarProcedimento(rowIndex, tratamentoNovo, valorNovo);
+        Procedimento procedimentoAtualizado = controller.getProcedimentos().get(rowIndex);
 
         DefaultTableModel model = (DefaultTableModel) tableProcedimento2.getModel();
         model.removeRow(rowIndex);
         model.insertRow(rowIndex, procedimentoAtualizado.toRowTable(eventActionProcedimento));
+
         tratamentoField.setText("");
         valorField.setText("");
         JOptionPane.showMessageDialog(this, "Procedimento editado com sucesso!");
         dispose();
-        JsonUtil.salvarDados(procedimentoLista, "procedimentos.json");
 
 
     }//GEN-LAST:event_salvarButtonActionPerformed

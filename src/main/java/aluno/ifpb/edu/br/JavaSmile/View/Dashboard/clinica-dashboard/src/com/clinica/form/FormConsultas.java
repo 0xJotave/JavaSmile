@@ -3,8 +3,7 @@ package com.clinica.form;
 import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
 import aluno.ifpb.edu.br.JavaSmile.Model.Consulta;
 import com.clinica.dialog.Message;
-import com.clinica.main.HomeDash;
-import com.clinica.model.ModelConsulta;
+import com.clinica.home.HomeDash;
 import com.clinica.swing.table.eventAction.EventActionConsulta;
 
 import java.io.IOException;
@@ -38,7 +37,7 @@ public class FormConsultas extends javax.swing.JPanel {
            }
 
            @Override
-           public void update(ModelConsulta paciente) {
+           public void update(Consulta paciente) {
                 
            }
         };

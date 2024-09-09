@@ -1,18 +1,8 @@
 [ {
-  "nome" : "Lucas",
-  "contato" : "lucas@gmail.com",
-  "idade" : 29,
-  "peso" : 80.0
-}, {
   "nome" : "pedro",
   "contato" : "pedro@gmail.com",
   "idade" : 21,
   "peso" : 60.0
-}, {
-  "nome" : "asdf",
-  "contato" : "asdf@asdf.com",
-  "idade" : 23,
-  "peso" : 23.0
 }, {
   "nome" : "novo",
   "contato" : "novo@gmail.com",

@@ -1,4 +1,4 @@
-package com.clinica.main;
+package com.clinica.home;
 
 import com.clinica.component.Header;
 import com.clinica.component.Menu;

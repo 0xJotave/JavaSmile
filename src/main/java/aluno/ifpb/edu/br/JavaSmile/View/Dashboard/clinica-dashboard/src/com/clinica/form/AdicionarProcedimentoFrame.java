@@ -1,40 +1,35 @@
 package com.clinica.form;
 
+import static com.clinica.form.FormPaciente.table1;
 import static com.clinica.form.FormProcedimento.tableProcedimento2;
 
 import aluno.ifpb.edu.br.JavaSmile.Controller.AssistenteController;
+import aluno.ifpb.edu.br.JavaSmile.Controller.FormProcedimentoController;
 import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
+import aluno.ifpb.edu.br.JavaSmile.Model.Paciente;
 import aluno.ifpb.edu.br.JavaSmile.Model.Procedimento;
 import com.clinica.form.viewUtil.LimitaCaracteres;
+import com.clinica.swing.table.eventAction.EventAction;
 import com.clinica.swing.table.eventAction.EventActionProcedimento;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import java.io.IOException;
 import java.util.List;
 
 public class AdicionarProcedimentoFrame extends javax.swing.JFrame {
     
-    private ProcedimentoCreatedListener onProcedimentoCreated;
+    private FormProcedimentoController controller;
      private EventActionProcedimento eventActionProcedimento;
     
-    public AdicionarProcedimentoFrame() {
+    public AdicionarProcedimentoFrame() throws IOException {
         initComponents();
         setLocationRelativeTo(null); 
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        controller = new FormProcedimentoController();
         tratamentoField.setDocument(new LimitaCaracteres(20, LimitaCaracteres.TipoEntrada.NOME));
         valorField.setDocument(new LimitaCaracteres(5, LimitaCaracteres.TipoEntrada.NUMEROINTEIRO));
     }
-       
 
-    public void setOnProcedimentoCreated(ProcedimentoCreatedListener listener) {
-        this.onProcedimentoCreated = listener;
-    }
-
-    public interface ProcedimentoCreatedListener {
-        void onCreated(Procedimento procedimento);
-    }
-
-    
-    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -186,21 +181,44 @@ public class AdicionarProcedimentoFrame extends javax.swing.JFrame {
         String tratamento = tratamentoField.getText();
         double valor = Double.parseDouble(valorField.getText());
 
-        AssistenteController assistenteController = new AssistenteController();
-        List<Procedimento> procedimentoList = JsonUtil.carregarProcedimentos();
+//        AssistenteController assistenteController = new AssistenteController();
+//        List<Procedimento> procedimentoList = JsonUtil.carregarProcedimentos();
+//
+//        Procedimento procedimento = assistenteController.criarProcedimento(tratamento, valor);
+//
+//        procedimentoList.add(procedimento);
+//        JsonUtil.salvarDados(procedimentoList, "procedimentos.json");
+//
+//
+//        if (tableProcedimento2 != null) {
+//            tableProcedimento2.addRow(procedimento.toRowTable(eventActionProcedimento));
+//        }
+//        if (onProcedimentoCreated != null) {
+//            onProcedimentoCreated.onCreated(procedimento);
+//        }
+        Procedimento procedimento = controller.criarProcedimento(tratamento, valor);
 
-        Procedimento procedimento = assistenteController.criarProcedimento(tratamento, valor);
+        DefaultTableModel model = (DefaultTableModel) tableProcedimento2.getModel();
+        model.fireTableDataChanged();
 
-        procedimentoList.add(procedimento);
-        JsonUtil.salvarDados(procedimentoList, "procedimentos.json");
-        
-        
-        if (tableProcedimento2 != null) { 
-            tableProcedimento2.addRow(procedimento.toRowTable(eventActionProcedimento));
-        }
-        if (onProcedimentoCreated != null) {
-            onProcedimentoCreated.onCreated(procedimento);
-        }
+        // MUDANCA
+        EventActionProcedimento newEventActionProcedimento = new EventActionProcedimento() {
+            @Override
+            public void delete(Procedimento procedimento) throws IOException {
+                controller.deletarProcedimento(procedimento);
+            }
+
+            @Override
+            public void update(Procedimento procedimento) {
+
+            }
+
+        };
+
+        model.addRow(procedimento.toRowTable(newEventActionProcedimento));
+
+        tratamentoField.setText("");
+        valorField.setText("");
         JOptionPane.showMessageDialog(this, "Procedimento salvo com sucesso!");
         dispose();
     }//GEN-LAST:event_salvarButtonActionPerformed

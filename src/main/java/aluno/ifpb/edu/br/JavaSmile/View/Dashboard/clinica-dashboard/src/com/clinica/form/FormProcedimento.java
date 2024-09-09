@@ -3,8 +3,7 @@ package com.clinica.form;
 import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
 import aluno.ifpb.edu.br.JavaSmile.Model.Procedimento;
 import com.clinica.dialog.Message;
-import com.clinica.main.HomeDash;
-import com.clinica.model.ModelProcedimento;
+import com.clinica.home.HomeDash;
 import com.clinica.swing.table.eventAction.EventActionProcedimento;
 
 import java.io.IOException;
@@ -35,7 +34,7 @@ public class FormProcedimento extends javax.swing.JPanel {
 
             }
            @Override
-           public void update(ModelProcedimento procedimento) {
+           public void update(Procedimento procedimento) {
                 
             }
         };
@@ -76,7 +75,11 @@ public class FormProcedimento extends javax.swing.JPanel {
         button1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/icon/adicionar.png"))); // NOI18N
         button1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button1ActionPerformed(evt);
+                try {
+                    button1ActionPerformed(evt);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
 
@@ -141,7 +144,7 @@ public class FormProcedimento extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) throws IOException {//GEN-FIRST:event_button1ActionPerformed
         AdicionarProcedimentoFrame adicionarProcedimento = new AdicionarProcedimentoFrame();
         adicionarProcedimento.setVisible(true);
     }//GEN-LAST:event_button1ActionPerformed

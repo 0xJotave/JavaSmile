@@ -1,8 +1,14 @@
 package com.clinica.swing.table.action;
 
+import aluno.ifpb.edu.br.JavaSmile.Controller.FormPacienteController;
+import aluno.ifpb.edu.br.JavaSmile.Controller.FormProcedimentoController;
+import aluno.ifpb.edu.br.JavaSmile.Model.Paciente;
+import aluno.ifpb.edu.br.JavaSmile.Model.Procedimento;
 import com.clinica.form.EditarProcedimentoFrame;
 import static com.clinica.form.FormConsultas.tableConsulta2;
 import com.clinica.form.FormProcedimento;
+
+import static com.clinica.form.FormPaciente.table1;
 import static com.clinica.form.FormProcedimento.tableProcedimento2;
 import com.clinica.swing.table.modelAction.ModelActionProcedimento;
 
@@ -17,7 +23,9 @@ import javax.swing.table.DefaultTableModel;
 
 public class ActionProcedimento extends javax.swing.JPanel {
 
-    
+    FormProcedimentoController controller = new FormProcedimentoController();
+    private String tratamentoNovoProcedimento;
+
     public ActionProcedimento(ModelActionProcedimento data) {
         
         EditarProcedimentoFrame editar = new EditarProcedimentoFrame();
@@ -26,34 +34,49 @@ public class ActionProcedimento extends javax.swing.JPanel {
         cmdEdit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                //data.getEvent().update(data.getProcedimento());
                 editar.setVisible(true);
             }
         });
         cmdDelete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
+                try {
+                    controller.carregarProcedimentos();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
                 int selectedRow = tableProcedimento2.getSelectedRow();
+
+                // Verifica se a célula está sendo editada e para a edição
+                if (tableProcedimento2.getCellEditor() != null) {
+                    tableProcedimento2.getCellEditor().stopCellEditing();
+                }
+
+                // Verifica se a linha selecionada é válida
                 if (selectedRow >= 0 && selectedRow < tableProcedimento2.getRowCount()) {
                     try {
-                        data.getEvent().delete(data.getProcedimento());
+                        ((DefaultTableModel) tableProcedimento2.getModel()).removeRow(selectedRow);
+                        data.getProcedimento().setTratamento(controller.getProcedimentos().get(selectedRow).getTratamento());
+                        tratamentoNovoProcedimento = data.getProcedimento().getTratamento();
+                        for (Procedimento procedimento : controller.getProcedimentos()) {
+                            if (procedimento.getTratamento().equals(tratamentoNovoProcedimento)) {
+                                data.setProcedimento(procedimento);
+                            }
+                        }
+                        if (data.getEvent() != null) {
+                            controller.deletarProcedimento(data.getProcedimento());
+                            System.out.println("Deletou " + tratamentoNovoProcedimento);
+                        } else {
+                            System.err.println("EventAction não está configurado.");
+                        }
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
-                    ((DefaultTableModel) tableProcedimento2.getModel()).removeRow(selectedRow);
                 } else {
                     JOptionPane.showMessageDialog(null, "Por favor, selecione uma linha válida para deletar.");
                 }
             }
         });
-    }
-    
-    private void removeSelectedRow(){
-        DefaultTableModel model = (DefaultTableModel) FormProcedimento.tableProcedimento2.getModel();
-        int[] selectedRows = FormProcedimento.tableProcedimento2.getSelectedRows();
-        for (int i = selectedRows.length - 1; i >= 0; i--) {
-            model.removeRow(selectedRows[i]);
-        }
     }
     
     @Override

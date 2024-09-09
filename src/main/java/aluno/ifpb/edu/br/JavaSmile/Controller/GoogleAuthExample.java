@@ -1,6 +1,6 @@
 package aluno.ifpb.edu.br.JavaSmile.Controller;
 
-import com.clinica.main.HomeDash;
+import com.clinica.home.HomeDash;
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
 import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;

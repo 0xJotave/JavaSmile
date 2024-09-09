@@ -1,17 +1,12 @@
 package com.clinica.form;
 
 import aluno.ifpb.edu.br.JavaSmile.Controller.FormPacienteController;
-import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
 import aluno.ifpb.edu.br.JavaSmile.Model.Paciente;
 import com.clinica.dialog.Message;
-import com.clinica.main.HomeDash;
-import com.clinica.model.ModelPaciente;
+import com.clinica.home.HomeDash;
 import com.clinica.swing.table.eventAction.EventAction;
 
-import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import java.io.IOException;
-import java.util.List;
 
 public class FormPaciente extends javax.swing.JPanel {
 
@@ -34,7 +29,7 @@ public class FormPaciente extends javax.swing.JPanel {
         EventAction eventAction = new EventAction() {
            @Override
            public void delete(Paciente paciente) throws IOException {
-               controller.deletarPaciente(paciente);
+
            }
 
             @Override

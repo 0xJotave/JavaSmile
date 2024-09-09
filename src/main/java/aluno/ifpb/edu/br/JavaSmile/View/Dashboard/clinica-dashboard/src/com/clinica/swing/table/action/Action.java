@@ -60,8 +60,8 @@ public class Action extends javax.swing.JPanel {
                             }
                         }
                         if (data.getEvent() != null) {
-                            data.getEvent().delete(data.getPaciente());
-                            System.out.println("deletou " + contatoNovoPaciente);
+                            controller.deletarPaciente(data.getPaciente());
+                            System.out.println("Deletou " + contatoNovoPaciente);
                         } else {
                             System.err.println("EventAction não está configurado.");
                         }

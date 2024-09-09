@@ -3,7 +3,7 @@ package login;
 import aluno.ifpb.edu.br.JavaSmile.Controller.GoogleAuthExample;
 import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
 import aluno.ifpb.edu.br.JavaSmile.Model.Assistente;
-import com.clinica.main.HomeDash;
+import com.clinica.home.HomeDash;
 import lombok.Data;
 import swing.EventLogin;
 import javax.swing.*;
