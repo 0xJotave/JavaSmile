@@ -1,25 +1,23 @@
 package com.clinica.dialog;
 
-
 import java.awt.Color;
 import javax.swing.ImageIcon;
+import lombok.Data;
 import org.jdesktop.animation.timing.Animator;
 import org.jdesktop.animation.timing.TimingTarget;
 import org.jdesktop.animation.timing.TimingTargetAdapter;
 
+@Data
 public class Message extends javax.swing.JDialog {
-
-    public boolean isOk() {
-        return ok;
-    }
-
-    public void setOk(boolean ok) {
-        this.ok = ok;
-    }
 
     private boolean ok;
     private final Animator animator;
     private boolean show = true;
+    private com.clinica.swing.Button button1;
+    private com.clinica.swing.Button button2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lbIcon;
+    private javax.swing.JLabel lbMessage;
 
     public Message(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -145,12 +143,12 @@ public class Message extends javax.swing.JDialog {
     
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
         closeMenu();
-    }//GEN-LAST:event_button2ActionPerformed
+    }
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         ok = true;
         closeMenu();
-    }//GEN-LAST:event_button1ActionPerformed
+    }
 
     private void closeMenu() {
         if (animator.isRunning()) {
@@ -159,12 +157,4 @@ public class Message extends javax.swing.JDialog {
         show = false;
         animator.start();
     }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.clinica.swing.Button button1;
-    private com.clinica.swing.Button button2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lbIcon;
-    private javax.swing.JLabel lbMessage;
-    // End of variables declaration//GEN-END:variables
 }

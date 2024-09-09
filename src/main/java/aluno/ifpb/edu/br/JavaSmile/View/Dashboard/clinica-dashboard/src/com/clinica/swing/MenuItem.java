@@ -3,49 +3,19 @@ package com.clinica.swing;
 import com.clinica.event.EventMenu;
 import com.clinica.event.EventMenuSelected;
 import com.clinica.model.ModelMenu;
-import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
+import lombok.Data;
 import net.miginfocom.swing.MigLayout;
 
+@Data
 public class MenuItem extends javax.swing.JPanel {
-
-    public ModelMenu getMenu() {
-        return menu;
-    }
-    
-    public void setAlpha(float alpha) {
-        this.alpha = alpha;
-    }
-
-    public boolean isOpen() {
-        return open;
-    }
-
-    public void setOpen(boolean open) {
-        this.open = open;
-    }
-
-    public EventMenuSelected getEventSelected() {
-        return eventSelected;
-    }
-
-    public void setEventSelected(EventMenuSelected eventSelected) {
-        this.eventSelected = eventSelected;
-    }
-
-    public int getIndex() {
-        return index;
-    }
-
-
-    private float alpha;    
+    private float alpha;
     private ModelMenu menu;
     private boolean open;
     private EventMenuSelected eventSelected;

@@ -1,1 +1,6 @@
-[ ]
+[ {
+  "paciente" : "Lucas",
+  "procedimento" : "Dr André",
+  "dentista" : "Manutenção",
+  "horario" : "08:00"
+} ]

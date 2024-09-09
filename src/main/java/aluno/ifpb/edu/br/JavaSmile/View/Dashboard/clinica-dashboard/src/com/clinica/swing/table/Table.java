@@ -1,13 +1,11 @@
 package com.clinica.swing.table;
 
-import com.clinica.form.FormPaciente;
 import com.clinica.swing.scrollbar.ScrollBarCustom;
 import com.clinica.swing.table.action.Action;
 import com.clinica.swing.table.modelAction.ModelAction;
 import com.clinica.swing.table.modelProfile.ModelProfile;
 import com.clinica.swing.table.profile.Profile;
 import com.clinica.swing.table.tableCellAction.TableCellAction;
-
 import java.awt.Color;
 import java.awt.Component;
 import java.io.IOException;
@@ -21,8 +19,6 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellEditor;
 
 public class Table extends JTable {
-        
-    
     public Table() {
         setShowHorizontalLines(true);
         setGridColor(new Color(230, 230, 230));
@@ -80,8 +76,6 @@ public class Table extends JTable {
         });
     }
     
-    
-    
     @Override
     public TableCellEditor getCellEditor(int row, int col) {
         if (col > 0) {
@@ -103,10 +97,5 @@ public class Table extends JTable {
         p.setBackground(Color.WHITE);
         scroll.setCorner(JScrollPane.UPPER_RIGHT_CORNER, p);
         scroll.setBorder(new EmptyBorder(5, 10, 5, 10));
-    }
-
-    public void clearTable() {
-        DefaultTableModel model = (DefaultTableModel) getModel();
-        model.setRowCount(0); // Remove todas as linhas do modelo
     }
 }

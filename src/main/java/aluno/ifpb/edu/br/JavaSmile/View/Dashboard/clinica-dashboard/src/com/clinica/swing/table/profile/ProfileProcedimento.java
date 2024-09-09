@@ -4,8 +4,8 @@ import com.clinica.swing.table.modelProfile.ModelProfileProcedimento;
 
 
 public class ProfileProcedimento extends javax.swing.JPanel {
+    private javax.swing.JLabel IbName;
 
-    
     public ProfileProcedimento(ModelProfileProcedimento data) {
         initComponents();
         IbName.setText(data.getTratamento());
@@ -40,7 +40,4 @@ public class ProfileProcedimento extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel IbName;
-    // End of variables declaration//GEN-END:variables
 }

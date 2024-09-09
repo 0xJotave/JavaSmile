@@ -13,14 +13,19 @@ import java.util.List;
 
 @Data
 public class Login extends login.PanelCustom {
-
+    private swing.Button button1;
+    private javax.swing.JButton button2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private swing.Password password1;
+    private swing.TextField textField3;
+    private login.JCheckBoxCustom jCheckBoxCustom2;
     private EventLogin event;
     
     public Login() {
         initComponents();
         setAlpha(1);
     }
-    
     public void setEventLogin(EventLogin event) {
         this.event = event;
     }
@@ -146,20 +151,17 @@ public class Login extends login.PanelCustom {
     }
 
     private void textField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textField3ActionPerformed
+    }
 
     private void password1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_password1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_password1ActionPerformed
+
+    }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }
 
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         GoogleAuthExample googleAuth = new GoogleAuthExample(event);
@@ -197,16 +199,5 @@ public class Login extends login.PanelCustom {
             JOptionPane.showMessageDialog(this, "Nenhum Assistente encontrado ou erro " +
                     "nos Dados!");
         }
-    }//GEN-LAST:event_button1ActionPerformed
-
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private swing.Button button1;
-    private javax.swing.JButton button2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private swing.Password password1;
-    private swing.TextField textField3;
-    private login.JCheckBoxCustom jCheckBoxCustom2;
-    // End of variables declaration//GEN-END:variables
+    }
 }

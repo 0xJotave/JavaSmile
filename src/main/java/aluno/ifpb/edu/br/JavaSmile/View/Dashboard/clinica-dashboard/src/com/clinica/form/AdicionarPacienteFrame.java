@@ -2,22 +2,30 @@ package com.clinica.form;
 
 import static com.clinica.form.FormPaciente.table1;
 
-import aluno.ifpb.edu.br.JavaSmile.Controller.AssistenteController;
 import aluno.ifpb.edu.br.JavaSmile.Controller.FormPacienteController;
-import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
 import aluno.ifpb.edu.br.JavaSmile.Model.Paciente;
 import com.clinica.form.viewUtil.LimitaCaracteres;
 import com.clinica.swing.table.eventAction.EventAction;
 import lombok.Data;
-
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.io.IOException;
-import java.util.List;
 
 @Data
 public class AdicionarPacienteFrame extends javax.swing.JFrame {
-
+    private com.clinica.swing.Button button1;
+    private com.clinica.swing.Button button2;
+    private javax.swing.JTextField contatoField;
+    private javax.swing.JLabel contatoLabel;
+    private javax.swing.JTextField idadeField;
+    private javax.swing.JLabel idadeLabel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField nomeField;
+    private javax.swing.JLabel nomeLabel;
+    private javax.swing.JTextField pesoField;
+    private javax.swing.JLabel pesoLabel;
+    private com.clinica.swing.Button salvarButton;
     private FormPacienteController controller;
     private EventAction eventAction;
     
@@ -31,9 +39,7 @@ public class AdicionarPacienteFrame extends javax.swing.JFrame {
         idadeField.setDocument(new LimitaCaracteres(3, LimitaCaracteres.TipoEntrada.NUMEROINTEIRO));
         pesoField.setDocument(new LimitaCaracteres(3, LimitaCaracteres.TipoEntrada.NUMEROINTEIRO));
     }
-       
 
-    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -205,12 +211,10 @@ public class AdicionarPacienteFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void idadeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idadeFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_idadeFieldActionPerformed
+    }
 
     private void pesoFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesoFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pesoFieldActionPerformed
+    }
 
     private void salvarButtonActionPerformed(java.awt.event.ActionEvent evt) throws IOException {//GEN-FIRST:event_salvarButtonActionPerformed
         String nome = nomeField.getText();
@@ -218,19 +222,10 @@ public class AdicionarPacienteFrame extends javax.swing.JFrame {
         int idade = Integer.parseInt(idadeField.getText());
         double peso = Double.parseDouble(pesoField.getText());
 
-//        AssistenteController assistenteController = new AssistenteController();
-//        List<Paciente> pacienteList = JsonUtil.carregarPacientes();
-//
-//        Paciente paciente = assistenteController.criarPaciente(nome, contato, idade, peso);
-//
-//        pacienteList.add(paciente);
-//        JsonUtil.salvarDados(pacienteList, "pacientes.json");
-
         Paciente paciente = controller.criarPaciente(nome, contato, idade, peso);
         DefaultTableModel model = (DefaultTableModel) table1.getModel();
         model.fireTableDataChanged();
 
-        // MUDANCA
         EventAction newEventAction = new EventAction() {
             @Override
             public void delete(Paciente paciente) throws IOException {
@@ -256,21 +251,5 @@ public class AdicionarPacienteFrame extends javax.swing.JFrame {
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         dispose();
-    }//GEN-LAST:event_button1ActionPerformed
-       
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.clinica.swing.Button button1;
-    private com.clinica.swing.Button button2;
-    private javax.swing.JTextField contatoField;
-    private javax.swing.JLabel contatoLabel;
-    private javax.swing.JTextField idadeField;
-    private javax.swing.JLabel idadeLabel;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField nomeField;
-    private javax.swing.JLabel nomeLabel;
-    private javax.swing.JTextField pesoField;
-    private javax.swing.JLabel pesoLabel;
-    private com.clinica.swing.Button salvarButton;
-    // End of variables declaration//GEN-END:variables
+    }
 }

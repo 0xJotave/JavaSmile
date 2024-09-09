@@ -13,10 +13,19 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import javax.swing.ImageIcon;
+
+import lombok.Data;
 import net.miginfocom.swing.MigLayout;
 
-
+@Data
 public class Menu extends javax.swing.JPanel {
+    private javax.swing.JPanel panel;
+    private com.clinica.component.Profile profile1;
+    private javax.swing.JScrollPane sp;
+    private final MigLayout layout;
+    private EventMenuSelected event;
+    private boolean enableMenu = true;
+    private boolean showMenu = true;
 
     public boolean isShowMenu() {
         return showMenu;
@@ -24,20 +33,6 @@ public class Menu extends javax.swing.JPanel {
     public void addEvent(EventMenuSelected event) {
         this.event = event;
     }
-
-    public void setEnableMenu(boolean enableMenu) {
-        this.enableMenu = enableMenu;
-    }
-
-    public void setShowMenu(boolean showMenu) {
-        this.showMenu = showMenu;
-    }    
-
-    private final MigLayout layout;
-    private EventMenuSelected event;
-    private boolean enableMenu = true;
-    private boolean showMenu = true;
-    
     
     public Menu() {
         initComponents();
@@ -146,10 +141,4 @@ public class Menu extends javax.swing.JPanel {
         g2.fillRect(0, 0, getWidth(), getHeight());
         super.paintComponent(grphcs);
     }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel panel;
-    private com.clinica.component.Profile profile1;
-    private javax.swing.JScrollPane sp;
-    // End of variables declaration//GEN-END:variables
 }

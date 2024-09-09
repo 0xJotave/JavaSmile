@@ -2,7 +2,6 @@ package aluno.ifpb.edu.br.JavaSmile.Controller;
 
 import aluno.ifpb.edu.br.JavaSmile.Model.*;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -67,7 +66,4 @@ public class JsonUtil {
                 new TypeReference<List<Consulta>>() {});
     }
 
-    public static void atualizarDados(Object objeto, Object objetoNovo) throws JsonMappingException {
-        objectMapper.updateValue(objeto, objetoNovo);
-    }
 }

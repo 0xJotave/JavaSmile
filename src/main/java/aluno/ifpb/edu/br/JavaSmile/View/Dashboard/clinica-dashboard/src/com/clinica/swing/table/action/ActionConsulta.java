@@ -22,6 +22,8 @@ import java.io.IOException;
 //essa classe é usada pela TableConsulta para fornecer os botões de edição e deleção para cada consulta na tabela.
 public class ActionConsulta extends javax.swing.JPanel {
     //recebe o objeto ModelActionConsulta que tem os dados e eventos.
+    private com.clinica.swing.Button cmdDelete;
+    private com.clinica.swing.Button cmdEdit;
     FormConsultaController controller = new FormConsultaController();
     private String horarioNovoConsulta;
 
@@ -124,11 +126,6 @@ public class ActionConsulta extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdDeleteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmdDeleteActionPerformed
+    }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.clinica.swing.Button cmdDelete;
-    private com.clinica.swing.Button cmdEdit;
-    // End of variables declaration//GEN-END:variables
 }

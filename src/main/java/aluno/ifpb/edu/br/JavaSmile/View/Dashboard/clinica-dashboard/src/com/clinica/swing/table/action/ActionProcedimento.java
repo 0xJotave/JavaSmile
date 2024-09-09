@@ -22,7 +22,8 @@ import javax.swing.table.DefaultTableModel;
 
 
 public class ActionProcedimento extends javax.swing.JPanel {
-
+    private com.clinica.swing.Button cmdDelete;
+    private com.clinica.swing.Button cmdEdit;
     FormProcedimentoController controller = new FormProcedimentoController();
     private String tratamentoNovoProcedimento;
 
@@ -119,8 +120,4 @@ public class ActionProcedimento extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.clinica.swing.Button cmdDelete;
-    private com.clinica.swing.Button cmdEdit;
-    // End of variables declaration//GEN-END:variables
 }

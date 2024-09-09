@@ -1,25 +1,33 @@
 package com.clinica.form;
 
 import static com.clinica.form.FormConsultas.tableConsulta2;
-import static com.clinica.form.FormPaciente.table1;
 
-import aluno.ifpb.edu.br.JavaSmile.Controller.AssistenteController;
 import aluno.ifpb.edu.br.JavaSmile.Controller.FormConsultaController;
 import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
 import aluno.ifpb.edu.br.JavaSmile.Model.Consulta;
 import aluno.ifpb.edu.br.JavaSmile.Model.Paciente;
 import aluno.ifpb.edu.br.JavaSmile.Model.Procedimento;
 import com.clinica.swing.table.eventAction.EventActionConsulta;
-import com.fasterxml.jackson.databind.JsonMappingException;
 
 import java.awt.event.ActionEvent;
 import java.io.IOException;
-import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class EditarConsultaFrame extends javax.swing.JFrame {
-
+    private com.clinica.swing.Button button1;
+    private com.clinica.swing.Button button2;
+    private javax.swing.JTextField dentistaField;
+    private javax.swing.JLabel dentistaLabel;
+    private javax.swing.JTextField horarioField;
+    private javax.swing.JLabel horarioLabel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JComboBox<String> pacienteBox;
+    private javax.swing.JLabel pacienteLabel;
+    private javax.swing.JComboBox<String> procedimentoBox;
+    private javax.swing.JLabel procedimentoLabel;
+    private com.clinica.swing.Button salvarButton;
     private EventActionConsulta eventActionConsulta;
     private FormConsultaController controller;
     
@@ -252,25 +260,9 @@ public class EditarConsultaFrame extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Consulta editada com sucesso!");
         dispose();
         
-    }//GEN-LAST:event_salvarButtonActionPerformed
+    }
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         dispose();
-    }//GEN-LAST:event_button1ActionPerformed
-       
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.clinica.swing.Button button1;
-    private com.clinica.swing.Button button2;
-    private javax.swing.JTextField dentistaField;
-    private javax.swing.JLabel dentistaLabel;
-    private javax.swing.JTextField horarioField;
-    private javax.swing.JLabel horarioLabel;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JComboBox<String> pacienteBox;
-    private javax.swing.JLabel pacienteLabel;
-    private javax.swing.JComboBox<String> procedimentoBox;
-    private javax.swing.JLabel procedimentoLabel;
-    private com.clinica.swing.Button salvarButton;
-    // End of variables declaration//GEN-END:variables
+    }
 }

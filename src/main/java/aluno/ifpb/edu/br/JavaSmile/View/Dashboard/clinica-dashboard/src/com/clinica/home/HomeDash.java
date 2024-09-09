@@ -11,7 +11,6 @@ import com.clinica.form.MainForm;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-
 import main.Main;
 import net.miginfocom.swing.MigLayout;
 import org.jdesktop.animation.timing.Animator;
@@ -26,6 +25,7 @@ public class HomeDash extends javax.swing.JFrame {
     private Header header;
     private MainForm main;
     private Animator animator;
+    private javax.swing.JLayeredPane bg;
     
     public HomeDash() {
         initComponents();
@@ -163,10 +163,4 @@ public class HomeDash extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    
-
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLayeredPane bg;
-    // End of variables declaration//GEN-END:variables
 }

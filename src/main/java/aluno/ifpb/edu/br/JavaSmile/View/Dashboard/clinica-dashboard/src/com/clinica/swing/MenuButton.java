@@ -11,21 +11,13 @@ import java.awt.event.MouseEvent;
 import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.border.EmptyBorder;
+import lombok.Data;
 import org.jdesktop.animation.timing.Animator;
 import org.jdesktop.animation.timing.TimingTarget;
 import org.jdesktop.animation.timing.TimingTargetAdapter;
 
-
+@Data
 public class MenuButton extends JButton {
-    
-    public int getIndex() {
-        return index;
-    }
-    
-    public void setIndex(int index) {
-        this.index = index;
-    }
-    
     private int index;
     private Animator animator;
     private int targetSize;
@@ -93,11 +85,5 @@ public class MenuButton extends JButton {
         g2.setComposite(AlphaComposite.SrcOver);
         super.paintComponent(grphcs);
     }
-    
-    
-    
-    
-    
-    
     
 }

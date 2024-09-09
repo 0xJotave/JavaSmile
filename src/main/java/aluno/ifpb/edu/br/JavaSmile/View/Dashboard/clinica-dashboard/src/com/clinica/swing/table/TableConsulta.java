@@ -6,7 +6,6 @@ import com.clinica.swing.table.modelAction.ModelActionConsulta;
 import com.clinica.swing.table.modelProfile.ModelProfileConsulta;
 import com.clinica.swing.table.profile.ProfileConsulta;
 import com.clinica.swing.table.tableCellAction.TableCellActionConsulta;
-
 import java.awt.Color;
 import java.awt.Component;
 import java.io.IOException;
@@ -18,7 +17,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellEditor;
-//essa classe exibe os dados de ModelConsulta e ações relacionadas as consultas tipo editar e deletar.
+// Essa classe exibe os dados de ModelConsulta e ações relacionadas as consultas
+// tipo editar e deletar.
 // Define como os dados são renderizados e manipulados na interface.
 public class TableConsulta extends JTable {
 
@@ -41,7 +41,7 @@ public class TableConsulta extends JTable {
             @Override
             public Component getTableCellRendererComponent(JTable jtable, Object o, boolean selected, boolean focus, int i, int i1) {
                 if (o instanceof ModelProfileConsulta) {
-                    //exibe dados do perfil de contula(nome, dentista, etc).
+                    // Exibe dados do perfil de contula(nome, dentista, etc).
                     ModelProfileConsulta data = (ModelProfileConsulta) o;
                     //painel customizado <no design coloquei so "NAME" aí pode ate ver que fica como
                     //se fosse um panel por cima da tabela e nele fica o nome.

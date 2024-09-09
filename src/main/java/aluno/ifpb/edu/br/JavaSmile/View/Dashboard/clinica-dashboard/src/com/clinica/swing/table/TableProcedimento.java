@@ -6,7 +6,6 @@ import com.clinica.swing.table.modelAction.ModelActionProcedimento;
 import com.clinica.swing.table.modelProfile.ModelProfileProcedimento;
 import com.clinica.swing.table.profile.ProfileProcedimento;
 import com.clinica.swing.table.tableCellAction.TableCellActionProcedimento;
-
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JLabel;

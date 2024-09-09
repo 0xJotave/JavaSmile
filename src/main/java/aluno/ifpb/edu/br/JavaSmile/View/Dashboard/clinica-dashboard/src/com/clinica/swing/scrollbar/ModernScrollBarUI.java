@@ -5,19 +5,14 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.RenderingHints;
-import static java.awt.SystemColor.scrollbar;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JScrollBar;
-import javax.swing.border.Border;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 
 public class ModernScrollBarUI extends BasicScrollBarUI {
-    
-    
     private final int THUMB_SIZE = 80;
-
     
     @Override
     protected Dimension getMaximumThumbSize() {

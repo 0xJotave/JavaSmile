@@ -5,7 +5,6 @@ package aluno.ifpb.edu.br.JavaSmile.Model;
 * Utilizado para criar as consultas.
 */
 
-
 import com.clinica.swing.table.eventAction.EventAction;
 import com.clinica.swing.table.modelAction.ModelAction;
 import com.clinica.swing.table.modelProfile.ModelProfile;
@@ -13,7 +12,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.io.Serializable;
 
 @Data

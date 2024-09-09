@@ -2,10 +2,9 @@ package com.clinica.component;
 
 import java.awt.event.ActionListener;
 
-
 public class Header extends javax.swing.JPanel {
+    private com.clinica.swing.Button cmdMenu;
 
-    
     public Header() {
         initComponents();
     }
@@ -49,11 +48,8 @@ public class Header extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdMenuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmdMenuActionPerformed
+
+    }
 
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.clinica.swing.Button cmdMenu;
-    // End of variables declaration//GEN-END:variables
 }

@@ -2,7 +2,6 @@ package com.clinica.swing.table.tableCellAction;
 
 import com.clinica.swing.table.action.ActionConsulta;
 import com.clinica.swing.table.modelAction.ModelActionConsulta;
-
 import java.awt.Color;
 import java.awt.Component;
 import java.io.IOException;

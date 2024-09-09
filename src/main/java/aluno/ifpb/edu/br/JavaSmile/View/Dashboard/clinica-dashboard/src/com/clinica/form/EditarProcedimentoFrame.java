@@ -1,23 +1,25 @@
 package com.clinica.form;
 
-import static com.clinica.form.FormPaciente.table1;
 import static com.clinica.form.FormProcedimento.tableProcedimento2;
 
-import aluno.ifpb.edu.br.JavaSmile.Controller.AssistenteController;
 import aluno.ifpb.edu.br.JavaSmile.Controller.FormProcedimentoController;
-import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
-import aluno.ifpb.edu.br.JavaSmile.Model.Paciente;
 import aluno.ifpb.edu.br.JavaSmile.Model.Procedimento;
 import com.clinica.swing.table.eventAction.EventActionProcedimento;
-import com.fasterxml.jackson.databind.JsonMappingException;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.io.IOException;
-import java.util.List;
 
 public class EditarProcedimentoFrame extends javax.swing.JFrame {
-    
+    private com.clinica.swing.Button button1;
+    private com.clinica.swing.Button button2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private com.clinica.swing.Button salvarButton;
+    private javax.swing.JTextField tratamentoField;
+    private javax.swing.JLabel tratamentoLabel;
+    private javax.swing.JTextField valorField;
+    private javax.swing.JLabel valorLabel;
     private FormProcedimentoController controller;
      private EventActionProcedimento eventActionProcedimento;
     
@@ -168,12 +170,10 @@ public class EditarProcedimentoFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tratamentoFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tratamentoFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tratamentoFieldActionPerformed
+    }
 
     private void valorFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valorFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_valorFieldActionPerformed
+    }
 
     private void salvarButtonActionPerformed(java.awt.event.ActionEvent evt) throws IOException {//GEN-FIRST:event_salvarButtonActionPerformed
         String tratamentoNovo = tratamentoField.getText();
@@ -183,26 +183,6 @@ public class EditarProcedimentoFrame extends javax.swing.JFrame {
         if (rowIndex == -1) {
             JOptionPane.showMessageDialog(null, "Nenhum procedimento selecionado!");
         }
-//
-//        AssistenteController assistenteController = new AssistenteController();
-//        List<Procedimento> procedimentoLista = JsonUtil.carregarProcedimentos();
-//
-//        Procedimento procedimentoAtual = procedimentoLista.get(rowIndex);
-//        Procedimento procedimentoAtualizado = assistenteController.criarProcedimento(tratamentoNovo,
-//                valorNovo);
-//
-//        try {
-//            JsonUtil.atualizarDados(procedimentoAtual, procedimentoAtualizado);
-//        } catch (JsonMappingException e) {
-//            e.printStackTrace();
-//            JOptionPane.showMessageDialog(null, "Erro ao atualizar procedimento!");
-//        }
-//
-//        DefaultTableModel model = (DefaultTableModel) tableProcedimento2.getModel();
-//        model.removeRow(rowIndex);
-//        model.insertRow(rowIndex, procedimentoAtualizado.toRowTable(eventActionProcedimento));
-//        tratamentoField.setText("");
-//        valorField.setText("");
 
         controller.atualizarProcedimento(rowIndex, tratamentoNovo, valorNovo);
         Procedimento procedimentoAtualizado = controller.getProcedimentos().get(rowIndex);
@@ -217,25 +197,12 @@ public class EditarProcedimentoFrame extends javax.swing.JFrame {
         dispose();
 
 
-    }//GEN-LAST:event_salvarButtonActionPerformed
+    }
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         dispose();
-    }//GEN-LAST:event_button1ActionPerformed
+    }
 
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
-        
-    }//GEN-LAST:event_button2ActionPerformed
-       
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.clinica.swing.Button button1;
-    private com.clinica.swing.Button button2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private com.clinica.swing.Button salvarButton;
-    private javax.swing.JTextField tratamentoField;
-    private javax.swing.JLabel tratamentoLabel;
-    private javax.swing.JTextField valorField;
-    private javax.swing.JLabel valorLabel;
-    // End of variables declaration//GEN-END:variables
+    }
 }

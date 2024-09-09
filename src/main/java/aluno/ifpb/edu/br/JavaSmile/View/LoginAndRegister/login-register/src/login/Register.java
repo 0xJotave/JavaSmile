@@ -9,8 +9,13 @@ import java.io.IOException;
 import java.util.List;
 
 public class Register extends PanelCustom {
+    private swing.Button button1;
+    private javax.swing.JLabel jLabel1;
+    private swing.Password password1;
+    private swing.TextField textField1;
+    private swing.TextField textField2;
+    private swing.TextField textField3;
 
-    
     public Register() {
         initComponents();
     }
@@ -119,16 +124,14 @@ public class Register extends PanelCustom {
     }// </editor-fold>//GEN-END:initComponents
 
     private void textField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textField1ActionPerformed
+
+    }
 
     private void textField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textField2ActionPerformed
+    }
 
     private void textField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textField3ActionPerformed
+    }
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) throws IOException {
         String nome = textField1.getText();
@@ -168,14 +171,4 @@ public class Register extends PanelCustom {
             }
         }
      }
-
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private swing.Button button1;
-    private javax.swing.JLabel jLabel1;
-    private swing.Password password1;
-    private swing.TextField textField1;
-    private swing.TextField textField2;
-    private swing.TextField textField3;
-    // End of variables declaration//GEN-END:variables
 }

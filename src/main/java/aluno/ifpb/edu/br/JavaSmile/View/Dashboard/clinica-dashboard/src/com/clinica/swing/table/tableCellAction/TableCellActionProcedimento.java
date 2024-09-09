@@ -25,7 +25,6 @@ public class TableCellActionProcedimento extends DefaultCellEditor {
         return cell;
     }
 
-    //  This method to pass data to cell render when focus lose in cell
     @Override
     public Object getCellEditorValue() {
         return data;

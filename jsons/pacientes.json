@@ -1,11 +1,16 @@
 [ {
-  "nome" : "pedro",
-  "contato" : "pedro@gmail.com",
-  "idade" : 21,
-  "peso" : 60.0
+  "nome" : "Lucas",
+  "contato" : "luquinhas@gmail.com",
+  "idade" : 80,
+  "peso" : 70.0
 }, {
-  "nome" : "novo",
-  "contato" : "novo@gmail.com",
-  "idade" : 25,
-  "peso" : 25.0
+  "nome" : "João",
+  "contato" : "joao@gmail.com",
+  "idade" : 30,
+  "peso" : 90.0
+}, {
+  "nome" : "Pedro",
+  "contato" : "pedin@gmail.com",
+  "idade" : 23,
+  "peso" : 80.0
 } ]

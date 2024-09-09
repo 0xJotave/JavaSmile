@@ -13,9 +13,20 @@ import java.io.IOException;
 
 @Data
 public class EditarPacienteFrame extends javax.swing.JFrame {
+    private com.clinica.swing.Button button1;
+    private com.clinica.swing.Button button2;
+    private javax.swing.JTextField contatoField;
+    private javax.swing.JLabel contatoLabel;
+    private javax.swing.JTextField idadeField;
+    private javax.swing.JLabel idadeLabel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField nomeField;
+    private javax.swing.JLabel nomeLabel;
+    private javax.swing.JTextField pesoField;
+    private javax.swing.JLabel pesoLabel;
+    private com.clinica.swing.Button salvarButton;
     private FormPacienteController controller;
-
-    private PacienteCreatedListener onPacienteCreated;
     private EventAction eventAction;
     private boolean editado;
 
@@ -24,15 +35,6 @@ public class EditarPacienteFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         controller = new FormPacienteController();
-    }
-
-
-    public void setOnPacienteCreated(PacienteCreatedListener listener) {
-        this.onPacienteCreated = listener;
-    }
-
-    public interface PacienteCreatedListener {
-        void onCreated(Paciente paciente);
     }
 
 
@@ -205,12 +207,10 @@ public class EditarPacienteFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void idadeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idadeFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_idadeFieldActionPerformed
+    }
 
     private void pesoFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesoFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pesoFieldActionPerformed
+    }
 
     private void salvarButtonActionPerformed(java.awt.event.ActionEvent evt) throws IOException {//GEN-FIRST:event_salvarButtonActionPerformed
         String nomeNovo = nomeField.getText();
@@ -233,25 +233,9 @@ public class EditarPacienteFrame extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Paciente editado com sucesso!");
         dispose();
 
-    }//GEN-LAST:event_salvarButtonActionPerformed
+    }
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         dispose();
-    }//GEN-LAST:event_button1ActionPerformed
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.clinica.swing.Button button1;
-    private com.clinica.swing.Button button2;
-    private javax.swing.JTextField contatoField;
-    private javax.swing.JLabel contatoLabel;
-    private javax.swing.JTextField idadeField;
-    private javax.swing.JLabel idadeLabel;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField nomeField;
-    private javax.swing.JLabel nomeLabel;
-    private javax.swing.JTextField pesoField;
-    private javax.swing.JLabel pesoLabel;
-    private com.clinica.swing.Button salvarButton;
-    // End of variables declaration//GEN-END:variables
+    }
 }

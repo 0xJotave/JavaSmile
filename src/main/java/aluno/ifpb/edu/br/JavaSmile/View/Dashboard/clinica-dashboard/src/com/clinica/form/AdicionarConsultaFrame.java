@@ -1,9 +1,7 @@
 package com.clinica.form;
 
 import static com.clinica.form.FormConsultas.tableConsulta2;
-import static com.clinica.form.FormProcedimento.tableProcedimento2;
 
-import aluno.ifpb.edu.br.JavaSmile.Controller.AssistenteController;
 import aluno.ifpb.edu.br.JavaSmile.Controller.FormConsultaController;
 import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
 import aluno.ifpb.edu.br.JavaSmile.Model.Consulta;
@@ -11,17 +9,25 @@ import aluno.ifpb.edu.br.JavaSmile.Model.Paciente;
 import aluno.ifpb.edu.br.JavaSmile.Model.Procedimento;
 import com.clinica.form.viewUtil.LimitaCaracteres;
 import com.clinica.swing.table.eventAction.EventActionConsulta;
-import com.clinica.swing.table.eventAction.EventActionProcedimento;
-
 import java.awt.event.ActionEvent;
 import java.io.IOException;
-import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class AdicionarConsultaFrame extends javax.swing.JFrame {
-
-    private ConsultaCreatedListener onConsultaCreated;
+    private com.clinica.swing.Button button1;
+    private com.clinica.swing.Button button2;
+    private javax.swing.JTextField dentistaField;
+    private javax.swing.JLabel dentistaLabel;
+    private javax.swing.JTextField horarioField;
+    private javax.swing.JLabel horarioLabel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JComboBox<String> pacienteBox;
+    private javax.swing.JLabel pacienteLabel;
+    private javax.swing.JComboBox<String> procedimentoBox;
+    private javax.swing.JLabel procedimentoLabel;
+    private com.clinica.swing.Button salvarButton;
     private FormConsultaController controller;
     private EventActionConsulta eventActionConsulta;
     
@@ -59,14 +65,6 @@ public class AdicionarConsultaFrame extends javax.swing.JFrame {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Erro ao carregar procedimentos!");
         }
-    }
-
-    public void setOnConsultaCreated(ConsultaCreatedListener listener) {
-        this.onConsultaCreated = listener;
-    }
-
-    public interface ConsultaCreatedListener {
-        void onCreated(Consulta consulta);
     }
     
     
@@ -255,7 +253,6 @@ public class AdicionarConsultaFrame extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) tableConsulta2.getModel();
         model.fireTableDataChanged();
 
-        // MUDANCA
         EventActionConsulta newEventActionConsulta = new EventActionConsulta() {
             @Override
             public void delete(Consulta consulta) throws IOException {
@@ -278,25 +275,10 @@ public class AdicionarConsultaFrame extends javax.swing.JFrame {
 
         JOptionPane.showMessageDialog(this, "Consulta salva com sucesso!");
         dispose();
-    }//GEN-LAST:event_salvarButtonActionPerformed
+    }
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         dispose();
-    }//GEN-LAST:event_button1ActionPerformed
-       
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.clinica.swing.Button button1;
-    private com.clinica.swing.Button button2;
-    private javax.swing.JTextField dentistaField;
-    private javax.swing.JLabel dentistaLabel;
-    private javax.swing.JTextField horarioField;
-    private javax.swing.JLabel horarioLabel;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JComboBox<String> pacienteBox;
-    private javax.swing.JLabel pacienteLabel;
-    private javax.swing.JComboBox<String> procedimentoBox;
-    private javax.swing.JLabel procedimentoLabel;
-    private com.clinica.swing.Button salvarButton;
-    // End of variables declaration//GEN-END:variables
+    }
+
 }

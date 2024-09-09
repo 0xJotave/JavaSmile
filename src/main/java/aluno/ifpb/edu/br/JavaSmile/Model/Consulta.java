@@ -4,9 +4,8 @@ import com.clinica.swing.table.eventAction.EventActionConsulta;
 import com.clinica.swing.table.modelAction.ModelActionConsulta;
 import com.clinica.swing.table.modelProfile.ModelProfileConsulta;
 import lombok.*;
-
 import java.io.Serializable;
-import java.time.LocalDateTime;
+
 
 /*
 * Essa classe representa as Consultas, possuindo atributos como Paciente, Procedimento, Dentista e Horario (com Data),

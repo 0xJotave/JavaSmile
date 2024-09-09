@@ -1,19 +1,13 @@
 package aluno.ifpb.edu.br.JavaSmile.Controller;
 
 import aluno.ifpb.edu.br.JavaSmile.Model.Paciente;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.google.api.client.json.Json;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import static com.clinica.form.FormPaciente.table1;
+
 
 @Data
 @NoArgsConstructor

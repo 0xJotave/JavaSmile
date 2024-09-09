@@ -1,7 +1,6 @@
 package com.clinica.swing.table.eventAction;
 
 import aluno.ifpb.edu.br.JavaSmile.Model.Paciente;
-
 import java.io.IOException;
 
 

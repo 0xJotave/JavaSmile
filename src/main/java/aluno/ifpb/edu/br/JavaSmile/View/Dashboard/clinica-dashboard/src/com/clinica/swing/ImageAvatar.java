@@ -1,5 +1,7 @@
 package com.clinica.swing;
 
+import lombok.Data;
+
 import java.awt.AlphaComposite;
 import java.awt.Composite;
 import java.awt.Dimension;
@@ -14,24 +16,8 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 
+@Data
 public class ImageAvatar extends JComponent {
-    
-    public Icon getIcon() {
-        return icon;
-    }
-
-    public void setIcon(Icon icon) {
-        this.icon = icon;
-    }
-
-    public int getBorderSize() {
-        return borderSize;
-    }
-
-    public void setBorderSize(int borderSize) {
-        this.borderSize = borderSize;
-    }
-
     private Icon icon;
     private int borderSize;
 

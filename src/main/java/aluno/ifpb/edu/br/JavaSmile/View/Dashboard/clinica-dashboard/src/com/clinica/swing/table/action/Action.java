@@ -20,6 +20,8 @@ import javax.swing.table.DefaultTableModel;
 
 
 public class Action extends javax.swing.JPanel {
+    private com.clinica.swing.Button cmdDelete;
+    private com.clinica.swing.Button cmdEdit;
     FormPacienteController controller = new FormPacienteController();
     private String contatoNovoPaciente;
 
@@ -114,9 +116,4 @@ public class Action extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.clinica.swing.Button cmdDelete;
-    private com.clinica.swing.Button cmdEdit;
-    // End of variables declaration//GEN-END:variables
 }

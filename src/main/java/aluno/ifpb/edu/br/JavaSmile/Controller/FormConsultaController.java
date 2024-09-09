@@ -1,7 +1,6 @@
 package aluno.ifpb.edu.br.JavaSmile.Controller;
 
 import aluno.ifpb.edu.br.JavaSmile.Model.Consulta;
-import aluno.ifpb.edu.br.JavaSmile.Model.Procedimento;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

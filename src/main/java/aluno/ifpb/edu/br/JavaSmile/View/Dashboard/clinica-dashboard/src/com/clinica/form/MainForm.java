@@ -3,9 +3,9 @@ package com.clinica.form;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import javax.swing.border.EmptyBorder;
+
 public class MainForm extends javax.swing.JPanel {
 
-    
     public MainForm() {
         initComponents();
         setOpaque(false);
@@ -37,7 +37,4 @@ public class MainForm extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    // End of variables declaration//GEN-END:variables
 }

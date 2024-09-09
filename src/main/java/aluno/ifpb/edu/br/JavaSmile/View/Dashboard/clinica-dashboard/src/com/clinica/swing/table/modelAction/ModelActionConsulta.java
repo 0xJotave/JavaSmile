@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ModelActionConsulta {
-
     private Consulta consulta;
     private EventActionConsulta event; //interface pra gerenciar os eventos de ação (editar e deletar).
 }

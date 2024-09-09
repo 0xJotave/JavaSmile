@@ -1,5 +1,6 @@
 package com.clinica.form;
 
+import aluno.ifpb.edu.br.JavaSmile.Controller.FormProcedimentoController;
 import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
 import aluno.ifpb.edu.br.JavaSmile.Model.Procedimento;
 import com.clinica.dialog.Message;
@@ -11,12 +12,19 @@ import java.util.List;
 
 
 public class FormProcedimento extends javax.swing.JPanel {
+    private com.clinica.swing.Button button1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    public static com.clinica.swing.table.TableProcedimento tableProcedimento2;
+    FormProcedimentoController controller;
 
-    
     public FormProcedimento() throws IOException {
         initComponents();
         tableProcedimento2.fixTable(jScrollPane1);
         setOpaque(false);
+        controller = new FormProcedimentoController();
+        controller.carregarProcedimentos();
         initData();
     }
     
@@ -25,9 +33,7 @@ public class FormProcedimento extends javax.swing.JPanel {
     }
     
     private void initTableData() throws IOException {
-        List<Procedimento> procedimentos = JsonUtil.carregarProcedimentos();
-
-       EventActionProcedimento eventAction = new EventActionProcedimento() {          
+       EventActionProcedimento eventActionProcedimento = new EventActionProcedimento() {
            EditarProcedimentoFrame editar = new EditarProcedimentoFrame();           
            @Override
            public void delete(Procedimento procedimento) throws IOException {
@@ -38,8 +44,8 @@ public class FormProcedimento extends javax.swing.JPanel {
                 
             }
         };
-        for (Procedimento procedimento : procedimentos){
-            tableProcedimento2.addRow(procedimento.toRowTable(eventAction));
+        for (Procedimento procedimento : controller.getProcedimentos()){
+            tableProcedimento2.addRow(procedimento.toRowTable(eventActionProcedimento));
         }
 
     }
@@ -147,13 +153,5 @@ public class FormProcedimento extends javax.swing.JPanel {
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) throws IOException {//GEN-FIRST:event_button1ActionPerformed
         AdicionarProcedimentoFrame adicionarProcedimento = new AdicionarProcedimentoFrame();
         adicionarProcedimento.setVisible(true);
-    }//GEN-LAST:event_button1ActionPerformed
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.clinica.swing.Button button1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
-    public static com.clinica.swing.table.TableProcedimento tableProcedimento2;
-    // End of variables declaration//GEN-END:variables
+    }
 }

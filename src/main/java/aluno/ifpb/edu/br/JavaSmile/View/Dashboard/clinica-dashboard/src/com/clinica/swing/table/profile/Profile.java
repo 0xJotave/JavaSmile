@@ -2,10 +2,9 @@ package com.clinica.swing.table.profile;
 
 import com.clinica.swing.table.modelProfile.ModelProfile;
 
-
 public class Profile extends javax.swing.JPanel {
+    private javax.swing.JLabel IbName;
 
-    
     public Profile(ModelProfile data) {
         initComponents();
         IbName.setText(data.getName());
@@ -40,7 +39,4 @@ public class Profile extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel IbName;
-    // End of variables declaration//GEN-END:variables
 }

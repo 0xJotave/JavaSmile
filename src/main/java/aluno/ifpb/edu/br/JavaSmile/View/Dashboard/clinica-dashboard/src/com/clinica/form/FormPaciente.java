@@ -9,7 +9,11 @@ import com.clinica.swing.table.eventAction.EventAction;
 import java.io.IOException;
 
 public class FormPaciente extends javax.swing.JPanel {
-
+    private com.clinica.swing.Button button1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    public static com.clinica.swing.table.Table table1;
     FormPacienteController controller;
         
     public FormPaciente() throws IOException {
@@ -44,7 +48,6 @@ public class FormPaciente extends javax.swing.JPanel {
         }
 
     }
-
 
     private boolean showMessage(String message) {
         Message obj = new Message(HomeDash.getFrames()[0], true);
@@ -149,14 +152,5 @@ public class FormPaciente extends javax.swing.JPanel {
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) throws IOException {//GEN-FIRST:event_button1ActionPerformed
         AdicionarPacienteFrame adicionarPaciente = new AdicionarPacienteFrame();
         adicionarPaciente.setVisible(true);
-
-    }//GEN-LAST:event_button1ActionPerformed
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.clinica.swing.Button button1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
-    public static com.clinica.swing.table.Table table1;
-    // End of variables declaration//GEN-END:variables
+    }
 }

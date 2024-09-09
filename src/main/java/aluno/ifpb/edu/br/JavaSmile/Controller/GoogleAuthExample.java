@@ -13,7 +13,6 @@ import com.google.api.client.util.store.FileDataStoreFactory;
 import com.google.api.services.oauth2.Oauth2;
 import com.google.api.services.oauth2.model.Userinfo;
 import swing.EventLogin;
-
 import javax.swing.*;
 import java.io.File;
 import java.io.FileReader;
@@ -38,7 +37,7 @@ public class GoogleAuthExample {
     private static final List<String> SCOPES = Collections.singletonList("https://www.googleapis.com/auth/userinfo.profile");
     private static final String TOKENS_DIRECTORY_PATH = "tokens"; // Diretório para armazenar tokens
 
-    private EventLogin event; // Membro de instância, não estático
+    private EventLogin event;
 
     // Construtor para inicializar o event
     public GoogleAuthExample(EventLogin event) {
@@ -70,7 +69,7 @@ public class GoogleAuthExample {
             return;
         }
 
-        // Pegar informações do usuário
+        // Pega as informações do usuário
         Oauth2 oauth2 = new Oauth2.Builder(HTTP_TRANSPORT, JSON_FACTORY, credential)
                 .setApplicationName("Google-OAuthLoginExample")
                 .build();
@@ -96,7 +95,6 @@ public class GoogleAuthExample {
                 }
             }
         } else {
-            // Tratar falha de autenticação aqui, se necessário
             System.out.println("Falha na autenticação do Google.");
         }
     }

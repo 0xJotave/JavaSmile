@@ -1,21 +1,12 @@
 package com.clinica.swing.table.modelProfile;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class ModelProfileProcedimento {
-
-    public String getTratamento() {
-        return tratamento;
-    }
-
-    public void setTratamento(String tratamento) {
-        this.tratamento = tratamento;
-    }
-
-    public ModelProfileProcedimento(String tratamento) {
-        this.tratamento = tratamento;
-    }
-
-    public ModelProfileProcedimento() {
-    }
-
     private String tratamento;
 }

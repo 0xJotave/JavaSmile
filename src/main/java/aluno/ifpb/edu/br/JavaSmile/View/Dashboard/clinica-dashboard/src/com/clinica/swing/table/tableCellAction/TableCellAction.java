@@ -1,9 +1,7 @@
 package com.clinica.swing.table.tableCellAction;
 
-import com.clinica.form.FormPaciente;
 import com.clinica.swing.table.action.Action;
 import com.clinica.swing.table.modelAction.ModelAction;
-
 import java.awt.Color;
 import java.awt.Component;
 import java.io.IOException;

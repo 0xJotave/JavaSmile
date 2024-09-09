@@ -9,7 +9,10 @@ public class Form_Home extends javax.swing.JPanel {
 
     private ImageIcon[] images;  // Array de imagens para o slideshow
     private int currentImageIndex = 0;  // Índice da imagem atual
-    private Timer slideshowTimer;  
+    private Timer slideshowTimer;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel6;
 
     public Form_Home() {
         initComponents();
@@ -56,10 +59,7 @@ public class Form_Home extends javax.swing.JPanel {
             }
         });
         slideshowTimer.start();  // Inicia o timer
-    }             
-   
-    
-   
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -114,9 +114,4 @@ public class Form_Home extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel6;
-    // End of variables declaration//GEN-END:variables
 }

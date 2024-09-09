@@ -1,23 +1,13 @@
 package com.clinica.swing.table.modelProfile;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class ModelProfile {
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    public ModelProfile(String name) {
-        this.name  = name;
-    }
-    
-    public ModelProfile() {        
-    }
-    
     private String name;
 }

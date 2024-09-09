@@ -1,5 +1,8 @@
 package login;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.awt.AlphaComposite;
 import java.awt.Graphics2D;
 import java.awt.Graphics;
@@ -8,19 +11,11 @@ import java.awt.geom.Rectangle2D;
 import java.awt.geom.RoundRectangle2D;
 import javax.swing.JComponent;
 
+@Data
+@NoArgsConstructor
 public class PanelCustom extends JComponent {
-    
-    public float getAlpha() {
-        return alpha;
-    }
-    
-    public void setAlpha(float alpha) {
-        this.alpha = alpha;
-    }
-    
-    public PanelCustom() {
-        
-    }
+
+    private float alpha;
     
     @Override
     protected void paintComponent(Graphics grphcs) {
@@ -31,8 +26,6 @@ public class PanelCustom extends JComponent {
         g2.dispose();
         super.paintComponent(grphcs);
     }
-    
-    private float alpha;
 
     @Override
     public void paint(Graphics grphcs) {

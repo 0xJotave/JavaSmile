@@ -1,26 +1,6 @@
 [ {
   "nome" : "João Victor",
-  "email" : "joao@gmail.com",
-  "senha" : "123",
-  "nomeUsuario" : "eujotave"
-}, {
-  "nome" : "João",
-  "email" : "joao22@gmail.com",
-  "senha" : "123",
-  "nomeUsuario" : "eujotave22"
-}, {
-  "nome" : "manuela",
-  "email" : "manuela@gmail.com",
-  "senha" : "123",
-  "nomeUsuario" : "manuzinha"
-}, {
-  "nome" : "João",
-  "email" : "joaom@gmail.com",
+  "email" : "joaovmb15@gmail.com",
   "senha" : "123",
   "nomeUsuario" : "eujotave20"
-}, {
-  "nome" : "João Victor",
-  "email" : "eujotave@gmail.com",
-  "senha" : "123",
-  "nomeUsuario" : "eujotave22@gmail.com"
 } ]

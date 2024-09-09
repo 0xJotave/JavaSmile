@@ -1,23 +1,24 @@
 package com.clinica.form;
 
-import static com.clinica.form.FormPaciente.table1;
 import static com.clinica.form.FormProcedimento.tableProcedimento2;
-
-import aluno.ifpb.edu.br.JavaSmile.Controller.AssistenteController;
 import aluno.ifpb.edu.br.JavaSmile.Controller.FormProcedimentoController;
-import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
-import aluno.ifpb.edu.br.JavaSmile.Model.Paciente;
 import aluno.ifpb.edu.br.JavaSmile.Model.Procedimento;
 import com.clinica.form.viewUtil.LimitaCaracteres;
-import com.clinica.swing.table.eventAction.EventAction;
 import com.clinica.swing.table.eventAction.EventActionProcedimento;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.io.IOException;
-import java.util.List;
 
 public class AdicionarProcedimentoFrame extends javax.swing.JFrame {
-    
+    private com.clinica.swing.Button button1;
+    private com.clinica.swing.Button button2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private com.clinica.swing.Button salvarButton;
+    private javax.swing.JTextField tratamentoField;
+    private javax.swing.JLabel tratamentoLabel;
+    private javax.swing.JTextField valorField;
+    private javax.swing.JLabel valorLabel;
     private FormProcedimentoController controller;
      private EventActionProcedimento eventActionProcedimento;
     
@@ -170,38 +171,21 @@ public class AdicionarProcedimentoFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tratamentoFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tratamentoFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tratamentoFieldActionPerformed
+    }
 
     private void valorFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valorFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_valorFieldActionPerformed
+
+    }
 
     private void salvarButtonActionPerformed(java.awt.event.ActionEvent evt) throws IOException {//GEN-FIRST:event_salvarButtonActionPerformed
         String tratamento = tratamentoField.getText();
         double valor = Double.parseDouble(valorField.getText());
 
-//        AssistenteController assistenteController = new AssistenteController();
-//        List<Procedimento> procedimentoList = JsonUtil.carregarProcedimentos();
-//
-//        Procedimento procedimento = assistenteController.criarProcedimento(tratamento, valor);
-//
-//        procedimentoList.add(procedimento);
-//        JsonUtil.salvarDados(procedimentoList, "procedimentos.json");
-//
-//
-//        if (tableProcedimento2 != null) {
-//            tableProcedimento2.addRow(procedimento.toRowTable(eventActionProcedimento));
-//        }
-//        if (onProcedimentoCreated != null) {
-//            onProcedimentoCreated.onCreated(procedimento);
-//        }
         Procedimento procedimento = controller.criarProcedimento(tratamento, valor);
 
         DefaultTableModel model = (DefaultTableModel) tableProcedimento2.getModel();
         model.fireTableDataChanged();
 
-        // MUDANCA
         EventActionProcedimento newEventActionProcedimento = new EventActionProcedimento() {
             @Override
             public void delete(Procedimento procedimento) throws IOException {
@@ -221,25 +205,14 @@ public class AdicionarProcedimentoFrame extends javax.swing.JFrame {
         valorField.setText("");
         JOptionPane.showMessageDialog(this, "Procedimento salvo com sucesso!");
         dispose();
-    }//GEN-LAST:event_salvarButtonActionPerformed
+    }
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         dispose();
-    }//GEN-LAST:event_button1ActionPerformed
+    }
 
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
         
-    }//GEN-LAST:event_button2ActionPerformed
-       
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.clinica.swing.Button button1;
-    private com.clinica.swing.Button button2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private com.clinica.swing.Button salvarButton;
-    private javax.swing.JTextField tratamentoField;
-    private javax.swing.JLabel tratamentoLabel;
-    private javax.swing.JTextField valorField;
-    private javax.swing.JLabel valorLabel;
-    // End of variables declaration//GEN-END:variables
+    }
+
 }

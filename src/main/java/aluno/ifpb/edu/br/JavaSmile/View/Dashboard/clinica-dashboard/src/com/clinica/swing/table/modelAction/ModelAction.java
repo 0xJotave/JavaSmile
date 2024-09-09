@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ModelAction {
-
     private Paciente paciente;
     private EventAction event;
 

@@ -2,14 +2,13 @@ package com.clinica.component;
 
 
 public class Profile extends javax.swing.JPanel {
-
+    private javax.swing.JLabel jLabel1;
     
     public Profile() {
         initComponents();
         setOpaque(false);
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -38,8 +37,4 @@ public class Profile extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    // End of variables declaration//GEN-END:variables
 }
