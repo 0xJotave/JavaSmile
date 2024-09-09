@@ -229,7 +229,22 @@ public class AdicionarPacienteFrame extends javax.swing.JFrame {
         Paciente paciente = controller.criarPaciente(nome, contato, idade, peso);
         DefaultTableModel model = (DefaultTableModel) table1.getModel();
         model.fireTableDataChanged();
-        model.addRow(paciente.toRowTable(eventAction));
+
+        // MUDANCA
+        EventAction newEventAction = new EventAction() {
+            @Override
+            public void delete(Paciente paciente) throws IOException {
+                controller.deletarPaciente(paciente);
+            }
+
+            @Override
+            public void update(Paciente paciente) {
+
+            }
+
+        };
+
+        model.addRow(paciente.toRowTable(newEventAction));
 
         nomeField.setText("");
         contatoField.setText("");

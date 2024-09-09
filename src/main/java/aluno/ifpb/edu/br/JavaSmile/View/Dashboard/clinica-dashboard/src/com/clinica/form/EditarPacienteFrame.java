@@ -10,17 +10,20 @@ import com.clinica.swing.table.action.Action;
 import com.clinica.swing.table.eventAction.EventAction;
 import com.clinica.swing.table.eventAction.PacienteUpdateListener;
 import com.fasterxml.jackson.databind.JsonMappingException;
+import lombok.Data;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.io.IOException;
 import java.util.List;
 
+@Data
 public class EditarPacienteFrame extends javax.swing.JFrame {
     private FormPacienteController controller;
 
     private PacienteCreatedListener onPacienteCreated;
     private EventAction eventAction;
+    private boolean editado;
 
     public EditarPacienteFrame() throws IOException {
         initComponents();
@@ -221,9 +224,6 @@ public class EditarPacienteFrame extends javax.swing.JFrame {
         int idadeNova = Integer.parseInt(idadeField.getText());
         double pesoNovo = Double.parseDouble(pesoField.getText());
         int rowIndex = table1.getSelectedRow();
-        if (rowIndex == -1) {
-            JOptionPane.showMessageDialog(null, "Nenhum paciente selecionado!");
-        }
 
         controller.atualizarPaciente(rowIndex, nomeNovo, contatoNovo, idadeNova, pesoNovo);
         Paciente pacienteAtualizado = controller.getPacientes().get(rowIndex);
@@ -231,7 +231,6 @@ public class EditarPacienteFrame extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) table1.getModel();
         model.removeRow(rowIndex);
         model.insertRow(rowIndex, pacienteAtualizado.toRowTable(eventAction));
-
 
         nomeField.setText("");
         contatoField.setText("");

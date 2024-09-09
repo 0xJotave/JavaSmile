@@ -22,6 +22,7 @@ import javax.swing.table.DefaultTableModel;
 public class Action extends javax.swing.JPanel {
     FormPacienteController controller = new FormPacienteController();
     private String contatoNovoPaciente;
+
     public Action(ModelAction data) throws IOException {
         EditarPacienteFrame editar = new EditarPacienteFrame();
 
@@ -33,7 +34,6 @@ public class Action extends javax.swing.JPanel {
             }
         });
         cmdDelete.addActionListener(new ActionListener() {
-
             @Override
             public void actionPerformed(ActionEvent ae) {
                 try {
@@ -55,7 +55,7 @@ public class Action extends javax.swing.JPanel {
                         data.getPaciente().setContato(controller.getPacientes().get(selectedRow).getContato());
                         contatoNovoPaciente = data.getPaciente().getContato();
                         for (Paciente paciente : controller.getPacientes()) {
-                            if (paciente.getNome().equals(contatoNovoPaciente)) {
+                            if (paciente.getContato().equals(contatoNovoPaciente)) {
                                 data.setPaciente(paciente);
                             }
                         }
@@ -65,7 +65,6 @@ public class Action extends javax.swing.JPanel {
                         } else {
                             System.err.println("EventAction não está configurado.");
                         }
-                        System.out.println("deletou " + contatoNovoPaciente);
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
