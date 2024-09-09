@@ -3,7 +3,7 @@ package com.clinica.form;
 import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
 import aluno.ifpb.edu.br.JavaSmile.Model.Procedimento;
 import com.clinica.dialog.Message;
-import com.clinica.main.Main;
+import com.clinica.main.HomeDash;
 import com.clinica.model.ModelProcedimento;
 import com.clinica.swing.table.eventAction.EventActionProcedimento;
 
@@ -32,8 +32,7 @@ public class FormProcedimento extends javax.swing.JPanel {
            EditarProcedimentoFrame editar = new EditarProcedimentoFrame();           
            @Override
            public void delete(Procedimento procedimento) throws IOException {
-               procedimentos.remove(procedimento);
-               JsonUtil.salvarDados(procedimentos, "procedimentos.json");
+
             }
            @Override
            public void update(ModelProcedimento procedimento) {
@@ -47,7 +46,7 @@ public class FormProcedimento extends javax.swing.JPanel {
     }
     
     private boolean showMessage(String message) {
-        Message obj = new Message(Main.getFrames()[0], true);
+        Message obj = new Message(HomeDash.getFrames()[0], true);
         obj.showMessage(message);
         return obj.isOk();
     }

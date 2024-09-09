@@ -1,10 +1,12 @@
 package com.clinica.swing.table.action;
 
-import aluno.ifpb.edu.br.JavaSmile.Model.Clinica;
+import aluno.ifpb.edu.br.JavaSmile.Controller.FormPacienteController;
+import aluno.ifpb.edu.br.JavaSmile.Model.Paciente;
 import com.clinica.form.EditarPacienteFrame;
-import static com.clinica.form.FormConsultas.tableConsulta2;
-import com.clinica.form.FormPaciente;
+
 import static com.clinica.form.FormPaciente.table1;
+
+import com.clinica.form.FormPaciente;
 import com.clinica.swing.table.modelAction.ModelAction;
 
 import java.awt.*;
@@ -16,29 +18,31 @@ import javax.swing.table.DefaultTableModel;
 
 
 public class Action extends javax.swing.JPanel {
-
+    FormPacienteController controller = new FormPacienteController();
 
     public Action(ModelAction data) throws IOException {
-        Clinica clinica = Clinica.getInstance();
+
         EditarPacienteFrame editar = new EditarPacienteFrame();
         initComponents();        
         cmdEdit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                //data.getEvent().update(data.getPaciente());
-                editar.setVisible(true);                
+                editar.setVisible(true);
             }
         });
         cmdDelete.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent ae) {                
+            public void actionPerformed(ActionEvent ae) {
                 int selectedRow = table1.getSelectedRow();
+
+                // Verifica se a célula está sendo editada e para a edição
+                if (table1.getCellEditor() != null) {
+                    table1.getCellEditor().stopCellEditing();
+                }
+
+                // Verifica se a linha selecionada é válida
                 if (selectedRow >= 0 && selectedRow < table1.getRowCount()) {
-                    try {
-                        data.getEvent().delete(data.getPaciente());
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
+
                     ((DefaultTableModel) table1.getModel()).removeRow(selectedRow);
                 } else {
                     JOptionPane.showMessageDialog(null, "Por favor, selecione uma linha válida para deletar.");

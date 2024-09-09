@@ -1,14 +1,11 @@
 package com.clinica.form;
 
-import static com.clinica.form.FormConsultas.tableConsulta2;
 import static com.clinica.form.FormProcedimento.tableProcedimento2;
 
 import aluno.ifpb.edu.br.JavaSmile.Controller.AssistenteController;
 import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
-import aluno.ifpb.edu.br.JavaSmile.Model.Clinica;
 import aluno.ifpb.edu.br.JavaSmile.Model.Procedimento;
 import com.clinica.form.viewUtil.LimitaCaracteres;
-import com.clinica.model.ModelProcedimento;
 import com.clinica.swing.table.eventAction.EventActionProcedimento;
 import javax.swing.JOptionPane;
 import java.io.IOException;
@@ -190,7 +187,6 @@ public class AdicionarProcedimentoFrame extends javax.swing.JFrame {
         double valor = Double.parseDouble(valorField.getText());
 
         AssistenteController assistenteController = new AssistenteController();
-        Clinica clinica = Clinica.getInstance();
         List<Procedimento> procedimentoList = JsonUtil.carregarProcedimentos();
 
         Procedimento procedimento = assistenteController.criarProcedimento(tratamento, valor);

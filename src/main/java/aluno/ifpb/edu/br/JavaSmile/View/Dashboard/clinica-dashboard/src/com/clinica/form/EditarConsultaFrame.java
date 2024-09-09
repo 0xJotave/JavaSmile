@@ -1,15 +1,12 @@
 package com.clinica.form;
 
 import static com.clinica.form.FormConsultas.tableConsulta2;
-import static com.clinica.form.FormPaciente.table1;
 
 import aluno.ifpb.edu.br.JavaSmile.Controller.AssistenteController;
 import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
-import aluno.ifpb.edu.br.JavaSmile.Model.Clinica;
 import aluno.ifpb.edu.br.JavaSmile.Model.Consulta;
 import aluno.ifpb.edu.br.JavaSmile.Model.Paciente;
 import aluno.ifpb.edu.br.JavaSmile.Model.Procedimento;
-import com.clinica.model.ModelConsulta;
 import com.clinica.swing.table.eventAction.EventActionConsulta;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
@@ -33,7 +30,6 @@ public class EditarConsultaFrame extends javax.swing.JFrame {
 
     private void preencherPacientesBox() throws IOException {
         try {
-            Clinica clinica = Clinica.getInstance();
             java.util.List<Paciente> pacientes = JsonUtil.carregarPacientes();
             String[] nomesPacientes = pacientes.stream()
                     .map(Paciente::getNome)
@@ -46,7 +42,6 @@ public class EditarConsultaFrame extends javax.swing.JFrame {
     }
     private void preencherProcedimentoBox() throws IOException {
         try {
-            Clinica clinica = Clinica.getInstance();
             java.util.List<Procedimento> procedimentos = JsonUtil.carregarProcedimentos();
             String[] tratamentosProcedimentos = procedimentos.stream()
                     .map(Procedimento::getTratamento)
@@ -242,7 +237,6 @@ public class EditarConsultaFrame extends javax.swing.JFrame {
         }
 
         AssistenteController assistenteController = new AssistenteController();
-        Clinica clinica = Clinica.getInstance();
         List<Consulta> consultaLista = JsonUtil.carregarConsultas();
 
         Consulta consultaAtual = consultaLista.get(rowIndex);

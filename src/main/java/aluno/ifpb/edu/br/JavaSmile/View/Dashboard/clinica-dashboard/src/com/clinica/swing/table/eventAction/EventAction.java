@@ -10,5 +10,5 @@ public interface EventAction {
         
     public void delete(Paciente paciente) throws IOException;
     
-    public void update(ModelPaciente paciente);
+    public void update(Paciente paciente);
 }

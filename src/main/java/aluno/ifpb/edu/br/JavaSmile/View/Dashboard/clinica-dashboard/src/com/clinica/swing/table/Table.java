@@ -104,4 +104,9 @@ public class Table extends JTable {
         scroll.setCorner(JScrollPane.UPPER_RIGHT_CORNER, p);
         scroll.setBorder(new EmptyBorder(5, 10, 5, 10));
     }
+
+    public void clearTable() {
+        DefaultTableModel model = (DefaultTableModel) getModel();
+        model.setRowCount(0); // Remove todas as linhas do modelo
+    }
 }

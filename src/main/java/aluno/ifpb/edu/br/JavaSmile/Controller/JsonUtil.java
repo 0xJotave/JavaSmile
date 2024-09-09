@@ -1,6 +1,5 @@
 package aluno.ifpb.edu.br.JavaSmile.Controller;
 
-import aluno.ifpb.edu.br.JavaSmile.Model.Clinica;
 import aluno.ifpb.edu.br.JavaSmile.Model.*;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -11,8 +10,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 
 public class JsonUtil {

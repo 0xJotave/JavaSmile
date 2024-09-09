@@ -1,5 +1,6 @@
 package aluno.ifpb.edu.br.JavaSmile.Controller;
 
+import com.clinica.main.HomeDash;
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
 import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
@@ -11,11 +12,7 @@ import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.util.store.FileDataStoreFactory;
 import com.google.api.services.oauth2.Oauth2;
 import com.google.api.services.oauth2.model.Userinfo;
-import form.Home;
-import login.Login;
-import main.Main;
 import swing.EventLogin;
-import swing.EventLoginImpl;
 
 import javax.swing.*;
 import java.io.File;
@@ -84,7 +81,8 @@ public class GoogleAuthExample {
             // Login com Google foi válido
             if (event != null) {
                 System.out.println("Login bem sucedido: " + userInfo.getName());
-                event.loginDone();
+                HomeDash homeDash = new HomeDash();
+                homeDash.setVisible(true);
 
                 if (deletarCredenciais) {
                     File diretorio = new File("tokens");

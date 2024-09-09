@@ -3,9 +3,8 @@ package com.clinica.form;
 import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
 import aluno.ifpb.edu.br.JavaSmile.Model.Consulta;
 import com.clinica.dialog.Message;
-import com.clinica.main.Main;
+import com.clinica.main.HomeDash;
 import com.clinica.model.ModelConsulta;
-import com.clinica.swing.table.TableConsulta;
 import com.clinica.swing.table.eventAction.EventActionConsulta;
 
 import java.io.IOException;
@@ -53,7 +52,7 @@ public class FormConsultas extends javax.swing.JPanel {
 
     //era pra exibir uma mensagem usando a classe Message la do pacote dialog.
     private boolean showMessage(String message) {
-        Message obj = new Message(Main.getFrames()[0], true);
+        Message obj = new Message(HomeDash.getFrames()[0], true);
         obj.showMessage(message);
         return obj.isOk();
     }

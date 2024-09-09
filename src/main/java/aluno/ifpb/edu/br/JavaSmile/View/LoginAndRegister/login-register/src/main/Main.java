@@ -1,6 +1,6 @@
 package main;
 
-import form.Home;
+
 import javax.swing.ImageIcon;
 import swing.EventLogin;
 import java.io.File;
@@ -9,12 +9,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class Main extends javax.swing.JFrame {
-           
-    private Home home;
+
     
     public Main() {
         initComponents();
-        home = new Home();
         setTitle("Java Smile");
         ImageIcon img = new ImageIcon(getClass().getResource("/icon/teste.png"));
         setIconImage(img.getImage());
@@ -22,21 +20,11 @@ public class Main extends javax.swing.JFrame {
             @Override
             public void loginDone() {
                 main.removeAll();
-                main.add(home);
-                main.revalidate();
-                main.repaint();
-            }
-            
-            @Override
-            public void logOut() {
-                main.removeAll();
-                main.add(loginAndRegister1);
                 main.revalidate();
                 main.repaint();
             }
         };
         loginAndRegister1.setEventLogin(event);
-        home.setEventLogin(event);
     }
 
     @SuppressWarnings("unchecked")

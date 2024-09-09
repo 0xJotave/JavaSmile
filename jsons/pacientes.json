@@ -1,21 +1,21 @@
 [ {
-  "nome" : "Pedro Paulo",
-  "contato" : "pedro@gmail.com",
+  "nome" : "João",
+  "contato" : "joao@gmail.com",
+  "idade" : 19,
+  "peso" : 70.0
+}, {
+  "nome" : "Pedro",
+  "contato" : "pedrin@gmail.com",
   "idade" : 21,
   "peso" : 73.0
 }, {
-  "nome" : "Joao do rap",
-  "contato" : "joao@orkut.com",
-  "idade" : 19,
-  "peso" : 75.0
-}, {
-  "nome" : "Ednaldo Pereira",
-  "contato" : "banido@gmail.com",
-  "idade" : 55,
-  "peso" : 115.0
-}, {
-  "nome" : "Justin Bieber",
-  "contato" : "justenn@gmail.com",
-  "idade" : 32,
+  "nome" : "Luquinhas",
+  "contato" : "luquinhas@gmail.com",
+  "idade" : 29,
   "peso" : 80.0
+}, {
+  "nome" : "Marcola",
+  "contato" : "marcola@hotmail.com",
+  "idade" : 50,
+  "peso" : 90.0
 } ]

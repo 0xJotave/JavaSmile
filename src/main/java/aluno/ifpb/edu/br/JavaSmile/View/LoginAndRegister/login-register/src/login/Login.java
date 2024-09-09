@@ -3,15 +3,12 @@ package login;
 import aluno.ifpb.edu.br.JavaSmile.Controller.GoogleAuthExample;
 import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
 import aluno.ifpb.edu.br.JavaSmile.Model.Assistente;
-import aluno.ifpb.edu.br.JavaSmile.Model.Clinica;
+import com.clinica.main.HomeDash;
 import lombok.Data;
 import swing.EventLogin;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.List;
 
 @Data
@@ -178,7 +175,6 @@ public class Login extends login.PanelCustom {
         String nomeUsuario = textField3.getText();
         String senha = new String(password1.getPassword());
 
-        Clinica clinica = Clinica.getInstance();
         List<Assistente> assistentes = JsonUtil.carregarAssistentes();
 
         if (assistentes != null) {
@@ -188,9 +184,10 @@ public class Login extends login.PanelCustom {
 
             if (loginValido) {
                 if (event != null) {
-                    event.loginDone();
                     textField3.setText("");
                     password1.setText("");
+                    HomeDash homeDash = new HomeDash();
+                    homeDash.setVisible(true);
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "Nome de Usuário ou Senha Incorretos");

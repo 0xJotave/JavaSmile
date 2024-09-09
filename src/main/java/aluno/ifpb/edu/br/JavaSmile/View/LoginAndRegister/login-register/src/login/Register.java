@@ -3,7 +3,6 @@ package login;
 
 import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
 import aluno.ifpb.edu.br.JavaSmile.Model.Assistente;
-import aluno.ifpb.edu.br.JavaSmile.Model.Clinica;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -137,7 +136,6 @@ public class Register extends PanelCustom {
         String nomeUsuario = textField3.getText();
         String senha = new String(password1.getPassword());
 
-        Clinica clinica = Clinica.getInstance();
         List<Assistente> assistentes = JsonUtil.carregarAssistentes();
 
         boolean usuarioExiste = assistentes.stream().anyMatch(a -> a.getNomeUsuario().equals(nomeUsuario));
@@ -154,7 +152,6 @@ public class Register extends PanelCustom {
                     .senha(senha)
                     .build();
 
-            Clinica.getInstance().getAssistentesLista().add(assistente);
             assistentes.add(assistente);
             JsonUtil.salvarDados(assistentes, "assistentes.json");
 

@@ -1,24 +1,21 @@
 package com.clinica.form;
 
-import static com.clinica.form.FormConsultas.tableConsulta2;
 import static com.clinica.form.FormPaciente.table1;
 
 import aluno.ifpb.edu.br.JavaSmile.Controller.AssistenteController;
+import aluno.ifpb.edu.br.JavaSmile.Controller.FormPacienteController;
 import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
-import aluno.ifpb.edu.br.JavaSmile.Model.Clinica;
 import aluno.ifpb.edu.br.JavaSmile.Model.Paciente;
-import com.clinica.model.ModelPaciente;
 import com.clinica.swing.table.eventAction.EventAction;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.google.api.client.json.Json;
 
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.io.IOException;
 import java.util.List;
 
 public class EditarPacienteFrame extends javax.swing.JFrame {
+    private FormPacienteController controller;
 
     private PacienteCreatedListener onPacienteCreated;
     private EventAction eventAction;
@@ -27,7 +24,7 @@ public class EditarPacienteFrame extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-
+        controller = new FormPacienteController();
     }
 
 
@@ -226,20 +223,8 @@ public class EditarPacienteFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Nenhum paciente selecionado!");
         }
 
-        AssistenteController assistenteController = new AssistenteController();
-        Clinica clinica = Clinica.getInstance();
-        List<Paciente> pacienteLista = JsonUtil.carregarPacientes();
-
-        Paciente pacienteAtual = pacienteLista.get(rowIndex);
-        Paciente pacienteAtualizado = assistenteController.criarPaciente(nomeNovo, contatoNovo, idadeNova,
-                pesoNovo);
-
-        try {
-            JsonUtil.atualizarDados(pacienteAtual, pacienteAtualizado);
-        } catch (JsonMappingException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Erro ao atualizar paciente!");
-        }
+        controller.atualizarPaciente(rowIndex, nomeNovo, contatoNovo, idadeNova, pesoNovo);
+        Paciente pacienteAtualizado = controller.getPacientes().get(rowIndex);
 
         DefaultTableModel model = (DefaultTableModel) table1.getModel();
         model.removeRow(rowIndex);
@@ -248,9 +233,9 @@ public class EditarPacienteFrame extends javax.swing.JFrame {
         contatoField.setText("");
         idadeField.setText("");
         pesoField.setText("");
+
         JOptionPane.showMessageDialog(this, "Paciente editado com sucesso!");
         dispose();
-        JsonUtil.salvarDados(pacienteLista, "pacientes.json");
 
     }//GEN-LAST:event_salvarButtonActionPerformed
 

@@ -1,23 +1,25 @@
 package com.clinica.form;
 
-import aluno.ifpb.edu.br.JavaSmile.Controller.AssistenteController;
+import aluno.ifpb.edu.br.JavaSmile.Controller.FormPacienteController;
 import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
-import aluno.ifpb.edu.br.JavaSmile.Model.Clinica;
 import aluno.ifpb.edu.br.JavaSmile.Model.Paciente;
 import com.clinica.dialog.Message;
-import com.clinica.main.Main;
+import com.clinica.main.HomeDash;
 import com.clinica.model.ModelPaciente;
 import com.clinica.swing.table.eventAction.EventAction;
-
 import java.io.IOException;
 import java.util.List;
 
 public class FormPaciente extends javax.swing.JPanel {
+
+    FormPacienteController controller;
         
     public FormPaciente() throws IOException {
         initComponents();
         table1.fixTable(jScrollPane1);
         setOpaque(false);
+        controller = new FormPacienteController();
+        controller.carregarPacientes();
         initData();
     }
 
@@ -26,28 +28,30 @@ public class FormPaciente extends javax.swing.JPanel {
     }
 
     private void initTableData() throws IOException {
-        List<Paciente> pacientes = JsonUtil.carregarPacientes();
-        EventAction eventAction = new EventAction() {           
-           EditarPacienteFrame editar = new EditarPacienteFrame();           
+        EventAction eventAction = new EventAction() {
            @Override
            public void delete(Paciente paciente) throws IOException {
-               pacientes.remove(paciente);
-               JsonUtil.salvarDados(pacientes, "pacientes.json");
+               controller.deletarPaciente(paciente);
             }
 
            @Override
-           public void update(ModelPaciente paciente) {
+           public void update(Paciente paciente) {
                 
            }
         };
-        for (Paciente paciente : pacientes) {
+        for (Paciente paciente : controller.getPacientes()) {
             table1.addRow(paciente.toRowTable(eventAction));
         }
 
     }
 
+    public void refreshTable() throws IOException {
+        table1.clearTable();
+        initTableData();
+    }
+
     private boolean showMessage(String message) {
-        Message obj = new Message(Main.getFrames()[0], true);
+        Message obj = new Message(HomeDash.getFrames()[0], true);
         obj.showMessage(message);
         return obj.isOk();
     }

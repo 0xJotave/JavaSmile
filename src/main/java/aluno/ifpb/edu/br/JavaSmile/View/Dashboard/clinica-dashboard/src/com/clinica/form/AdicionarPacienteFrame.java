@@ -3,14 +3,12 @@ package com.clinica.form;
 import static com.clinica.form.FormPaciente.table1;
 
 import aluno.ifpb.edu.br.JavaSmile.Controller.AssistenteController;
+import aluno.ifpb.edu.br.JavaSmile.Controller.FormPacienteController;
 import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
-import aluno.ifpb.edu.br.JavaSmile.Model.Assistente;
-import aluno.ifpb.edu.br.JavaSmile.Model.Clinica;
 import aluno.ifpb.edu.br.JavaSmile.Model.Paciente;
 import com.clinica.form.viewUtil.LimitaCaracteres;
-import com.clinica.model.ModelPaciente;
 import com.clinica.swing.table.eventAction.EventAction;
-import javax.swing.ImageIcon;
+
 import javax.swing.JOptionPane;
 import java.io.IOException;
 import java.util.List;
@@ -18,12 +16,14 @@ import java.util.List;
 public class AdicionarPacienteFrame extends javax.swing.JFrame {
     
     private PacienteCreatedListener onPacienteCreated;
+    private FormPacienteController controller;
     private EventAction eventAction;
     
     public AdicionarPacienteFrame() {
         initComponents();
         setLocationRelativeTo(null); 
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        controller = new FormPacienteController();
         nomeField.setDocument(new LimitaCaracteres(20, LimitaCaracteres.TipoEntrada.NOME));
         contatoField.setDocument(new LimitaCaracteres(30, LimitaCaracteres.TipoEntrada.EMAIL));
         idadeField.setDocument(new LimitaCaracteres(3, LimitaCaracteres.TipoEntrada.NUMEROINTEIRO));
@@ -225,14 +225,15 @@ public class AdicionarPacienteFrame extends javax.swing.JFrame {
         int idade = Integer.parseInt(idadeField.getText());
         double peso = Double.parseDouble(pesoField.getText());
 
-        AssistenteController assistenteController = new AssistenteController();
-        Clinica clinica = Clinica.getInstance();
-        List<Paciente> pacienteList = JsonUtil.carregarPacientes();
+//        AssistenteController assistenteController = new AssistenteController();
+//        List<Paciente> pacienteList = JsonUtil.carregarPacientes();
+//
+//        Paciente paciente = assistenteController.criarPaciente(nome, contato, idade, peso);
+//
+//        pacienteList.add(paciente);
+//        JsonUtil.salvarDados(pacienteList, "pacientes.json");
 
-        Paciente paciente = assistenteController.criarPaciente(nome, contato, idade, peso);
-
-        pacienteList.add(paciente);
-        JsonUtil.salvarDados(pacienteList, "pacientes.json");
+        Paciente paciente = controller.criarPaciente(nome, contato, idade, peso);
 
         if (table1 != null) { 
             table1.addRow(paciente.toRowTable(eventAction));

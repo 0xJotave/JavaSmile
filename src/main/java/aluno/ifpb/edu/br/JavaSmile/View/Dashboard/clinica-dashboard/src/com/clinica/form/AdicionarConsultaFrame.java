@@ -4,19 +4,15 @@ import static com.clinica.form.FormConsultas.tableConsulta2;
 
 import aluno.ifpb.edu.br.JavaSmile.Controller.AssistenteController;
 import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
-import aluno.ifpb.edu.br.JavaSmile.Model.Clinica;
 import aluno.ifpb.edu.br.JavaSmile.Model.Consulta;
 import aluno.ifpb.edu.br.JavaSmile.Model.Paciente;
 import aluno.ifpb.edu.br.JavaSmile.Model.Procedimento;
 import com.clinica.form.viewUtil.LimitaCaracteres;
-import com.clinica.model.ModelConsulta;
 import com.clinica.swing.table.eventAction.EventActionConsulta;
-import com.google.api.client.json.Json;
 
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.util.List;
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 public class AdicionarConsultaFrame extends javax.swing.JFrame {
@@ -36,7 +32,6 @@ public class AdicionarConsultaFrame extends javax.swing.JFrame {
 
     private void preencherPacientesBox() throws IOException {
         try {
-            Clinica clinica = Clinica.getInstance();
             java.util.List<Paciente> pacientes = JsonUtil.carregarPacientes();
             String[] nomesPacientes = pacientes.stream()
                     .map(Paciente::getNome)
@@ -49,7 +44,6 @@ public class AdicionarConsultaFrame extends javax.swing.JFrame {
     }
     private void preencherProcedimentoBox() throws IOException {
         try {
-            Clinica clinica = Clinica.getInstance();
             java.util.List<Procedimento> procedimentos = JsonUtil.carregarProcedimentos();
             String[] tratamentosProcedimentos = procedimentos.stream()
                     .map(Procedimento::getTratamento)
@@ -252,7 +246,6 @@ public class AdicionarConsultaFrame extends javax.swing.JFrame {
         String horario = horarioField.getText();
 
         AssistenteController assistenteController = new AssistenteController();
-        Clinica clinica = Clinica.getInstance();
         List<Consulta> consultasList = JsonUtil.carregarConsultas();
 
         Consulta consulta = assistenteController.criarConsulta(pacienteBox.getSelectedItem().toString(), dentista,
