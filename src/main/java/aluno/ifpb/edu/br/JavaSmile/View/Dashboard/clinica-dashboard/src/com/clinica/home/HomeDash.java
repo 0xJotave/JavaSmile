@@ -117,18 +117,18 @@ public class HomeDash extends javax.swing.JFrame {
         animator.setResolution(0);
         animator.setDeceleration(0.5f);
         animator.setAcceleration(0.5f);
-        header.addMenuEvent(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                if(!animator.isRunning()) {
-                    animator.start();
-                }
-                menu.setEnableMenu(false);
-                if(menu.isShowMenu()) {
-                    menu.hideallMenu();
-                }
-            }
-        });
+        //header.addMenuEvent(new ActionListener() {
+            //@Override
+            //public void actionPerformed(ActionEvent ae) {
+               // if(!animator.isRunning()) {
+                //    animator.start();
+                //}
+                //menu.setEnableMenu(false);
+                //if(menu.isShowMenu()) {
+                //    menu.hideallMenu();
+               // }
+           // }
+        //});
         // Inicia com o form
         main.showForm(new Form_Home());
     }

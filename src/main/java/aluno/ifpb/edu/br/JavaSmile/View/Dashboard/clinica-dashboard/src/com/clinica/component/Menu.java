@@ -101,7 +101,10 @@ public class Menu extends javax.swing.JPanel {
                 item.setOpen(false);
             }
         }
+        panel.revalidate();
+        panel.repaint();
     }
+
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -118,16 +121,16 @@ public class Menu extends javax.swing.JPanel {
 
         panel.setOpaque(false);
 
-        javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
-        panel.setLayout(panelLayout);
-        panelLayout.setHorizontalGroup(
-            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 290, Short.MAX_VALUE)
-        );
-        panelLayout.setVerticalGroup(
-            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
-        );
+        //javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
+        panel.setLayout(new MigLayout("wrap, fillx, insets0", "[fill]", "[]0[]"));
+        //panelLayout.setHorizontalGroup(
+        //    panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        //    .addGap(0, 290, Short.MAX_VALUE)
+        //);
+        //panelLayout.setVerticalGroup(
+        //    panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        //    .addGap(0, 600, Short.MAX_VALUE)
+        //);
 
         sp.setViewportView(panel);
 
