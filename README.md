@@ -2,10 +2,10 @@
   <img src="javaSmile.png" alt="Java Smile" width="400">
 </p>
 
-<div style="text-align: center;">
+<p align="center">
   <img src="https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java Badge">
   <img src="https://img.shields.io/badge/IntelliJIDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white" alt="IntelliJ IDEA Badge">
-</div>
+</p>
 
 <h1>Sobre Java Smile</h1>
 
@@ -38,19 +38,16 @@
 <p align="center">
   <img src="LoginAndRegister.png" alt="Login and Register" width="400">
 </p>
-<div style="text-align: center;">
+<div align="center">
   <p>Login e Registro</p>
 </div>
 
 <p align="center">
   <img src="Dashboard.png" alt="Dashboard" width="400">
 </p>
-<div style="text-align: center;">
-  <p>Login e Registro</p>
+<div align="center">
+  <p>Dashboard</p>
 </div>
 
 <h2>Licença</h2>
 Este projeto usa a [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0) com a [Commons Clause](https://commonsclause.com/) para restringir o uso comercial. Veja o arquivo [LICENSE.md](LICENSE.md) para mais detalhes.
-
-
-
