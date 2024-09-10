@@ -19,6 +19,13 @@
   <li>Login via Usuário e senha ou via Google.</li>
 </ul>
 
+<div align="center">
+  <p>Diagrama de Classes</p>
+</div>
+<p align="center">
+  <img src="Diagrama.png" alt="Diagrama" width="400">
+</p>
+
 <h2>Dependências e versões necessárias</h2>
 <ul>
     <li>MigLayout 4.0</li>
@@ -47,6 +54,25 @@
 </p>
 <div align="center">
   <p>Dashboard</p>
+</div>
+
+<p align="center">
+  <img src="ListagemPacientes.png" alt="Listagem Pacientes" width="400">
+</p>
+<div align="center">
+  <p>Listagem de Pacientes</p>
+</div>
+<p align="center">
+  <img src="ListagemProcedimentos.png" alt="Listagem Procedimentos" width="400">
+</p>
+<div align="center">
+  <p>Listagem de Procedimentos</p>
+</div>
+<p align="center">
+  <img src="ListagemConsultas.png" alt="Listagem Consultas" width="400">
+</p>
+<div align="center">
+  <p>Listagem de Consultas</p>
 </div>
 
 <h2>Licença</h2>
