@@ -30,7 +30,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-    public class FormConsultaController {
+public class FormConsultaController {
         private List<Consulta> consultas;
 
         public void carregarConsultas() throws IOException {
