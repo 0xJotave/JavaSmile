@@ -1,9 +1,29 @@
+/*
+ * Copyright 2024 Pedro Paulo Delgado Alves
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * The software licensed under the Apache License, Version 2.0 is further
+ * subject to the Commons Clause License Condition v1.0.
+ */
+
 package com.clinica.form;
 
 import static com.clinica.form.FormPaciente.table1;
 
 import aluno.ifpb.edu.br.JavaSmile.Controller.FormPacienteController;
 import aluno.ifpb.edu.br.JavaSmile.Model.Paciente;
+import com.clinica.form.viewUtil.LimitaCaracteres;
 import com.clinica.swing.table.eventAction.EventAction;
 import lombok.Data;
 
@@ -35,6 +55,10 @@ public class EditarPacienteFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         controller = new FormPacienteController();
+        nomeField.setDocument(new LimitaCaracteres(20, LimitaCaracteres.TipoEntrada.NOME));
+        contatoField.setDocument(new LimitaCaracteres(30, LimitaCaracteres.TipoEntrada.EMAIL));
+        idadeField.setDocument(new LimitaCaracteres(3, LimitaCaracteres.TipoEntrada.NUMEROINTEIRO));
+        pesoField.setDocument(new LimitaCaracteres(3, LimitaCaracteres.TipoEntrada.NUMEROINTEIRO));
     }
 
 
