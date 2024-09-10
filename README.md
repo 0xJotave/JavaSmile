@@ -56,5 +56,24 @@
   <p>Dashboard</p>
 </div>
 
+<p align="center">
+  <img src="ListagemPacientes.png" alt="Listagem Pacientes" width="400">
+</p>
+<div align="center">
+  <p>Listagem de Pacientes</p>
+</div>
+<p align="center">
+  <img src="ListagemProcedimentos.png" alt="Listagem Procedimentos" width="400">
+</p>
+<div align="center">
+  <p>Listagem de Procedimentos</p>
+</div>
+<p align="center">
+  <img src="ListagemConsultas.png" alt="Listagem Consultas" width="400">
+</p>
+<div align="center">
+  <p>Listagem de Consultas</p>
+</div>
+
 <h2>Licença</h2>
 Este projeto usa a [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0) com a [Commons Clause](https://commonsclause.com/) para restringir o uso comercial. Veja o arquivo [LICENSE.md](LICENSE.md) para mais detalhes.
