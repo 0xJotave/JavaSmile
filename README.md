@@ -19,6 +19,13 @@
   <li>Login via Usuário e senha ou via Google.</li>
 </ul>
 
+<div align="center">
+  <p>Diagrama de Classes</p>
+</div>
+<p align="center">
+  <img src="Diagrama.png" alt="Diagrama" width="400">
+</p>
+
 <h2>Dependências e versões necessárias</h2>
 <ul>
     <li>MigLayout 4.0</li>
