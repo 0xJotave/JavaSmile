@@ -2,7 +2,6 @@ package login;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.awt.AlphaComposite;
 import java.awt.Graphics2D;
 import java.awt.Graphics;

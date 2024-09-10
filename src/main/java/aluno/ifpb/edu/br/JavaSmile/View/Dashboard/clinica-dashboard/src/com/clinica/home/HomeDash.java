@@ -17,6 +17,8 @@ import org.jdesktop.animation.timing.Animator;
 import org.jdesktop.animation.timing.TimingTarget;
 import org.jdesktop.animation.timing.TimingTargetAdapter;
 
+import javax.swing.*;
+
 
 public class HomeDash extends javax.swing.JFrame {
     
@@ -109,16 +111,12 @@ public class HomeDash extends javax.swing.JFrame {
             }
         });
         // Inicia com o form
-        main.showForm(new Form_Home());                
-        
-        
+        main.showForm(new Form_Home());
     }
-
 
     public void logout() {
         System.out.println("Usuario fez logout.");
-        Main main = new Main();
-        dispose();
+        System.exit(0);
     }
     
     

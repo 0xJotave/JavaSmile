@@ -1,12 +1,10 @@
 package login;
 
 
-import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
+import aluno.ifpb.edu.br.JavaSmile.Controller.LoginAndRegisterController;
 import aluno.ifpb.edu.br.JavaSmile.Model.Assistente;
-
 import javax.swing.*;
 import java.io.IOException;
-import java.util.List;
 
 public class Register extends PanelCustom {
     private swing.Button button1;
@@ -15,9 +13,11 @@ public class Register extends PanelCustom {
     private swing.TextField textField1;
     private swing.TextField textField2;
     private swing.TextField textField3;
+    LoginAndRegisterController controller;
 
     public Register() {
         initComponents();
+        controller = new LoginAndRegisterController();
     }
     
     @SuppressWarnings("unchecked")
@@ -139,24 +139,16 @@ public class Register extends PanelCustom {
         String nomeUsuario = textField3.getText();
         String senha = new String(password1.getPassword());
 
-        List<Assistente> assistentes = JsonUtil.carregarAssistentes();
+        controller.carregarAssistentes();
 
-        boolean usuarioExiste = assistentes.stream().anyMatch(a -> a.getNomeUsuario().equals(nomeUsuario));
-        boolean emailExiste = assistentes.stream().anyMatch(a -> a.getEmail().equals(email));
+        boolean usuarioExiste = controller.getAssistentes().stream().anyMatch(a -> a.getNomeUsuario().equals(nomeUsuario));
+        boolean emailExiste = controller.getAssistentes().stream().anyMatch(a -> a.getEmail().equals(email));
         if (usuarioExiste) {
             JOptionPane.showMessageDialog(this, "Este nome de usuário já está em uso!");
         } else if (emailExiste) {
             JOptionPane.showMessageDialog(this, "Este email já está em uso!");
         } else {
-            Assistente assistente = Assistente.builder()
-                    .nome(nome)
-                    .email(email)
-                    .nomeUsuario(nomeUsuario)
-                    .senha(senha)
-                    .build();
-
-            assistentes.add(assistente);
-            JsonUtil.salvarDados(assistentes, "assistentes.json");
+            Assistente assistente = controller.criarAssistente(nome, email, senha, nomeUsuario);
 
             System.out.println("Assistente criado: " + assistente.getNomeUsuario());
 

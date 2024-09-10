@@ -98,6 +98,4 @@ public class GoogleAuthExample {
             System.out.println("Falha na autenticação do Google.");
         }
     }
-
-    // Outros métodos de instância podem ser adicionados aqui
 }

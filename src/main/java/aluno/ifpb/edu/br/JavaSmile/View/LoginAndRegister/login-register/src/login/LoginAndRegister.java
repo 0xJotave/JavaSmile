@@ -1,11 +1,9 @@
 package login;
 
-import javax.swing.JFrame;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.SwingUtilities;
 import net.miginfocom.swing.MigLayout;

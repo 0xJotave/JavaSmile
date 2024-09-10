@@ -1,6 +1,11 @@
 [ {
   "paciente" : "Lucas",
   "procedimento" : "Dr André",
-  "dentista" : "Manutenção",
-  "horario" : "08:00"
+  "dentista" : "Cirurgia",
+  "horario" : "10:00"
+}, {
+  "paciente" : "Pedro",
+  "procedimento" : "Cirurgia",
+  "dentista" : "Dr Xerel",
+  "horario" : "14:30"
 } ]

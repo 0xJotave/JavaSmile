@@ -1,15 +1,13 @@
 package login;
 
 import aluno.ifpb.edu.br.JavaSmile.Controller.GoogleAuthExample;
-import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
-import aluno.ifpb.edu.br.JavaSmile.Model.Assistente;
+import aluno.ifpb.edu.br.JavaSmile.Controller.LoginAndRegisterController;
 import com.clinica.home.HomeDash;
 import lombok.Data;
 import swing.EventLogin;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
-import java.util.List;
 
 @Data
 public class Login extends login.PanelCustom {
@@ -21,10 +19,12 @@ public class Login extends login.PanelCustom {
     private swing.TextField textField3;
     private login.JCheckBoxCustom jCheckBoxCustom2;
     private EventLogin event;
+    LoginAndRegisterController controller;
     
     public Login() {
         initComponents();
         setAlpha(1);
+        controller = new LoginAndRegisterController();
     }
     public void setEventLogin(EventLogin event) {
         this.event = event;
@@ -177,10 +177,10 @@ public class Login extends login.PanelCustom {
         String nomeUsuario = textField3.getText();
         String senha = new String(password1.getPassword());
 
-        List<Assistente> assistentes = JsonUtil.carregarAssistentes();
+        controller.carregarAssistentes();
 
-        if (assistentes != null) {
-            boolean loginValido = assistentes.stream().anyMatch(
+        if (controller.getAssistentes() != null) {
+            boolean loginValido = controller.getAssistentes().stream().anyMatch(
                     assistente -> assistente.getNomeUsuario().equals(nomeUsuario) &&
                             assistente.getSenha().equals(senha));
 

@@ -9,8 +9,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class Main extends javax.swing.JFrame {
+    private login.LoginAndRegister loginAndRegister1;
+    private javax.swing.JPanel main;
 
-    
     public Main() {
         initComponents();
         setTitle("Java Smile");
@@ -92,9 +93,4 @@ public class Main extends javax.swing.JFrame {
             }
         });
     }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private login.LoginAndRegister loginAndRegister1;
-    private javax.swing.JPanel main;
-    // End of variables declaration//GEN-END:variables
 }
