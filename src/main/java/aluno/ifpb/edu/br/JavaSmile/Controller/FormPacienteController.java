@@ -32,7 +32,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FormPacienteController {
-    List<Paciente> pacientes;
+    private List<Paciente> pacientes;
 
     public void carregarPacientes() throws IOException {
         pacientes = JsonUtil.carregarPacientes();

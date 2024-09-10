@@ -19,7 +19,7 @@
 
 package login;
 
-import aluno.ifpb.edu.br.JavaSmile.Controller.GoogleAuthExample;
+import aluno.ifpb.edu.br.JavaSmile.Controller.GoogleAuth;
 import aluno.ifpb.edu.br.JavaSmile.Controller.LoginAndRegisterController;
 import com.clinica.home.HomeDash;
 import lombok.Data;
@@ -183,7 +183,7 @@ public class Login extends login.PanelCustom {
     }
 
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        GoogleAuthExample googleAuth = new GoogleAuthExample(event);
+        GoogleAuth googleAuth = new GoogleAuth(event);
         try {
             boolean deletarCredenciais = !jCheckBoxCustom2.isSelected();
             googleAuth.authenticateWithGoogle(deletarCredenciais);

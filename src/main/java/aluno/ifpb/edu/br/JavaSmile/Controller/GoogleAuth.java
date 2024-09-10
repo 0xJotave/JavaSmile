@@ -41,7 +41,7 @@ import java.nio.file.Path;
 import java.util.Collections;
 import java.util.List;
 
-public class GoogleAuthExample {
+public class GoogleAuth {
 
     private static final String CREDENTIALS_FILE_PATH; // Caminho para o arquivo JSON baixado
 
@@ -59,7 +59,7 @@ public class GoogleAuthExample {
     private EventLogin event;
 
     // Construtor para inicializar o event
-    public GoogleAuthExample(EventLogin event) {
+    public GoogleAuth(EventLogin event) {
         this.event = event;
     }
 

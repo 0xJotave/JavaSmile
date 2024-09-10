@@ -30,7 +30,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class FormProcedimentoController {
-    List<Procedimento> procedimentos;
+    private List<Procedimento> procedimentos;
 
     public void carregarProcedimentos() throws IOException {
         procedimentos = JsonUtil.carregarProcedimentos();

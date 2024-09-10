@@ -27,7 +27,7 @@ import java.util.List;
 
 @Data
 public class LoginAndRegisterController {
-    List<Assistente> assistentes;
+    private List<Assistente> assistentes;
 
     public void carregarAssistentes() throws IOException {
         assistentes = JsonUtil.carregarAssistentes();
