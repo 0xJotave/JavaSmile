@@ -1,1 +1,21 @@
-[ ]
+[ {
+  "nome" : "Joãozin",
+  "contato" : "joaozin@gmail.com",
+  "idade" : 19,
+  "peso" : 68.0
+}, {
+  "nome" : "Pedin",
+  "contato" : "pedin@gmail.com",
+  "idade" : 23,
+  "peso" : 73.0
+}, {
+  "nome" : "Xerel",
+  "contato" : "xerel@gmail.com",
+  "idade" : 60,
+  "peso" : 90.0
+}, {
+  "nome" : "Nobinho",
+  "contato" : "nobin@gmail.com",
+  "idade" : 50,
+  "peso" : 80.0
+} ]

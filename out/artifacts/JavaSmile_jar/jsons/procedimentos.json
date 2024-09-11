@@ -1,0 +1,10 @@
+[ {
+  "tratamento" : "Canal",
+  "valor" : 800.0
+}, {
+  "tratamento" : "Manutenção",
+  "valor" : 90.0
+}, {
+  "tratamento" : "Cirurgia",
+  "valor" : 2500.0
+} ]
