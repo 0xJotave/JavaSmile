@@ -25,6 +25,7 @@ import com.clinica.dialog.Message;
 import com.clinica.home.HomeDash;
 import com.clinica.swing.table.eventAction.EventAction;
 
+import javax.swing.*;
 import java.io.IOException;
 
 public class FormPaciente extends javax.swing.JPanel {
@@ -171,5 +172,8 @@ public class FormPaciente extends javax.swing.JPanel {
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) throws IOException {//GEN-FIRST:event_button1ActionPerformed
         AdicionarPacienteFrame adicionarPaciente = new AdicionarPacienteFrame();
         adicionarPaciente.setVisible(true);
+        if (adicionarPaciente.isVisible()) {
+            this.setEnabled(false);
+        }
     }
 }
