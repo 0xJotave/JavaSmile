@@ -50,26 +50,26 @@
 </div>
 
 <p align="center">
-  <img src="Dashboard.png" alt="Dashboard" width="400">
+  <img src="dashboard.png" alt="Dashboard" width="400">
 </p>
 <div align="center">
   <p>Dashboard</p>
 </div>
 
 <p align="center">
-  <img src="ListagemPacientes.png" alt="Listagem Pacientes" width="400">
+  <img src="listagemPacientes.png" alt="Listagem Pacientes" width="400">
 </p>
 <div align="center">
   <p>Listagem de Pacientes</p>
 </div>
 <p align="center">
-  <img src="ListagemProcedimentos.png" alt="Listagem Procedimentos" width="400">
+  <img src="listagemProcedimentos.png" alt="Listagem Procedimentos" width="400">
 </p>
 <div align="center">
   <p>Listagem de Procedimentos</p>
 </div>
 <p align="center">
-  <img src="ListagemConsultas.png" alt="Listagem Consultas" width="400">
+  <img src="listagemConsultas.png" alt="Listagem Consultas" width="400">
 </p>
 <div align="center">
   <p>Listagem de Consultas</p>
