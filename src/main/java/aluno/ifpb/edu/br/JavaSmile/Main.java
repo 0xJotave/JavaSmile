@@ -17,23 +17,12 @@
  * subject to the Commons Clause License Condition v1.0.
  */
 
-package main;
+package aluno.ifpb.edu.br.JavaSmile;
 
 
 import javax.swing.ImageIcon;
 
-import aluno.ifpb.edu.br.JavaSmile.Controller.JsonUtil;
-import aluno.ifpb.edu.br.JavaSmile.Model.Assistente;
-import aluno.ifpb.edu.br.JavaSmile.Model.Consulta;
-import aluno.ifpb.edu.br.JavaSmile.Model.Paciente;
-import aluno.ifpb.edu.br.JavaSmile.Model.Procedimento;
 import swing.EventLogin;
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Main extends javax.swing.JFrame {
     private login.LoginAndRegister loginAndRegister1;

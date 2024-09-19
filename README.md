@@ -33,11 +33,42 @@
 </ul>
 
 <h2>Instrução de uso:</h2>
+<h3>1. Executar Arquivo .jar:</h3>
 <ol>
     <li>Execute o arquivo jar.</li>
     <li>Faça cadastro de usuário ou entre com Google.</li>
     <li>Faça login(Caso seja feito cadastro no passo 2).</li>
     <li>Utilize o sistema.</li>
+</ol>
+
+<h3>Executar o Código:</h3>
+<ol>
+    <li>Abra o Intellij</li>
+    <li>Adicione as Bibliotecas:</li>
+    <ol>
+    <li>Vá em <b>Project Structures</b> > <b>Libraries</b></li>
+    <li>Clique no botão de adicionar e adicione os arquivos .jar presentes na pasta <b>Libraries</b> do Projeto</li>
+    <li>É provável que as vezes a library seja adiciona automaticamente nos Módulos, mas se não for o caso, siga os próximos passos:</li>
+    <ol>
+    <li>Ainda em <b>Project Structures</b>, vá em <b>Modules</b> > <b>Dependencies</b> > Botão de adicionar > Library, 
+    e selecione a que você acabou de criar (Provavelmente se chamará "miglayout-4.0")</li>
+    <li>Por fim, clique em <b>Apply</b></li>
+</ol>
+</ol>
+<li>Marque as pastas <b>source</b>:</li>
+<ol>
+<li>Vá em <b>Project Structures</b> > <b>Modules</b> > Aba <b>Sources</b></li>
+<li>Navegue até a pasta <b>src</b> da Pasta <b>Dashboard</b> e marque ela como uma <b>Source Past</b></li>
+<li>Faça o mesmo na pasta <b>src</b> de <b>LoginAndRegister</b></li>
+<li>Por fim, clique em <b>Apply</b></li>
+</ol>
+<li>Habilite as <b>Annotations:</b></li>
+    <ol>
+    <li>Vá em <b>Settings</b></li>
+    <li>Pesquise por "<i>annotation</i>"</li>
+    <li>Habilite a função <b>Enable Annotation Processing</b></li>
+</ol>
+<li>Por fim, rode a classe <b>Main</b></li>
 </ol>
 
 <h1>Interfaces</h1>
