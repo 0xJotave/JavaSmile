@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 Pedro Paulo Delgado Alves
+ * Copyright 2024 Pedro Paulo Delgado Alves e João Victor Moura Barbosa
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,6 @@
  * The software licensed under the Apache License, Version 2.0 is further
  * subject to the Commons Clause License Condition v1.0.
  */
-
 package aluno.ifpb.edu.br.JavaSmile.Controller;
 
 import aluno.ifpb.edu.br.JavaSmile.Model.*;

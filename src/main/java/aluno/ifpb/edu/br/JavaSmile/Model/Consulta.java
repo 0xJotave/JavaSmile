@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 Pedro Paulo Delgado Alves
+ * Copyright 2024 Pedro Paulo Delgado Alves e João Victor Moura Barbosa
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.

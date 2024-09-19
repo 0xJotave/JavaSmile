@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 Pedro Paulo Delgado Alves
+ * Copyright 2024 Pedro Paulo Delgado Alves e João Victor Moura Barbosa
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,10 +27,7 @@ import com.clinica.form.Form_Home;
 import com.clinica.form.FormProcedimento;
 import com.clinica.form.FormPaciente;
 import com.clinica.form.MainForm;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
-import main.Main;
 import net.miginfocom.swing.MigLayout;
 import org.jdesktop.animation.timing.Animator;
 import org.jdesktop.animation.timing.TimingTarget;
