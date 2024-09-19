@@ -33,6 +33,9 @@
 </ul>
 
 <h2>Instrução de uso:</h2>
+
+<p>Para instruções de uso, temos o caso se você quiser apenas executar o arquivo jar e desfrutar da aplicação e
+o caso para rodar o código no <b>IntelliJ</b>. Abaixo estão as instruções necessárias para cada uso:</p>
 <h3>1. Executar Arquivo .jar:</h3>
 <ol>
     <li>Execute o arquivo jar.</li>
@@ -41,7 +44,7 @@
     <li>Utilize o sistema.</li>
 </ol>
 
-<h3>Executar o Código:</h3>
+<h3>2. Executar o Código:</h3>
 <ol>
     <li>Abra o Intellij</li>
     <li>Adicione as Bibliotecas:</li>
