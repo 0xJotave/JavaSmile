@@ -51,7 +51,7 @@ o caso para rodar o código no <b>IntelliJ</b>. Abaixo estão as instruções ne
     <ol>
     <li>Vá em <b>Project Structures</b> > <b>Libraries</b></li>
     <li>Clique no botão de adicionar e adicione os arquivos .jar presentes na pasta <b>Libraries</b> do Projeto</li>
-    <li>É provável que as vezes a library seja adiciona automaticamente nos Módulos, mas se não for o caso, siga os próximos passos:</li>
+    <li>É provável que as vezes a library seja adicionada automaticamente nos Módulos, mas se não for o caso, siga os próximos passos:</li>
     <ol>
     <li>Ainda em <b>Project Structures</b>, vá em <b>Modules</b> > <b>Dependencies</b> > Botão de adicionar > Library, 
     e selecione a que você acabou de criar (Provavelmente se chamará "miglayout-4.0")</li>
